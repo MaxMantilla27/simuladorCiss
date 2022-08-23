@@ -1,0 +1,314 @@
+<div class="row" style="background: white">
+  <div class="container" style="width: 63%;">
+    <div style="padding:0.75rem 1.25rem">
+      <div class="container">
+        <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
+          <app-miga-pan [items]="migaPan"></app-miga-pan>
+        </div>
+      </div>
+      <div style="display:flex">
+        <img src="../../../assets/iconos/ModoExamenSelect.svg" style="height: 35px; margin-right: 10px;" />
+        <div class="titulo">Modo Examen</div>
+       </div>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="ExamenResultado!=undefined && Examen!=undefined">
+  <div class="container" style="width: 63%;">
+    <div style="padding:0.75rem 1.25rem;">
+      <div id="datos" style="display: block">
+        <div class="row">
+          <div class="col-8 col-sm-9 ">
+
+              <div class="card" style="border-radius: 20px; background: white;">
+                <div class="card-body subtitulo" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; margin-left: 14px;">
+                  <div><img style="margin-left: -14px" src="../../../../assets/iconos/data.svg" height="40" /> <span class="titulo" style="font-weight: 400;font-size: 25px;">Datos de la simulación</span> </div>
+                  </div>
+                  <div class="card-body">
+                      <div class="card-text btn-block Seleccion" style="display: flex;">
+                        <b >Nombre: </b>
+                        <div  style=" color: #4a4a4a; font-weight: 400; margin-left: 10px;">
+                          {{NombreExamen}}
+                        </div>
+                      </div>
+                      <div class="card-text btn-block Seleccion" style="display: flex;">
+                        <b >Fecha de inicio: </b>
+                        <div style=" color: #4a4a4a; font-weight: 400;margin-left: 10px;">
+                          {{Examen.fechaInicio|date: 'dd/MM/yyyy'}} - {{Examen.fechaInicio| date: 'HH:mm'}}
+                        </div>
+                      </div>
+                      <div class="card-text btn-block Seleccion" style="display: flex;">
+                        <b >Fecha de culminación: </b>
+                        <div style=" color: #4a4a4a; font-weight: 400;margin-left: 10px;">
+                          {{Examen.fechaModificacion|date: 'dd/MM/yyyy'}} - {{Examen.fechaModificacion| date: 'HH:mm'}}
+                        </div>
+                      </div>
+                      <div class="card-text btn-block Seleccion" style="display: flex;">
+                        <b >Cantidad de preguntas: </b>
+                        <div style=" color: #4a4a4a; font-weight: 400;margin-left: 10px;">
+                          {{Examen.preguntasRespondidas}}
+                        </div>
+                      </div>
+                      <div class="card-text btn-block Seleccion" style="display: flex;">
+                        <b >Número de intento: </b>
+                        <div style=" color: #4a4a4a; font-weight: 400;margin-left: 10px;">
+                          {{Examen.numeroIntento}}
+                        </div>
+                      </div>
+                  </div>
+                  <div style="margin-left: 20px; font-size: 13px;color:#706E81 ;">
+                    * Nota: Preguntas pertenecientes a una versión anterior, puede que no contengan video de retroalimetación
+                  </div>
+                  <div style="margin-left: 140px;margin-bottom: 30px;">
+                    <app-dona-puntos [Puntos]="Examen.desempenio"></app-dona-puntos>
+                  </div>
+              </div>
+          </div>
+          <div class="col-4 col-sm-3 ">
+              <div class="card" style="border-radius: 20px; background: #0aaff1;border:solid 0px">
+                  <div class="card-body" style="text-align: center; padding: 10px 0px;">
+                      <b style="color: white; font-size: 12px; display: flex; align-items: center; justify-content: center;"><i class="fa fa-play" style="font-size: 5px;margin-right: 5px;"></i> TIEMPO UTILIZADO</b>
+                      <div style=" color: white; font-size: 90px; font-weight: 600; margin: -10px 0px;" id="TiempoMinuto">{{MinutoMostrar}}</div>
+                      <b style="color: #fff000;">MINUTOS</b>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-12">
+            <div class="card" style="padding:30px;border-radius:20px;">
+                <div class="card-body subtitulo" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px">
+                    <h2><img src="../../../../assets/iconos/data.svg" height="40" /> <span class="titulo" style="font-weight: 400;font-size: 25px;">Reporte de puntaje</span> </h2>
+                </div>
+                <div class="card-body">
+                    <div class="row " style=" align-items: center;">
+                      <div style="margin-bottom:10px">
+                        <div class="col-12 tituloReporte" style="margin-bottom:10px">Tu puntaje:</div>
+                        <div class="row">
+                          <div class="col-8 col-sm-10">
+                            <mat-progress-bar mode="determinate" style="height: 10px;"
+                              [value]="Examen.desempenio">
+                            </mat-progress-bar>
+                          </div>
+                        <div class="col-2 numeroReporte">{{Examen.desempenio}}%</div>
+                      </div>
+                    </div>
+
+                      <div style="margin-bottom:10px">
+                        <div class="col-12 tituloReporte" style="margin-bottom:10px">Promedio global:</div>
+                        <div class="row">
+                          <div class="col-8 col-sm-10">
+                            <mat-progress-bar mode="determinate" style="height: 10px;"
+                              [value]="Examen.promedio">
+                            </mat-progress-bar>
+                          </div>
+                        <div class="col-2 numeroReporte">{{Examen.promedio}}%</div>
+                      </div>
+                    </div>
+
+                      <div style="margin-bottom:10px">
+                        <div class="col-12 tituloReporte" style="margin-bottom:10px">Puntaje más alto:</div>
+                        <div class="row">
+                          <div class="col-8 col-sm-10">
+                            <mat-progress-bar mode="determinate" style="height: 10px;"
+                              [value]="Examen.mayor">
+                            </mat-progress-bar>
+                          </div>
+                        <div class="col-2 numeroReporte">{{Examen.mayor}}%</div>
+                      </div>
+                    </div>
+
+                      <div style="margin-bottom:10px">
+                        <div class="col-12 tituloReporte" style="margin-bottom:10px">Puntaje más bajo:</div>
+                        <div class="row">
+                          <div class="col-8 col-sm-10">
+                            <mat-progress-bar mode="determinate" style="height: 10px;"
+                              [value]="Examen.menor">
+                            </mat-progress-bar>
+                          </div>
+                        <div class="col-2 numeroReporte">{{Examen.menor}}%</div>
+                      </div>
+                    </div>
+
+                      <div style="margin-bottom:10px">
+                        <div class="col-12 tituloReporte" style="margin-bottom:10px">% de aprobados</div>
+                        <div class="row">
+                          <div class="col-8 col-sm-10">
+                            <mat-progress-bar mode="determinate" style="height: 10px;"
+                              [value]="Examen.percentil">
+                            </mat-progress-bar>
+                          </div>
+                        <div class="col-2 numeroReporte">{{Examen.percentil}}%</div>
+                      </div>
+                    </div>
+                    <div class="percentilContentReporte">
+                      <img src="../../../../assets/iconos/feliz_2.svg" style="height: 30px; margin-right: 20px;" />
+                      <div>¡Felicidades esta sobre el {{Percentil}} % de los participantes!</div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      <br />
+      <div class="card-deck row" style="color: #fff; justify-content: space-between;">
+        <div class="col-12 col-sm-12 col-md-6" style="margin-bottom: 30px;">
+            <div class="card" style="border-radius: 20px; margin: 0px;">
+                <div class="card-header" style="border-radius: 10px 10px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE;padding: 12px 50px;">
+                    <div class="text-center">
+                      <b style="font-size: 17px">Tiempo promedio por pregunta</b></div>
+                </div>
+                <div class="card-body" style="border-radius: 0px 0px 10px 10px; background: #0C9AFE">
+
+                    <div class="text-center"><b id="PromedioPregunta" style="font-size: 70px;">{{MinutoPromedioMostrar}}:{{SegundoPromedioMostrar}}</b></div>
+                    <div class="text-center"><span class="card-text">mm:ss</span></div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6" style="margin-bottom: 30px;">
+            <div class="card" style="border-radius: 20px; margin: 0px;">
+                <div class="card-header" style="border-radius: 10px 10px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE;padding: 12px 50px;">
+                    <div class="text-center">
+                        <b style="font-size: 17px">Por encima del % de participantes</b>
+                    </div>
+                </div>
+                <div class="card-body" style="border-radius: 0px 0px 10px 10px; background: #0C9AFE">
+
+
+                    <div class="text-center"><b id="Percentil" style="font-size: 70px;">{{Percentil}}</b></div>
+                    <div class="text-center"><span class="card-text" style="color: #0c9afe ">%</span></div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6" style="margin-bottom: 30px;">
+            <div class="card" style="border-radius: 20px; margin: 0px;">
+                <div class="card-header" style="border-radius: 10px 10px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
+                    <div class="text-center">
+                        <b style="font-size: 17px">Respuestas  <br /> correctas</b>
+                    </div>
+                </div>
+                <div class="card-body" style="border-radius: 0px 0px 10px 10px; background: #0C9AFE">
+                    <div class="text-center"><b id="PreguntasCorrectas" style="font-size: 80px;">{{Examen.puntaje}}</b></div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6" style="margin-bottom: 30px;">
+            <div class="card" style="border-radius: 20px; margin: 0px;">
+                <div class="card-header" style="border-radius: 10px 10px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
+                    <div class="text-center">
+                        <b style="font-size: 17px">Respuestas  <br /> incorrectas</b>
+                    </div>
+                </div>
+                <div class="card-body" style="border-radius: 0px 0px 10px 10px; background: #0C9AFE">
+                    <div class="text-center"><b id="PreguntasIncorrectas" style="font-size: 80px;">{{Examen.preguntasRespondidas-Examen.puntaje}}</b></div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <br/>
+        <div class="card" style="padding:30px;border-radius:20px;">
+          <div class="card-body subtitulo" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px">
+              <h2 class="titulo"> <img src="../../../../assets/iconos/eye.svg" height="40" /><span style="font-weight: 400;font-size: 25px;"> Detalles de la simulación</span></h2>
+          </div>
+          <div class="card-body" style="padding-bottom: 0px;">
+              <br />
+
+              <div class="row">
+                  <div class="col-6"><span class="subtitulo float-left" style=" color: #878787; font-weight: 700;">Puntaje General:</span></div>
+                  <div class="col-6"  style=" text-align: right;"><span id="PuntajeBarra" class="subtitulo" style="font-weight: 700; font-size: 25px; color: #0a86f2 !important;">{{Desempenio}}%</span></div>
+              </div>
+
+              <mat-progress-bar mode="determinate" style="height: 20px;"
+                [value]="Desempenio">
+              </mat-progress-bar>
+
+
+              <div class="row" *ngIf="Desempenio>=70" style="padding-top: 30px;padding-bottom: 20px;border-bottom: 1px solid #E4E4E4;">
+                <div class="col-4 subtitulo">
+                  Resultado
+                </div>
+                <div class="col-4">
+                  <button class="btn btn-block btn-light" style="background: #FAFAFA; border: 1px solid #E4E4E4" disabled>
+                  <img src="../../../../assets/iconos/CheckMarcado.svg" height="20"> APROBADO
+                  </button>
+                </div>
+                <div class="col-4">
+                  <button class="btn btn-block btn-light" style="background: #FAFAFA; border: 1px solid #E4E4E4" disabled>
+                  <img src="../../../../assets/iconos/DesaprobadoNoMarcado.svg"height="20" > DESAPROBADO
+                  </button>
+                </div>
+              </div>
+              <div class="row" *ngIf="Desempenio<=71" style="padding-top: 30px;padding-bottom: 20px;border-bottom: 1px solid #E4E4E4;">
+                <div class="col-4 subtitulo">
+                  Resultado
+                </div>
+                <div class="col-4">
+                  <button class="btn btn-block btn-light" style="background: #FAFAFA; border: 1px solid #E4E4E4" disabled>
+                  <img src="../../../../assets/iconos/CheckNoMarcado.svg" height="20"> APROBADO
+                  </button>
+                </div>
+                <div class="col-4">
+                  <button class="btn btn-block btn-light" style="background: #FAFAFA; border: 1px solid #E4E4E4" disabled>
+                  <img src="../../../../assets/iconos/DesaprobadoMarcado.svg"height="20" > DESAPROBADO
+                  </button>
+                </div>
+              </div>
+              <div class="subtitulo" style="margin-top:15px">
+                Puntaje por temas:
+              </div>
+              <div class="row " style=" align-items: center;margin-top: 30px;">
+                <ng-container *ngFor="let item of ExamenResultado;let i=index">
+                  <div style="margin-bottom:10px">
+                    <div class="col-12 " style="margin-bottom:10px;font-size: 13px;">
+                      <b>Temas {{i+1}}: </b>
+                      <span style="color: #868685;">{{item.nombre}}</span>
+                    </div>
+                    <div class="row">
+                      <div class="col-8 col-sm-10">
+                        <mat-progress-bar mode="determinate" style="height: 10px;"
+                          [value]="item.desempenio">
+                        </mat-progress-bar>
+                      </div>
+                    <div class="col-2 numeroReporte">
+                      {{item.desempenio}}%
+                    </div>
+                    </div>
+                  </div>
+                </ng-container>
+                <div style="margin-left: 20px; font-size: 13px;color:#706E81 ;">
+                  * Nota: El puntaje para aprobar el examen es del 70%,procura estar por encima de ese valor.
+                </div>
+              </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <div style="justify-content: center;display:flex">
+    <app-default-button  [confs]="{color:'primary',titulo:'Salir'}"
+  [style]="'width:290px;margin-top: 20px;background:#FF7424'" routerLink="/ModoExamen"></app-default-button>
+  </div>
+</ng-container>
+<ng-container  *ngIf="ExamenResultado==undefined">
+  <div class="container" style="width: 63%;">
+    <div style="padding:0.75rem 1.25rem;width: 100%;height: 450px;">
+      <div style="margin-top: 100px; display: flex;justify-content: center;">
+        <mat-spinner></mat-spinner>
+      </div>
+      <div style="margin-top: 20px;text-align: center">
+        Los resultados se están cargando ...
+      </div>
+    </div>
+  </div>
+
+</ng-container>

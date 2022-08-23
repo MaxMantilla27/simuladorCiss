@@ -1,0 +1,380 @@
+
+<div class="container" style="width: 63%;">
+  <div style="padding:0.75rem 1.25rem">
+    <div class="card" style="border-radius:10px;margin-top:30px;">
+      <div class="card-header" style="border-radius: 10px 10px 0px 0px; background: #ffe600">
+        <br />
+        <div class="row">
+          <div class="col-md-3" style="text-align: center">
+            <img class="ImgAvatar" [src]="urlAvatar" alt="">
+          </div>
+          <div class="col-md-7" style="margin-left: 30px;">
+            <div class="row titulocard">
+              {{NombreAlumno}}
+            </div>
+            <br />
+            <div class="row itemscard">
+                <div class="col-8 subtitleCard">
+                    <img src="../../../assets/iconos/star.svg" height="15" style="margin-right: 10px;" /> Nivel
+                </div>
+                <div class="col-4">
+                  {{NivelUsuario}}
+                </div>
+            </div>
+            <div class="row itemscard">
+                <div class="col-8 subtitleCard">
+                    <img src="../../../assets/iconos/check_2.svg" height="15" style="margin-right:10px" /> Examenes completados
+                </div>
+                <div class="col-4">
+                  {{ExamenesCompletados}} Examen(es)
+                </div>
+            </div>
+            <div class="row itemscard">
+                <div class="col-8 subtitleCard">
+                    <img src="../../../assets/iconos/check_2.svg" height="15" style="margin-right: 10px" /> Examenes activos
+                </div>
+                <div class="col-4">
+                  {{ExamenesActivos}} Examen(es)
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="NivelUsuario!=''" class="card-body container">
+        <div class="row">
+          <div class="col-md-4">
+            <div>
+              <app-pie [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos"></app-pie>
+              <div style="text-align: center">
+                {{PuntosNivel}} / {{TotalPuntos}} puntos
+              </div>
+              <div style="color: #af9f9f; font-size: 13px;text-align: center;">Siguiente nivel: <b>{{SiguienteNivelUsuario}}</b></div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <app-dona  [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos"></app-dona>
+            <div style="text-align: center">
+              Puntaje promedio
+            </div>
+          </div>
+          <div class="col-md-4">
+            <app-dona [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos" ></app-dona>
+            <div style="text-align: center">
+              Puntaje máximo
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modos disponibles en el simulador -->
+    <br />
+    <div style="padding:0.75rem 1.25rem">
+      <div class="titulo" style="font-weight: 400 !important;">
+        Modos disponibles en el simulador
+      </div>
+      <br /><br />
+      <div class="row" style="color:#fff;justify-content: center;">
+        <div class="card CardModosDisponibles col-12 col-md-4">
+          <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE ">
+            <div class="text-center">
+              <img src="../../../assets/iconos/ModoExamenSelect.svg" style="height:25px;margin-top: 5px;margin-bottom: 5px;" />
+            </div>
+            <div class="text-center">
+              <b>Modo examen</b>
+            </div>
+          </div>
+          <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+            <div class="text-center"><b style="font-size:60px;">{{CantMExamen}}</b></div>
+            <div class="text-center"><span class="card-text">Simulaciones</span></div>
+          </div>
+        </div>
+        <div class="card CardModosDisponibles col-12 col-md-4" >
+          <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; padding-left: 0px; padding-right: 0px;">
+            <div class="text-center">
+              <img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height:25px;margin-top: 5px;margin-bottom: 5px;" />
+            </div>
+            <div class="text-center">
+              <b>Modo entrenamiento</b>
+            </div>
+          </div>
+          <div class="card-body row " style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+            <div class="text-center"><b style="font-size:60px;">{{CantMEntrenamiento}}</b></div>
+            <div class="text-center"><span class="card-text">Simulaciones</span></div>
+          </div>
+        </div>
+        <div class="card CardModosDisponibles col-12 col-md-4">
+          <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
+            <div class="text-center">
+              <img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height:25px;margin-top: 5px;margin-bottom: 5px;" />
+            </div>
+            <div class="text-center">
+                <b>Modo estudio</b>
+            </div>
+          </div>
+          <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+            <div class="text-center"><b style="font-size:60px;">{{CantMEstudio}}</b></div>
+            <div class="text-center"><span class="card-text">Simulaciones</span></div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- Modo examen -->
+    <br />
+    <div class="card" style="padding:30px;border-radius:20px;">
+      <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px">
+          <div class="cabeceraCardBody" style="display: flex">
+              <img src="../../../assets/iconos/ModoExamenSelect.svg" style="height: 35px; margin-right: 10px;" />
+              <h2 class="titulo">Modo Examen</h2>
+          </div>
+          <p style="text-align: justify">
+            En este modo es donde se simulará todas las condiciones del examen de Certificación Six Sigma Black Belt - CSSBB, como el tiempo del examen y la cantidad de preguntas. Este modo también suma puntaje reflejado en el nivel de cada usuario.
+          </p>
+      </div>
+      <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
+          <div class="row">
+              <div class="col-md-6">
+                  <span class="subtitulo">Resultados de tu ultimo examen:</span>
+                <div>
+                  <div *ngIf="Examen!=undefined" class="chart" style="width: 165px;margin-left: 25px;">
+                    <app-dona-puntos [Puntos]="Puntos"></app-dona-puntos>
+                  </div>
+                  <div *ngIf="Examen==undefined"  style=" font-size: 15px;margin-top: 10px;" >
+                    No tiene simulaciones realizadas en modo examen.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="subtitulo" >
+                  Puntaje por temas:
+                </div>
+                <div>
+                  <app-barras
+                    [ResultadoDominio1]="ResultadoDominio1"
+                    [ResultadoDominio2]="ResultadoDominio2"
+                    [ResultadoDominio3]="ResultadoDominio3"
+                    [ResultadoDominio4]="ResultadoDominio4"
+                    [ResultadoDominio5]="ResultadoDominio5"
+                    [ResultadoDominio6]="ResultadoDominio6"
+                    [ResultadoDominio7]="ResultadoDominio7"
+                    [ResultadoDominio8]="ResultadoDominio8"
+                    [ResultadoDominio9]="ResultadoDominio9">
+                  </app-barras>
+                </div>
+                <br>
+                <div class="subtitulo">
+                  Leyenda:
+                </div>
+                <ng-container *ngFor="let item of Dominio">
+                  <div style="font-size: 14px">
+                    <b>{{item.leyenda}}:</b> {{item.nombre}}.
+                  </div>
+                </ng-container>
+
+              </div>
+          </div>
+          <br />
+          <div style="justify-content: center;display:flex">
+            <app-default-button  [confs]="{color:'primary',titulo:'Crea una simulación de examen'}"
+          [style]="'width:400px; margin-top: 20px;background:#FF7424'" routerLink="/ModoExamen"></app-default-button>
+          </div>
+      </div>
+    </div>
+    <!-- Modo entrenamiento -->
+    <br />
+    <div class="card" style="padding:30px;border-radius:20px;">
+      <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px">
+          <div class="cabeceraCardBody" style="display:flex">
+              <img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height: 35px; margin-right: 10px;" />
+              <h2 class="titulo">Modo Entrenamiento</h2>
+          </div>
+          <p style="text-align: justify;">
+            En este modo se presentarán 150 preguntas, como en el examen de certificación. Además luego de responder cada pregunta se te brindará retroalimentación para poder corroborar tus respuestas de forma inmediata.
+          </p>
+      </div>
+      <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
+        <div class="subtitulo">Simulaciones con mayor puntaje:
+
+        </div>
+        <div *ngIf="CantMEntrenamiento!=0" style="display: flex">
+          <ng-container *ngFor="let item of ListaEntrenamiento">
+            <div *ngIf="item.idEstadoExamen==3 && ContadorEntrenamiento<=3">
+              <div>
+                <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
+              </div>
+              <div style="text-align: center">
+                {{item.nombreExamen}}
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <div  *ngIf="CantMEntrenamiento==0" style=" font-size: 15px;margin-top: 10px;">
+          No tiene simulaciones realizadas en modo entrenamiento.
+        </div>
+      </div>
+      <br />
+      <div style="justify-content: center;display:flex">
+        <app-default-button  [confs]="{color:'primary',titulo:'Crea una simulación de entrenamiento'}"
+      [style]="'width:400px;margin-top: 20px;background:#FF7424'" routerLink="/ModoEntrenamiento"></app-default-button>
+      </div>
+      </div>
+
+  <!-- Modo Estudio -->
+  <br />
+  <div class="card" style="padding:30px;border-radius:20px;">
+      <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px">
+          <div class="cabeceraCardBody" style="display: flex;">
+              <img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height: 35px; margin-right: 10px;" />
+              <h2 class="titulo">Modo Estudio</h2>
+          </div>
+          <p style="text-align: justify;">
+            En este modo podrás estudiar de forma personalizada cada una de los temas que componen el examen de Certificación Six Sigma Black Belt - CSSBB.
+          </p>
+      </div>
+      <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
+          <div>
+            <span class="subtitulo" style="margin-bottom:15px">Temas con mejor puntaje:</span><br />
+          </div>
+            <div *ngIf="ResultadosPorDominio!=undefined">
+              <div *ngIf="ResultadosPorDominio.dominio1!=0" class="row" style="margin-bottom: 14px;">
+                <div class="col-11" style="top:8px;">
+                    <mat-progress-bar mode="determinate" style="height: 10px;"
+                      [value]="ResultadosPorDominio.dominio1">
+                    </mat-progress-bar>
+                    <p><b style="color:#786565">Tema 1: </b> <span>Planificación e implementación en toda la organización</span></p>
+                </div>
+                <div class="col-1">
+                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio1}}%</h5>
+                </div>
+              </div>
+              <div *ngIf="ResultadosPorDominio.dominio2!=0" class="row" style="margin-bottom: 14px;">
+                <div class="col-11" style="top:8px;">
+                  <mat-progress-bar mode="determinate" style="height: 10px;"
+                  [value]="ResultadosPorDominio.dominio2">
+                </mat-progress-bar>
+                    <p><b style="color:#786565">Tema 2: </b> <span>Medidas y gestión de procesos organizacionales</span></p>
+                </div>
+                <div class="col-1">
+                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio2}}%</h5>
+                </div>
+              </div>
+              <div *ngIf="ResultadosPorDominio.dominio3!=0" class="row" style="margin-bottom: 14px;">
+                <div class="col-11" style="top:8px;">
+                  <mat-progress-bar mode="determinate" style="height: 10px;"
+                  [value]="ResultadosPorDominio.dominio3">
+                </mat-progress-bar>
+                    <p><b style="color:#786565">Tema 3: </b> <span>Gestión de equipos</span></p>
+                </div>
+                <div class="col-1">
+                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio3}}%</h5>
+                </div>
+              </div>
+              <div *ngIf="ResultadosPorDominio.dominio4!=0" class="row" style="margin-bottom: 14px;">
+                <div class="col-11" style="top:8px;">
+                  <mat-progress-bar mode="determinate" style="height: 10px;"
+                  [value]="ResultadosPorDominio.dominio4">
+                </mat-progress-bar>
+                    <p><b style="color:#786565">Tema 4: </b> <span>Definir</span></p>
+                </div>
+                <div class="col-1">
+                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio4}}%</h5>
+                </div>
+              </div>
+              <div *ngIf="ResultadosPorDominio.dominio4!=0" class="row" style="margin-bottom: 14px;">
+                <div class="col-11" style="top:8px;">
+                  <mat-progress-bar mode="determinate" style="height: 10px;"
+                  [value]="ResultadosPorDominio.dominio5">
+                </mat-progress-bar>
+                    <p><b style="color:#786565">Tema 5: </b> <span>Medir</span></p>
+                </div>
+                <div class="col-1">
+                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio5}}%</h5>
+                </div>
+              </div>
+              <div *ngIf="ResultadosPorDominio.dominio6!=0" class="row" style="margin-bottom: 14px;">
+                <div class="col-11" style="top:8px;">
+                  <mat-progress-bar mode="determinate" style="height: 10px;"
+                  [value]="ResultadosPorDominio.dominio6">
+                </mat-progress-bar>
+                    <p><b style="color:#786565">Tema 6: </b> <span>Analizar</span></p>
+                </div>
+                <div class="col-1">
+                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio6}}%</h5>
+                </div>
+              </div>
+              <div *ngIf="ResultadosPorDominio.dominio7!=0" class="row" style="margin-bottom: 14px;">
+                <div class="col-11" style="top:8px;">
+                  <mat-progress-bar mode="determinate" style="height: 10px;"
+                  [value]="ResultadosPorDominio.dominio7">
+                </mat-progress-bar>
+                    <p><b style="color:#786565">Tema 7: </b> <span>Mejorar</span></p>
+                </div>
+                <div class="col-1">
+                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio7}}%</h5>
+                </div>
+              </div>
+              <div *ngIf="ResultadosPorDominio.dominio8!=0" class="row" style="margin-bottom: 14px;">
+                <div class="col-11" style="top:8px;">
+                  <mat-progress-bar mode="determinate" style="height: 10px;"
+                  [value]="ResultadosPorDominio.dominio8">
+                </mat-progress-bar>
+                    <p><b style="color:#786565">Tema 8: </b> <span>Control</span></p>
+                </div>
+                <div class="col-1">
+                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio8}}%</h5>
+                </div>
+              </div>
+              <div *ngIf="ResultadosPorDominio.dominio9!=0" class="row" style="margin-bottom: 14px;">
+                <div class="col-11" style="top:8px;">
+                  <mat-progress-bar mode="determinate" style="height: 10px;"
+                  [value]="ResultadosPorDominio.dominio9">
+                </mat-progress-bar>
+                    <p><b style="color:#786565">Tema 9: </b> <span>Marco y metodologías de Design for Six Sigma (DFSS)</span></p>
+                </div>
+                <div class="col-1">
+                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio9}}%</h5>
+                </div>
+              </div>
+
+            </div>
+            <div *ngIf="ResultadosPorDominio==undefined">
+              <div style=" font-size: 15px;margin-top: 10px;">
+                Aún no ha realizado ninguna sesión de estudio
+              </div>
+            </div>
+            <div *ngIf="ResultadosPorDominio.dominio1==0 && ResultadosPorDominio.dominio2==0 &&
+              ResultadosPorDominio.dominio3==0 && ResultadosPorDominio.dominio4==0 &&
+              ResultadosPorDominio.dominio5==0 && ResultadosPorDominio.dominio6==0 &&
+              ResultadosPorDominio.dominio7==0 && ResultadosPorDominio.dominio8==0 &&
+              ResultadosPorDominio.dominio9==0 ">
+            <div style=" font-size: 15px;margin-top: 10px;">
+             No tiene simulaciones realizadas en modo estudio.
+            </div>
+          </div>
+          <br />
+          <div style="justify-content: center;display:flex">
+            <app-default-button  [confs]="{color:'primary',titulo:'Crea una simulación de estudio'}"
+          [style]="'width:400px;margin-top: 20px;background:#FF7424'" routerLink="/ModoEstudio"></app-default-button>
+          </div>
+      </div>
+  </div>
+  <br />
+    <!-- Instrucciones del simulador -->
+    <!-- <br />
+    <div class="card" style="padding:30px;border-radius:20px;">
+      <div class="card-body" style="border-radius: 20px 20px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
+        <div class="cabeceraCardBody" style=" margin-bottom: 10px;display: flex;margin-bottom: 20px;">
+          <img src="../../../assets/iconos/ManoIndicacion.svg" style="height: 35px; margin-right: 10px;" />
+          <h2 style="font-size: 25px!important;">Instrucciones del simulador</h2>
+        </div>
+      <div class="card">
+        <video id="videoIntroduccionCrucigrama" class="embed-responsive" controls>
+          <source src="https://repositorioweb.blob.core.windows.net/repositorioweb/aulavirtual/guias/simulador/SIMPMP-N.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+  <br> -->
+</div>

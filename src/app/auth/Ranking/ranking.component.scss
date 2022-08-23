@@ -1,0 +1,28 @@
+#configurar ul li a.active {
+  border: 1px solid #e9edf4;
+  background: #0684f2 !important;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 12px 30px;
+}
+
+#configurar ul li a {
+  border: 1px solid #e9edf4;
+  background: #ffffff;
+  color: #b2b2b2;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 12px 30px;
+}
+
+  #configurar ul li a:hover {
+      background: #f3f3f3;
+  }
+
+  ::ng-deep .mat-progress-bar-fill::after {
+    background: #00C356;
+  }
+  ::ng-deep .mat-progress-bar {
+    border-radius: 10px;
+  }

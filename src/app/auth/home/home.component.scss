@@ -1,0 +1,53 @@
+.ImgAvatar{
+  height: 150px;
+}
+.titulocard {
+  padding-top: 5px;
+  font-size: 30px;
+  color: #0684f2;
+  margin-bottom: -10px;
+  text-align: center;
+  font-weight:bold;
+  letter-spacing: 1px;
+}
+.itemscard {
+  color: #4a4a49;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  margin-top:5px;
+}
+.subtitleCard {
+  display: flex;
+  align-items: center
+}
+.titulo {
+  font-size: 30px;
+  color: #4a4a49 !important;
+  font-weight: 600 !important;
+  text-align: center;
+}
+.CardModosDisponibles{
+  border-radius: 20px;
+}
+.subtitulo {
+  font-size: 16px;
+  color: #878787;
+  font-weight: 700;
+}
+.bg {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  background: #00c356;
+  position: relative;
+  margin: 20px auto;
+}
+::ng-deep .mat-progress-bar-fill::after {
+  background: #00C356;
+}
+::ng-deep .mat-progress-bar {
+  border-radius: 10px;
+}
+
+

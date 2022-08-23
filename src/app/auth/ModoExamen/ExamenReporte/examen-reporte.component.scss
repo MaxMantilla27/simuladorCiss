@@ -1,0 +1,35 @@
+.percentilContentReporte {
+  color: #777772;
+  display: flex;
+  border: solid 1px #e3e2db;
+  width: 100%;
+  padding: 10px 50px;
+  background: #fffdee;
+  border-radius: 10px;
+  align-items: center;
+}
+.numeroReporte {
+  color: #0684f2;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: -18px;
+  white-space: nowrap;
+}
+.tituloReporte {
+  color: #4a4a49;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: -10px;
+}
+.subtitulo {
+  font-size: 18px;
+  color: #878787;
+  font-weight: 700;
+}
+::ng-deep .mat-progress-bar-fill::after {
+  background: #00C356;
+}
+::ng-deep .mat-progress-bar {
+  border-radius: 10px;
+}
+

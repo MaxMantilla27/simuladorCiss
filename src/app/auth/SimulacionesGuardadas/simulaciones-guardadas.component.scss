@@ -1,0 +1,17 @@
+.titulo {
+  font-size: 30px;
+  color: #4a4a49 !important;
+  font-weight: 600 !important;
+  text-align: center;
+}
+.subtitulo {
+  font-size: 25px!important;
+  color: #878787!important;
+  font-weight: 500!important;
+}
+::ng-deep .mat-progress-bar-fill::after {
+  background: #00C356;
+}
+::ng-deep .mat-progress-bar {
+  border-radius: 10px;
+}

@@ -1,0 +1,57 @@
+<mat-toolbar class="matTolBArHeader fixed-top" >
+  <div class="button-Menu">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+    mat-icon-button [matMenuTriggerFor]="menu" #triger="matMenuTrigger" (click)="OpenMenu()">
+      <mat-icon  style="font-size: 35px;">menu</mat-icon>
+    </button>
+    <img style="height:50px" src="../../../assets/imagenes/logotipo-SSBB-Tento.svg" alt="">
+
+  </div>
+  <div class="avatar">
+    <img  [src]="urlAvatar" alt="">
+    <div mat-icon-button [matMenuTriggerFor]="logout" ><span id="name-avatar">{{NombreAlumno}}</span>  <i class="material-icons">arrow_drop_down</i></div>
+  </div>
+</mat-toolbar>
+
+<mat-menu #logout="matMenu" style="padding: 0px 20px;" class="matmenuCustom">
+  <div class="contentMatMenu" (click)="$event.stopPropagation();" style="padding: 10px 20px !important;">
+    <button mat-menu-item class="buttonMenuHeader" style="padding: 5px !important;"(click)="cerrarSesion()">
+      <mat-icon>logout</mat-icon>
+      <span>Salir</span>
+    </button>
+  </div>
+</mat-menu>
+
+<mat-menu #menu="matMenu" style="padding: 0px 20px;" class="matmenuCustom">
+  <div class="iconOpen" [ngClass]="{'MenuIcon':resise}" *ngIf="triger.menuOpen" (click)="resiseMenu($event) "></div>
+  <div class="contentMatMenu" (click)="$event.stopPropagation();">
+    <button mat-menu-item class="buttonMenuHeader"  routerLink="/" routerLinkActive="router-link-active">
+      <div class="iconhome icon"></div>
+      <div class="text" (click)="triger.closeMenu()" *ngIf="resise==false" routerLink="">Inicio</div>
+    </button>
+    <button mat-menu-item class="buttonMenuHeader">
+      <div class="iconestudio icon"></div>
+      <div class="text" (click)="triger.closeMenu()" *ngIf="resise==false" routerLink="/ModoEstudio">Modo Estudio</div>
+    </button>
+    <button mat-menu-item class="buttonMenuHeader">
+      <div class="iconentrenamiento icon"></div>
+      <div class="text" (click)="triger.closeMenu()" *ngIf="resise==false" routerLink="/ModoEntrenamiento">Modo Entrenamiento</div>
+    </button>
+    <button mat-menu-item class="buttonMenuHeader">
+      <div class="iconexamen icon"></div>
+      <div class="text" (click)="triger.closeMenu()" *ngIf="resise==false" routerLink="/ModoExamen">Modo Examen</div>
+    </button>
+    <button mat-menu-item class="buttonMenuHeader">
+      <div class="iconsguardadas icon"></div>
+      <div class="text" (click)="triger.closeMenu()" *ngIf="resise==false" routerLink="/SimulacionesGuardadas">Simulaciones Guardadas</div>
+    </button>
+    <button mat-menu-item class="buttonMenuHeader">
+      <div class="iconresultado icon"></div>
+      <div class="text" (click)="triger.closeMenu()" *ngIf="resise==false" routerLink="/ResultadosSimulaciones">Resultado De Las Simulaciones</div>
+    </button>
+    <button mat-menu-item class="buttonMenuHeader">
+      <div class="iconranking icon"></div>
+      <div class="text" (click)="triger.closeMenu()" *ngIf="resise==false" routerLink="/Ranking">Ranking</div>
+    </button>
+  </div>
+</mat-menu>

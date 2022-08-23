@@ -1,0 +1,16 @@
+<ng-container *ngIf="link">
+  <a (click)="onCliked.emit()" *ngIf="target!=''" class="button-general" [title]="item.titulo"
+    [ngClass]="{'bcChild': Child === true}" [ngStyle]="{'color': fontColor,
+                  'font-weight': fontStyle,
+                  'font-size': fontSize}" [routerLink]="item.urlWeb" [target]="target">{{item.titulo}}</a>
+
+  <a (click)="onCliked.emit()" *ngIf="target==''" class="button-general" [title]="item.titulo"
+    [ngClass]="{'bcChild': Child === true}" [ngStyle]="{'color': fontColor,
+                      'font-weight': fontStyle,
+                      'font-size': fontSize}" [routerLink]="item.urlWeb">{{item.titulo}}</a>
+</ng-container>
+
+
+<div *ngIf="!link" class="button-general" [title]="item.titulo" [ngStyle]="{'color': fontColor,
+                'font-weight': fontStyle,
+                'font-size': fontSize}" style="margin-top: 4px;">{{item.titulo}}</div>

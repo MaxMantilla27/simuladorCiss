@@ -1,0 +1,132 @@
+.rowcont {
+  padding: calc((100vh - 447.5px)/2) 0px;
+  width: 100%;
+  height: 100%;
+}
+.logo-container{
+  margin-bottom: 40px;
+  text-align: center;
+}
+.logo-simulador{
+  height: 80px;
+  padding: 0px 20px;
+}
+.card-login{
+  padding: 30px 30px 20px 30px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 1px 1px 6px 4px rgb(0 0 0 / 18%);
+  width: 390px;
+  text-align: center;
+}
+.header{
+  font-size: 22px;
+  font-weight: bold;
+  color: #4A4A49;
+}
+.Input-Login{
+  margin-left: 38px;
+  height: 38px;
+  width: 290px;
+
+}
+.iconim {
+  position: absolute;
+  background: #b2b2b2;
+  width: 38px;
+  border-radius: 10px 0px 0px 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 17px;
+  margin-top: 4px;
+  height: 41px;
+  margin-left: 1px;
+}
+.imgAvatarPerfil {
+  height: 150px;
+  width: auto;
+  object-fit: cover;
+}
+.contentPerfilName {
+  margin-left: 30px;
+}
+.contentPerfilName .name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #4e4e4d;
+  margin: 20px 0px;
+}
+.fieldOldMiPerfil {
+  display: flex;
+  flex-direction: column;
+}
+.fieldOldMiPerfil
+  .mat-form-field.mat-form-field-appearance-outline
+  > div.mat-form-field-wrapper
+  > div.mat-form-field-flex
+  > div.mat-form-field-infix {
+  padding: 0.4em 0px;
+}
+.fieldOldMiPerfil .titlePerfil{
+  border-bottom: 1px solid #cacaca;
+  font-size: 25px;
+  margin: 40px 0px;
+}
+.fieldOldMiPerfil
+  .mat-form-field.mat-form-field-appearance-outline
+  > div.mat-form-field-wrapper
+  > div.mat-form-field-flex
+  > div.mat-form-field-infix
+  input {
+  height: 20px;
+}
+.fieldOldMiPerfil
+  .mat-form-field.mat-form-field-appearance-outline
+  > div.mat-form-field-wrapper
+  > div.mat-form-field-flex
+  > div.mat-form-field-infix
+  > span.mat-form-field-label-wrapper {
+  top: -1.5em;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-1.1em) scale(0.75);
+  width: 133.33333%;
+}
+.mat-input-underline {
+  background-color: #ff0000; /* replace this color with your accent color hex code */
+}
+.fieldOldMiPerfil
+  .mat-form-field.mat-form-field-appearance-outline
+  > div.mat-form-field-wrapper
+  > div.mat-form-field-flex
+  > .mat-form-field-outline {
+  .mat-form-field-outline-start {
+    background-color: #f4f4f4
+  }
+  .mat-form-field-outline-gap {
+    background-color: #f4f4f4
+  }
+  .mat-form-field-outline-end {
+    background-color: #f4f4f4
+  }
+}
+.Recordar label .mat-checkbox-label{
+  white-space: normal !important;
+  font-size: 9px;
+  line-height: 12px;
+  text-align: left;
+  color: #ababab;
+}
+
+.alert-danger {
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+  position: fixed;
+  top: 100px;
+  left: calc(50% - 200px);
+  width: 400px;
+  z-index: 10000000;
+}

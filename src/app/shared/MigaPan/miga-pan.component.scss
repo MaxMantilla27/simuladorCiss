@@ -1,0 +1,16 @@
+.miga-container {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 0;
+  &__item {
+    margin: 0;
+    padding: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      color: #0281F2;
+  }
+}

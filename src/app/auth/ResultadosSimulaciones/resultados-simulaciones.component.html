@@ -1,0 +1,169 @@
+<div class="row" style="background: white">
+  <div class="container" style="width: 63%;">
+    <div style="padding:0.75rem 1.25rem">
+      <div class="container">
+        <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
+          <app-miga-pan [items]="migaPan"></app-miga-pan>
+        </div>
+      </div>
+      <div style="display:flex">
+        <img src="../../../assets/iconos/statistic.svg" style="height: 35px; margin-right: 10px;" />
+        <div class="titulo">RESULTADOS DE LAS SIMULACIONES </div>
+       </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container" style="width: 63%;">
+  <!-- Simulaciones guardadas Modo Examen -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
+      <div class="float-left">
+        <div class="subtitulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/ModoExamenSelect.svg" style="height: 30px;" />
+          Modo Examen
+        </div>
+      </div>
+    </div>
+    <div *ngIf="ContExamenCompleto!=0"  class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+      <ng-container *ngFor="let item of SimulacionesCompletadas">
+        <div *ngIf="item.idSimuladorLssbModo==3">
+          <div class="row" style="justify-content: space-between; margin-bottom: 10px;">
+          <div class=" col-12 col-md-12 col-lg-6  col-6-mod" style="border-top: 1px solid #E4E4E4">
+            <div class="row rowExpanded" style="justify-content: space-around;margin-top: 20px;">
+                <div class="col-12 col-sm-5">
+                    <br />
+                    <div class="row" style="flex-direction: column;">
+                      <b>Nombre: </b>
+                    <span>{{item.nombreExamen}}</span></div>
+                    <br />
+                </div>
+                <div class="col-10 col-sm-5">
+                    <div style="margin-left: -70px">
+                      <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
+                    </div>
+                </div>
+                <div class="col-2 col-sm-2" style="margin-right: -20px;">
+                    <br />
+                    <div style=" display: flex; flex-direction: column; align-items: end;">
+                        <button style="width: 35px; height: 35px; padding: 5px " routerl [routerLink]="'/ModoExamen/ExamenRespuestaPregunta/'+item.id" [style]="'background: #ff7523;color: #fff;font-weight: 600;'" type="button" class="btn  buttons orange-tooltip"  data-toggle="tooltip" data-placement="right" title="Ver respuestas">
+                            <img src="../../../assets/iconos/VerRespuestas.svg" style="height: 20px; width: 20px;" />
+                        </button>
+                        <br>
+                        <button style="width: 35px; height: 35px; padding: 5px"  [routerLink]="'/ModoExamen/ExamenReporte/'+item.id" [style]="'background: #ff7523;color: #fff;font-weight: 600;'" type="button" class="btn  buttons orange-tooltip"  data-toggle="tooltip" data-placement="right" title="Ver resultados">
+                            <img src="../../../assets/iconos/VerResultado.svg" style="height: 20px;width:20px" />
+                        </button>
+                    </div>
+                </div>
+          </div>
+        </div>
+        </div>
+        </div>
+      </ng-container>
+    </div>
+    <div  *ngIf="ContExamenCompleto==0" style=" font-size: 15px;margin-top: 10px;margin-left: 15px;">
+      No tiene resultados de simulaciones modo examen.
+    </div>
+  </div>
+  <br>
+  <!-- Simulaciones guardadas Modo Entrenamiento -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
+      <div class="float-left">
+        <div class="subtitulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height: 30px;" />
+          Modo entrenamiento
+        </div>
+      </div>
+    </div>
+    <div *ngIf="ContEntrenamientoCompleto!=0" class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+      <ng-container *ngFor="let item of SimulacionesCompletadas">
+        <div *ngIf="item.idSimuladorLssbModo==2">
+          <div class="row" style="justify-content: space-between;">
+          <div class=" col-12 col-md-12 col-lg-7  col-7-mod" style="border-top: 1px solid #E4E4E4">
+            <div class="row rowExpanded" style="justify-content: space-around;margin-top: 20px;">
+                <div class="col-12 col-sm-5">
+                    <br />
+                    <div class="row" style="flex-direction: column;">
+                      <b>Nombre: </b>
+                    <span>{{item.nombreExamen}}</span></div>
+                    <br />
+                </div>
+                <div class="col-10 col-sm-5">
+                    <div style="margin-left: -70px">
+                      <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
+                    </div>
+                </div>
+                <div class="col-2 col-sm-2" style="margin-right: -20px;">
+                    <br />
+                    <div style=" display: flex; flex-direction: column; align-items: end;">
+                        <button style="width: 35px; height: 35px; padding: 5px " routerl [routerLink]="'/ModoEntrenamiento/EntrenamientoRespuestaPregunta/'+item.id" [style]="'background: #ff7523;color: #fff;font-weight: 600;'" type="button" class="btn  buttons orange-tooltip"  data-toggle="tooltip" data-placement="right" title="Ver respuestas">
+                            <img src="../../../assets/iconos/VerRespuestas.svg" style="height: 20px; width: 20px;" />
+                        </button>
+                        <br>
+                        <button style="width: 35px; height: 35px; padding: 5px"  [routerLink]="'/ModoEntrenamientoEstudio/EstudioReporte/'+item.id" [style]="'background: #ff7523;color: #fff;font-weight: 600;'" type="button" class="btn  buttons orange-tooltip"  data-toggle="tooltip" data-placement="right" title="Ver resultados">
+                            <img src="../../../assets/iconos/VerResultado.svg" style="height: 20px;width:20px" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+      </ng-container>
+    </div>
+    <div  *ngIf="ContEntrenamientoCompleto==0" style=" font-size: 15px;margin-top: 10px;margin-left: 15px;">
+      No tiene resultados de simulaciones en modo entrenamiento.
+    </div>
+  </div>
+  <br>
+  <!-- Simulaciones guardadas Modo Estudio -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
+      <div class="float-left">
+        <div class="subtitulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height: 30px;" />
+          Modo estudio
+        </div>
+      </div>
+    </div>
+    <div *ngIf="ContEstudioCompleto!=0" class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+      <ng-container *ngFor="let item of SimulacionesCompletadas">
+        <div *ngIf="item.idSimuladorLssbModo==1">
+          <div class="row" style="justify-content: space-between;">
+          <div class=" col-12 col-md-12 col-lg-7  col-7-mod" style="border-top: 1px solid #E4E4E4">
+            <div class="row rowExpanded" style="justify-content: space-around;margin-top: 20px;">
+                <div class="col-12 col-sm-5">
+                    <br />
+                    <div class="row" style="flex-direction: column;">
+                      <b>Nombre: </b>
+                    <span>{{item.nombreExamen}}</span></div>
+                    <br />
+                </div>
+                <div class="col-10 col-sm-5">
+                    <div style="margin-left: -70px">
+                      <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
+                    </div>
+                </div>
+                <div class="col-2 col-sm-2" style="margin-right: -20px;">
+                    <br />
+                    <div style=" display: flex; flex-direction: column; align-items: end;">
+                        <button style="width: 35px; height: 35px; padding: 5px " routerl [routerLink]="'/ModoEstudio/EstudioRespuestaPregunta/'+item.id" [style]="'background: #ff7523;color: #fff;font-weight: 600;'" type="button" class="btn  buttons orange-tooltip"  data-toggle="tooltip" data-placement="right" title="Ver respuestas">
+                            <img src="../../../assets/iconos/VerRespuestas.svg" style="height: 20px; width: 20px;" />
+                        </button>
+                        <br>
+                        <button style="width: 35px; height: 35px; padding: 5px"  [routerLink]="'/ModoEstudio/EstudioReporte/'+item.id" [style]="'background: #ff7523;color: #fff;font-weight: 600;'" type="button" class="btn  buttons orange-tooltip"  data-toggle="tooltip" data-placement="right" title="Ver resultados">
+                            <img src="../../../assets/iconos/VerResultado.svg" style="height: 20px;width:20px" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+      </ng-container>
+    </div>
+    <div  *ngIf="ContEstudioCompleto==0" style=" font-size: 15px;margin-top: 10px;margin-left: 15px;">
+      No tiene resultados de simulaciones en modo estudio.
+    </div>
+  </div>
+
+</div>
+

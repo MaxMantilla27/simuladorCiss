@@ -1,0 +1,62 @@
+<div style="background: #F2F5FA;">
+  <div class="container">
+    <div class="row rowcont" >
+      <div class="col-12 col-sm-12 col-md-12 logo-container">
+          <div>
+              <img class="logo-simulador" src="../../../assets/imagenes/logotipo-SSBB-Tento.svg"/>
+          </div>
+      </div>
+      <div class="container" style="display: flex;justify-content: center;">
+        <div class="col-12 col-sm-10 col-md-6 card-login">
+          <div id="loginForm" class="card-plain">
+            <div class="header">
+              Iniciar sesión
+          </div>
+          <br />
+          </div>
+          <div class="col-12 col-md-12 col-lg-12">
+            <div class="alert alert-danger" role="alert" *ngIf="errorLogin!=''">
+              {{errorLogin}}
+            </div>
+            <form (submit)="Login()" [formGroup]="userForm">
+              <div class="row">
+                <div class="col-12 col-md-12 col-lg-12 fieldOldMiPerfil">
+                  <div class="row">
+                    <div style="width:11%">
+                      <div class="iconim" style="background-image: url('/assets/iconos/message-06.svg');"></div>
+                    </div>
+                    <div style="width:89%;text-align: left;">
+                      <mat-form-field style="width: 100%" appearance="outline" [floatLabel]="'always'">
+                         <input type="text" placeholder="Email" formControlName="Email" matInput />
+                         <mat-error style="font-size: 10px;" *ngIf="userForm.invalid">El campo Email electrónico es requerido.</mat-error>
+                       </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div style="width:11%">
+                       <div class="iconim" style="background-image: url('/assets/iconos/padlock-05.svg');"></div>
+                    </div>
+                    <div style="width:89%;text-align: left;">
+                      <mat-form-field style="width: 100%" appearance="outline" [floatLabel]="'always'">
+                         <input type="password" placeholder="Password" formControlName="Password" matInput />
+                         <mat-error style="font-size: 10px;" *ngIf="userForm.invalid">El campo Contraseña es obligatorio.</mat-error>
+                       </mat-form-field>
+                    </div>
+                  </div>
+                  <mat-checkbox style="font-size: 13px;text-align: left;margin-left: 1px;" color="primary" formControlName="Recordar" class="Recordar">
+                    ¿Recordar Cuenta?
+                  </mat-checkbox>
+                  <app-default-button style="align-items:center" [confs]="{color:'primary',titulo:'Iniciar sesión'}"
+                    [style]="'width: 70%;margin-top: 20px;background:#FF7424'"></app-default-button>
+
+                </div>
+                <a style="color: #9d9d9c; font-size: 13px;margin-top: 15px;" [href]="'https://bsginstitute.com/Account/ForgotPassword'" target="_blank">No recuerdo mi contraseña</a>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

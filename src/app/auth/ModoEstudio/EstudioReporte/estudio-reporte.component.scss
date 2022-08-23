@@ -1,0 +1,20 @@
+.subtitulo {
+  font-size: 18px;
+  color: #878787;
+  font-weight: 700;
+}
+.Seleccion{
+  border-bottom: 1px solid #00000021;
+  color: #4a4a49;
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+::ng-deep .mat-progress-bar-fill::after {
+  background: #00C356;
+}
+::ng-deep .mat-progress-bar {
+  border-radius: 10px;
+}
+

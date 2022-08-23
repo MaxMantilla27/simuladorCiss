@@ -1,0 +1,190 @@
+<div class="row" style="background: white">
+  <div class="container" style="width: 63%;">
+    <div style="padding:0.75rem 1.25rem">
+      <div class="container">
+        <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
+          <app-miga-pan [items]="migaPan"></app-miga-pan>
+        </div>
+      </div>
+      <div style="display:flex">
+        <img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height: 35px; margin-right: 10px;" />
+        <div class="titulo">Modo Estudio</div>
+       </div>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="DatosExamen!=undefined">
+  <div class="container" style="width: 63%;">
+    <div style="padding:0.75rem 1.25rem;">
+      <div id="datos" style="display: block">
+        <div class="row">
+          <div class="col-8 col-sm-9 ">
+              <div class="card" style="border-radius: 20px; background: white;">
+                  <div class="card-body">
+                      <div class="card-text btn-block" style="display: flex;">
+                        <b style="color: #9e9e9d">Nombre de la simulación: </b>
+                        <div style=" color: #4a4a4a; font-weight: 400; margin-left: 10px;">
+                          {{DatosExamen.nombreExamen}}
+                        </div>
+                      </div>
+                      <div class="card-text btn-block" style="display: flex;">
+                        <b style="color: #9e9e9d">Temas: </b>
+                        <div style=" color: #4a4a4a; font-weight: 400;margin-left: 10px;">
+                          {{NombreDominio}}
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-4 col-sm-3 ">
+              <div class="card" style="border-radius: 20px; background: #0aaff1;border:solid 0px">
+                  <div class="card-body" style="text-align: center; padding: 10px 0px;">
+                      <b style="color: white; font-size: 12px; display: flex; align-items: center; justify-content: center;"><i class="fa fa-play" style="font-size: 5px;margin-right: 5px;"></i> TIEMPO UTILIZADO</b>
+                      <div style=" color: white; font-size: 90px; font-weight: 600; margin: -10px 0px;" id="TiempoMinuto">{{MinutoMostrar}}</div>
+                      <b style="color: #fff000;">MINUTOS</b>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+    </div>
+    <br />
+    <!-- Enunciado -->
+    <div class="card" style="border-radius:20px;">
+      <div class="card-body" style=" padding: 1.5rem 3rem 1rem 3rem;">
+        <div id="idMensajeAlerta" class="alert alert-danger" role="alert" style="display:none;">
+          <b>¡Seleccione una respuesta!</b> Usted tiene que seleccionar una alternativa.
+          <a id="IdAlertMensaje" class="close IdAlertMensaje">
+              <span aria-hidden="true">&times;</span>
+          </a>
+      </div>
+      <span class="btn-block card-text" style="border-bottom: 1px solid #00000021; color:#223257">
+          <img src="../../../../assets/iconos/question.svg" style="height:20px;" />
+          <span style="color: #878787; font-weight: 600; font-size: 20px;">
+            Pregunta {{ContadorPreguntaActual}} de {{CantidadTotalPreguntas}}
+            <span id="tituloRetroalimentacion"></span>
+          </span>
+      </span>
+      <ng-container *ngFor="let Preguntas of ListaPreguntas;let i=index">
+        <ng-container *ngIf="ContadorPregunta==i">
+          <ng-container *ngIf="Retroalimentacion==false">
+            <div class="" id="Pregunta">
+              <br />
+              <div class="Enunciado" [innerHTML]="Preguntas.pregunta.enunciado | safeHtml">
+              </div>
+              <div *ngIf="Preguntas.pregunta.idSimuladorTipoRespuesta==1" class="Seleccion">
+                Seleccione la alternativa correcta:
+              </div>
+              <div *ngIf="Preguntas.pregunta.idSimuladorTipoRespuesta==5" class="Seleccion">
+                Seleccione las alternativas correctas:
+              </div>
+              <div id="Alternativas">
+                <ng-container *ngFor="let Respuesta of Preguntas.pregunta.respuesta; let j=index">
+                  <div style="display: flex;align-items: flex-start;font-size: 15px;color: black;text-align: justify;margin-bottom: 10px;">
+                    <div (click)="Respuesta.respuestaSelecionada=chageRadio(Respuesta.respuestaSelecionada,i,j)">
+                    <i class="material-icons radioFormRpta" [style]="{'color':Respuesta.respuestaSelecionada==1?'green':'#ededed'}">
+                    <ng-container *ngIf="Respuesta.respuestaSelecionada==1">check_box</ng-container>
+                    <ng-container *ngIf="Respuesta.respuestaSelecionada!=1">check_box_outline_blank</ng-container>
+                    </i>
+                    </div>
+                    <div [innerHTML]="Respuesta.respuesta| safeHtml">
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+              <br />
+
+              <div class="row">
+                <div  style="justify-content: left;display:flex">
+                  <app-default-button  [confs]="{color:'primary',titulo:'Responder y salir'}"
+                [style]="'width:220px;margin-top: 20px;background:#FF7424'" (ButtoclClick)="RegresarMenu(i)" [disabled]="!RespuestaMarcada"></app-default-button>
+                <app-default-button  [confs]="{color:'primary',titulo:'Confirmar respuesta'}"
+                [style]="'width:220px;margin-top: 20px;margin-left:15px; background:#FF7424'" (ButtoclClick)="EnviarRespuesta(i)" [disabled]="!RespuestaMarcada"></app-default-button>
+                </div>
+              </div>
+              <br />
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="Retroalimentacion==true">
+            <div id="Retroalimentacion">
+              <br />
+              <div *ngIf="RespuestaCorrecta==true" class="card" style="padding: 10px 35px; background: #e3ecff; border: solid 0px ">
+
+                  <div style="display: flex">
+                    <div>
+                      <img src="../../../../assets/iconos/feliz_2.svg" style="height:30px;margin-right: 35px" />
+                    </div>
+                    <div>
+                      ¡La respuesta que marcaste es <strong style="color:#0E8A29">correcta</strong>!
+                    </div>
+                  </div>
+              </div>
+              <div *ngIf="RespuestaCorrecta==false" class="card" style="padding: 10px 35px; background: #e3ecff; border: solid 0px ">
+
+                <div style="display: flex">
+                  <div>
+                    <img src="../../../../assets/iconos/triste-02.svg" style="height:30px;margin-right: 35px" />
+                  </div>
+                  <div>
+                    <div>
+                      ¡La respuesta que marcaste es <strong style="text-decoration: underline;">incorrecta</strong>!
+                    </div>
+                    <div>
+                      ¡Ánimo! la siguiente vez lo haras mucho mejor
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+              <br />
+
+              <div class="subtitulo btn-block" style=" margin-top: 3px;">
+                Respuesta correcta:
+              </div>
+              <div id="RespuestaCorrecta" style="border: 1px solid rgb(199 255 186); padding: 10px; border-radius: 5px; padding-left: 50px; ">
+                <ng-container *ngFor="let Respuesta of Preguntas.pregunta.respuesta">
+                  <div *ngIf="Respuesta.valor==1" style="text-align: justify" [innerHTML]="Respuesta.respuesta | safeHtml">
+                  </div>
+                </ng-container>
+              </div>
+
+              <div class="subtitulo btn-block" style="margin-top: 15px">Explicación de la respuesta</div>
+              <div style="text-align:justify"  [innerHTML]="Preguntas.pregunta.retroalimentacion | safeHtml">
+              </div>
+
+              <br />
+              <div class="row">
+                <div  style="justify-content: left;display:flex">
+                  <app-default-button  [confs]="{color:'primary',titulo:'Salir'}"
+                [style]="'width:220px;margin-top: 20px;background:#FF7424'" (ButtoclClick)="SalirRetroalimentacion()"></app-default-button>
+                <app-default-button  [confs]="{color:'primary',titulo:'Continuar'}"
+                [style]="'width:220px;margin-top: 20px;margin-left:15px; background:#FF7424'" (ButtoclClick)="SiguientePregunta()"></app-default-button>
+                </div>
+              </div>
+              <br />
+          </div>
+          </ng-container>
+
+        </ng-container>
+      </ng-container>
+      </div>
+    </div>
+  <br>
+  </div>
+
+</ng-container>
+<ng-container *ngIf="DatosExamen==undefined">
+  <div class="container" style="width: 63%;">
+    <div style="padding:0.75rem 1.25rem;width: 100%;height: 450px;">
+      <div style="margin-top: 100px; display: flex;justify-content: center;">
+        <mat-spinner></mat-spinner>
+      </div>
+      <div style="margin-top: 20px;text-align: center">
+        Los enunciados se están cargando ...
+      </div>
+    </div>
+  </div>
+
+</ng-container>
+

@@ -1,0 +1,10 @@
+<button mat-raised-button
+    (click)="ButtoclClick.emit()"
+    class="btn-general" [routerLink]="ruta"
+    [style]="style" [disabled]="disabled"
+    [ngClass]="{'primary': confs.color === 'primary',
+    'danger': confs.color === 'danger' }">
+        <div>{{confs.titulo}}</div> <i class="material-icons" *ngIf="img==''">{{icon}}</i>
+        <img *ngIf="img!=''" src="../../../../../../assets/icons/{{img}}" alt="" style="margin-left: 10px;">
+</button>
+

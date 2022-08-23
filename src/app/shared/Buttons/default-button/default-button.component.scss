@@ -1,0 +1,34 @@
+.btn-general {
+  width: auto;
+ // border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  max-width: 100%;
+  margin-bottom: 20px;
+  img{
+    width: 30px;
+  }
+  .mat-button-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.primary {
+  background-color: #F8893F;
+  color: white;
+  &:hover {
+      background-color: #fb9754;
+      div{
+        text-decoration: underline;
+      }
+  }
+}
+.danger {
+  background-color: red;
+  color: white;
+  &:hover {
+      background-color: rgb(244, 72, 72);
+  }
+}

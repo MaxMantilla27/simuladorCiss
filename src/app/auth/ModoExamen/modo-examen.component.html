@@ -1,0 +1,372 @@
+<div class="row" style="background: white">
+  <div class="container" style="width: 63%;">
+    <div style="padding:0.75rem 1.25rem">
+      <div class="container">
+        <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
+          <app-miga-pan [items]="migaPan"></app-miga-pan>
+        </div>
+      </div>
+      <div style="display:flex">
+        <img src="../../../assets/iconos/ModoExamenSelect.svg" style="height: 35px; margin-right: 10px;" />
+        <div class="titulo">Modo Examen</div>
+       </div>
+    </div>
+  </div>
+</div>
+<div class="container" style="width: 63%;">
+  <div style="padding:0.75rem 1.25rem;display: flex;">
+    <div  class="row" style="color:#fff;justify-content: center;">
+      <div class="card CardsEstudio col-12 col-md-4" style="border-radius:20px;">
+        <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
+            <div class="text-center" style="padding: 0px 12px;"><b class="card-title">Número de simulaciones totales</b></div>
+        </div>
+        <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+          <div class="text-center"><b style="font-size:60px;">{{SimulacionesTotales}}</b></div>
+        </div>
+    </div>
+    <div class="card CardsEstudio col-12 col-md-4" style="border-radius:20px;">
+        <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
+            <div class="text-center">
+                <b class="card-title">Número de simulaciones inconclusas</b>
+            </div>
+        </div>
+        <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+          <div class="text-center"><b style="font-size:60px;">{{SimulacionesInconclusas}}</b></div>
+
+        </div>
+    </div>
+    <div class="card CardsEstudio col-12 col-md-4" style="border-radius:20px;">
+        <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
+            <div class="text-center" style="padding: 12px 0px;">
+                <b class="card-title">Tiempo de estudio total</b>
+            </div>
+        </div>
+        <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+            <div class="text-center"><b style="font-size:60px;">{{HoraMostrar}}:{{MinutoMostrar}}</b></div>
+            <div class="text-center"><span class="card-text">hh/mm</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="titulo" style="font-weight: 400 !important;">
+    Ficha de resultados de Prueba
+    <div>
+      <div class="container" style="text-align: left;border-bottom: 1px solid #E4E4E4 ; margin-bottom: 5px;">
+        <img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height: 35px;" />
+      </div>
+      <mat-progress-bar mode="determinate" style="height: 10px;"
+            [value]="Promedio">
+      </mat-progress-bar>
+      <div class="row" style="margin-bottom: 20px;">
+        <div class="col-6" style="text-align: left;font-size: 17px;">
+          {{Promedio}} Puntos
+        </div>
+        <div class="col-6" style="text-align: right;font-size: 17px;font-weight: bold;">
+          Puntaje promedio / 100
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="ResultadosPorDominio!=undefined" style="margin-bottom: 10px;">
+      <div class="row" style="margin-bottom: 10px">
+        <div class="col-12 col-md-4">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio1"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Tema 1:
+          </div>
+          <div style="font-size: 13px">
+            Planificación e implementación en toda la organización.
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio2"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Tema 2:
+          </div>
+          <div style="font-size: 13px">
+            Medidas y gestión de procesos organizacionales.
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio3"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Tema 3:
+          </div>
+          <div style="font-size: 13px">
+            Gestión de equipos.
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 10px">
+        <div class="col-12 col-md-4">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio4"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Tema 4:
+          </div>
+          <div style="font-size: 13px">
+            Definir.
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio5"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Tema 5:
+          </div>
+          <div style="font-size: 13px">
+            Medir.
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio6"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Tema 6:
+          </div>
+          <div style="font-size: 13px">
+            Analizar.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio7"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Tema 7:
+          </div>
+          <div style="font-size: 13px">
+            Mejorar.
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio8"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Tema 8:
+          </div>
+          <div style="font-size: 13px">
+            Control.
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio9"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Tema 9:
+          </div>
+          <div style="font-size: 13px">
+            Marco y metodologías de Design for Six Sigma (DFSS).
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="padding: 0.75rem 1.25rem; border-top: 1px solid #cececf ">
+      <div class="row">
+        <div class="col-6">
+          <div class="card" style="padding:10px;">
+            <div class="row">
+                <span class="subtitulo col-7" style="font-size: 14px; padding-right: 0px">Número de intentos:</span>
+                <div class="col-5">
+                  {{SimulacionesTotales+SimulacionesInconclusas}}
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-6">
+          <div class="card" style="padding:10px;">
+            <div class="row">
+                <span class="subtitulo col-7" style="font-size: 14px; padding-right: 0px">% de intentos aprobados:</span>
+                <div class="col-5">
+                  {{PorcentajeIntentosAprobados}} %
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Crear simulación de examen -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px;">
+      <div class="titulo" style="text-align: left"><img src="../../../assets/iconos/New.svg" style="height: 40px;" />
+        Crear simulación de examen
+      </div>
+    </div>
+    <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
+      <div class="subtitulo">
+        Instrucciones:
+      </div>
+      <div style="text-align: justify">
+        En este modo se te presentarán 150 preguntas, con la estructura del examen de Certificación Six Sigma Black Belt - CSSBB. Sólo al final se te mostrará tu puntaje en el examen. Recuerda que para aprobar necesitarás obtener como mínimo 550 puntos en tu calificación general.
+      </div>
+      <form (submit)="RegistrarExamen()" [formGroup]="userForm">
+        <div class="form-horizontal" id="form-crearExamen">
+          <div class="row">
+            <div class="col-md-12" style="margin-top: 10px ">
+              <div class="subtitulo">Nombre de la simulación:</div>
+              <mat-form-field appearance="outline" [floatLabel]="'always'" style="width: 100%;">
+                <input type="text" placeholder="Escriba el nombre de la simulacion" formControlName="NombreSimulacion" matInput />
+                <mat-error *ngIf="userForm.invalid">Debe ingresar un nombre para la simulación</mat-error>
+              </mat-form-field>
+              </div>
+            </div>
+          </div>
+        <div style="justify-content: center;display:flex">
+          <app-default-button  [confs]="{color:'primary',titulo:'Comenzar'}"
+        [style]="'width:290px;margin-top: 20px;background:#FF7424'" [disabled]="BotonResgistrar" ></app-default-button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <br>
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px">
+        <h2 class="titulo" style=" display: flex;">
+            <img src="../../../assets/iconos/graphic.svg" style="height: 40px; margin-right: 10px;" />
+            <div style="overflow-wrap: anywhere;text-align: justify;">
+                Gráfica de comparación entre tus puntajes por intento y el puntaje promedio global por intento.
+            </div>
+        </h2>
+    </div>
+    <div class="container" *ngIf="DatosIntento==true && DatosIntentoUsuario==true" style="height: auto;">
+      <app-line [ExamenPorIntento]="ExamenPorIntento" [ExamenPorIntentoUsuario]="ExamenPorIntentoUsuario"></app-line>
+    </div>
+    <div class="container"  *ngIf="DatosIntento==true && DatosIntentoUsuario==false" style="height: auto;">
+      <app-line  [ExamenPorIntento]="ExamenPorIntento" [ExamenPorIntentoUsuario]="ExamenPorIntentoUsuario"></app-line>
+    </div>
+    <div class="container"  *ngIf="DatosIntento==false && DatosIntentoUsuario==true" style="height: auto;">
+      <app-line  [ExamenPorIntento]="ExamenPorIntento" [ExamenPorIntentoUsuario]="ExamenPorIntentoUsuario"></app-line>
+    </div>
+    <div class="container"  *ngIf="DatosIntento==false && DatosIntentoUsuario==false" style=" font-size: 15px;margin-top: 10px;margin-left: 15px;">
+      Realice simulaciones para obtener sus resultados.
+    </div>
+</div>
+  <br>
+  <!-- Simulaciones completadas -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
+      <div class="float-left">
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/check2.svg" style="height: 40px;" />
+          Simulaciones completadas
+        </div>
+        <div *ngIf="ContSimulacionesCompletadas!=0">
+          <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+            <ng-container *ngFor="let item of SimulacionesCompletadas">
+              <div  *ngIf="item.idSimuladorLssbModo==3" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
+                <div class="row" style="margin-top: 20px;margin-left: 0px;">
+                  <div class="col-9">
+                    <div>
+                      <b>Nombre: </b>  {{item.nombreExamen}}
+                    </div>
+                    <div>
+                      <b>Fecha de conclusión:</b> {{item.fechaModificacion|date: 'dd/MM/yyyy'}} - {{item.fechaModificacion| date: 'HH:mm'}}
+                    </div>
+                    <div style="display: flex">
+                      <div style="justify-content: center;display:flex; margin-right: 10px;">
+                        <app-default-button  [confs]="{color:'primary',titulo:'Ver resultados'}"
+                      [style]="'width:170px;margin-top: 20px;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenReporte/'+item.id" ></app-default-button>
+                      </div>
+                      <div style="justify-content: center;display:flex">
+                        <app-default-button  [confs]="{color:'primary',titulo:'Revisar preguntas'}"
+                      [style]="'width:170px;margin-top: 20px;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenRespuestaPregunta/'+item.id" ></app-default-button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div *ngIf="ContSimulacionesCompletadas==0"style=" font-size: 15px;margin-top: 10px;">
+          No tiene simulaciones completadas.
+        </div>
+      </div>
+      <div class="float-right">
+        <img src="../../../assets/iconos/champions.svg" height="35" style="position: absolute; top: -15px; left: 95%;" />
+      </div>
+    </div>
+    <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+    </div>
+  </div>
+  <br>
+  <!-- Simulaciones incompletas -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
+      <div class="float-left">
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/question_2.svg" style="height: 40px;" />
+          Simulaciones incompletas
+        </div>
+        <div *ngIf="ContSimulacionesIncompletas!=0">
+          <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+            <ng-container *ngFor="let item of SimulacionesIncompletas">
+              <div  *ngIf="item.idSimuladorLssbModo==3" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
+                <div class="row" style="margin-top: 20px;margin-left: 0px;">
+                  <div class="col-6">
+                    <div>
+                      <b>Nombre: </b>  {{item.nombreExamen}}
+                    </div>
+                    <div>
+                      <b>Fecha ultimo cambio: </b>  {{item.fechaModificacion|date: 'dd/MM/yyyy'}} - {{item.fechaModificacion| date: 'HH:mm'}}
+                    </div>
+                    <div>
+                      <b>Preguntas Respondidas: </b>  {{item.preguntasRespondidas}} de {{item.preguntasRespondidas+item.preguntasPendientes}}
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <mat-progress-bar mode="determinate" style="height: 20px;"
+                  [value]="(item.preguntasRespondidas/(item.preguntasRespondidas+item.preguntasPendientes))*100">
+                </mat-progress-bar>
+                    <div style="display: flex">
+                      <div style="margin-right: 160px">
+                        <b>Progreso:</b>
+                      </div>
+                      <div style="text-align: left;font-size:19px;color:#0684F2;font-weight: bold;">
+                        {{item.porcentajeAvance}}%
+                      </div>
+                    </div>
+                    <div style="justify-content: left;display:flex">
+                      <app-default-button  [confs]="{color:'primary',titulo:'Continuar'}"
+                    [style]="'width:170px;margin-top: 20px;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenPregunta/'+item.id" ></app-default-button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div *ngIf="ContSimulacionesIncompletas==0"style=" font-size: 15px;margin-top: 10px;">
+          No tiene simulaciones en curso.
+        </div>
+      </div>
+      <div class="float-right">
+        <img src="../../../assets/iconos/alert.svg" height="35" style="position: absolute; top: -15px; left: 95%;" />
+      </div>
+    </div>
+    <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+    </div>
+  </div>
+  <br>
+</div>
+
+
+
+

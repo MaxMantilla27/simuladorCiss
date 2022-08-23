@@ -1,0 +1,514 @@
+<div class="row" style="background: white">
+  <div class="container" style="width: 63%;">
+    <div style="padding:0.75rem 1.25rem">
+      <div class="container">
+        <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
+          <app-miga-pan [items]="migaPan"></app-miga-pan>
+        </div>
+      </div>
+      <div style="display:flex">
+        <img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height: 35px; margin-right: 10px;" />
+        <div class="titulo">Modo Estudio</div>
+       </div>
+    </div>
+  </div>
+</div>
+<div class="container" style="width: 63%;">
+  <div style="padding:0.75rem 1.25rem;display: flex;">
+    <div  class="row" style="color:#fff;justify-content: center;">
+      <div class="card CardsEstudio col-12 col-md-4" style="border-radius:20px;">
+        <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
+            <div class="text-center" style="padding: 0px 12px;"><b class="card-title">Número de simulaciones totales</b></div>
+        </div>
+        <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+          <div class="text-center"><b style="font-size:60px;">{{SimulacionesTotales}}</b></div>
+        </div>
+    </div>
+    <div class="card CardsEstudio col-12 col-md-4" style="border-radius:20px;">
+        <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
+            <div class="text-center">
+                <b class="card-title">Número de simulaciones inconclusas</b>
+            </div>
+        </div>
+        <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+          <div class="text-center"><b style="font-size:60px;">{{SimulacionesInconclusas}}</b></div>
+
+        </div>
+    </div>
+    <div class="card CardsEstudio col-12 col-md-4" style="border-radius:20px;">
+        <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
+            <div class="text-center" style="padding: 12px 0px;">
+                <b class="card-title">Tiempo de estudio total</b>
+            </div>
+        </div>
+        <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+            <div class="text-center"><b style="font-size:60px;">{{HoraMostrar}}:{{MinutoMostrar}}</b></div>
+            <div class="text-center"><span class="card-text">hh/mm</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="ResultadosPorDominio!=undefined" class="titulo" style="font-weight: 400 !important;">
+    Mejor puntaje por temas
+    <br>
+    <div class="row" style="margin-bottom: 10px">
+      <div class="col-12 col-md-4">
+        <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio1"></app-dona-puntos>
+        </div>
+        <div class="subtitulo">
+          Tema 1:
+        </div>
+        <div style="font-size: 13px">
+          Planificación e implementación en toda la organización.
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio2"></app-dona-puntos>
+        </div>
+        <div class="subtitulo">
+          Tema 2:
+        </div>
+        <div style="font-size: 13px">
+          Medidas y gestión de procesos organizacionales.
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio3"></app-dona-puntos>
+        </div>
+        <div class="subtitulo">
+          Tema 3:
+        </div>
+        <div style="font-size: 13px">
+          Gestión de equipos.
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom: 10px">
+      <div class="col-12 col-md-4">
+        <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio4"></app-dona-puntos>
+        </div>
+        <div class="subtitulo">
+          Tema 4:
+        </div>
+        <div style="font-size: 13px">
+          Definir.
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio5"></app-dona-puntos>
+        </div>
+        <div class="subtitulo">
+          Tema 5:
+        </div>
+        <div style="font-size: 13px">
+          Medir.
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio6"></app-dona-puntos>
+        </div>
+        <div class="subtitulo">
+          Tema 6:
+        </div>
+        <div style="font-size: 13px">
+          Analizar.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio7"></app-dona-puntos>
+        </div>
+        <div class="subtitulo">
+          Tema 7:
+        </div>
+        <div style="font-size: 13px">
+          Mejorar.
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio8"></app-dona-puntos>
+        </div>
+        <div class="subtitulo">
+          Tema 8:
+        </div>
+        <div style="font-size: 13px">
+          Control.
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio9"></app-dona-puntos>
+        </div>
+        <div class="subtitulo">
+          Tema 9:
+        </div>
+        <div style="font-size: 13px">
+          Marco y metodologías de Design for Six Sigma (DFSS).
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Crear simulación de estudio -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px;">
+      <div class="titulo" style="text-align: left"><img src="../../../assets/iconos/New.svg" style="height: 40px;" />
+        Crear simulación de estudio
+      </div>
+    </div>
+    <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
+      <div class="subtitulo">
+        Instrucciones:
+      </div>
+      <div style="text-align: justify">
+        En este modo tú podrás estudiar de forma individual cada una de las habilidades que componen el examen, en todas las preguntas se te brindará retroalimentación para verificar tus respuestas y fortalecer tus conocimientos
+      </div>
+      <form (submit)="RegistrarExamen()" [formGroup]="userForm">
+        <div class="form-horizontal" id="form-crearExamen">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="subtitulo" style="margin-top: 15px;margin-bottom: 15px;">
+                Seleccione el tema que desea estudiar:
+              </div>
+              <div class="row">
+                <div *ngIf="DominioSeleccionado!=1" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=1">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE" >
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento1.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;" >
+                      Planificación e implementación en toda la organización.
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="DominioSeleccionado==1" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92)" >
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento1.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;" >
+                      Planificación e implementación en toda la organización.
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="DominioSeleccionado!=6" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=6">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE">
+                    <div class="col-3">
+                      <img  style="height: 50px;" src="../../../assets/iconos/SSBB-Tento6.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Analizar.
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="DominioSeleccionado==6" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92)">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento6.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Analizar.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div *ngIf="DominioSeleccionado!=2" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=2">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento2.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Medidas y gestión de procesos organizacionales.
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="DominioSeleccionado==2" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92)">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento2.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Medidas y gestión de procesos organizacionales.
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="DominioSeleccionado!=7" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=7">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento7.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Mejorar.
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="DominioSeleccionado==7" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92)">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento7.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Mejorar.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div *ngIf="DominioSeleccionado!=3" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=3">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento3.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Gestión de equipos.
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="DominioSeleccionado==3" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92)">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento3.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Gestión de equipos.
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="DominioSeleccionado!=8" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=8">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento8.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Control.
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="DominioSeleccionado==8" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92)">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento8.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Control.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div *ngIf="DominioSeleccionado!=4" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=4">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento4.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Definir.
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="DominioSeleccionado==4" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92)">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento4.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Definir.
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="DominioSeleccionado!=9" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=9">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento9.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Marco y metodologías de Design for Six Sigma (DFSS).
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="DominioSeleccionado==9" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92)">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento9.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Marco y metodologías de Design for Six Sigma (DFSS).
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div *ngIf="DominioSeleccionado!=5" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=5">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento5.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Medir.
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="DominioSeleccionado==5" class="col-12 col-md-6 card CardsDominio" (click)="DominioSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92)">
+                    <div class="col-3">
+                      <img style="height: 50px;" src="../../../assets/iconos/SSBB-Tento5.svg">
+                    </div>
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                      Medir.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" style="margin-top: 10px ">
+              <div class="subtitulo">Nombre de la simulación:</div>
+              <mat-form-field appearance="outline" [floatLabel]="'always'" style="width: 100%;">
+                <input type="text" placeholder="Escriba el nombre de la simulacion" formControlName="NombreSimulacion" matInput />
+                <mat-error *ngIf="userForm.invalid">Debe ingresar un nombre para la simulación</mat-error>
+              </mat-form-field>
+              </div>
+            </div>
+          </div>
+        <div style="justify-content: center;display:flex">
+          <app-default-button  [confs]="{color:'primary',titulo:'Comenzar'}"
+        [style]="'width:290px;margin-top: 20px;background:#FF7424'" [disabled]="BotonResgistrar"></app-default-button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <br>
+  <!-- Simulaciones completadas -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
+      <div class="float-left">
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/check2.svg" style="height: 40px;" />
+          Simulaciones completadas
+        </div>
+        <div *ngIf="ContSimulacionesCompletadas!=0">
+          <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+            <ng-container *ngFor="let item of SimulacionesCompletadas">
+              <div  *ngIf="item.idSimuladorLssbModo==1" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
+                <div class="row" style="margin-top: 20px;margin-left: 0px;">
+                  <div class="col-9">
+                    <div>
+                      <b>Nombre: </b>  {{item.nombreExamen}}
+                    </div>
+                    <div>
+                      <b>Fecha de conclusión:</b> {{item.fechaModificacion|date: 'dd/MM/yyyy'}} - {{item.fechaModificacion| date: 'HH:mm'}}
+                    </div>
+                    <div style="display: flex">
+                      <div style="justify-content: center;display:flex; margin-right: 10px;">
+                        <app-default-button  [confs]="{color:'primary',titulo:'Ver resultados'}"
+                      [style]="'width:170px;margin-top: 20px;background:#FF7424'" [routerLink]="'/ModoEstudio/EstudioReporte/'+item.id" ></app-default-button>
+                      </div>
+                      <div style="justify-content: center;display:flex">
+                        <app-default-button  [confs]="{color:'primary',titulo:'Revisar preguntas'}"
+                      [style]="'width:170px;margin-top: 20px;background:#FF7424'" [routerLink]="'/ModoEstudio/EstudioRespuestaPregunta/'+item.id" ></app-default-button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div *ngIf="ContSimulacionesCompletadas==0"style=" font-size: 15px;margin-top: 10px;">
+          No tiene simulaciones completadas.
+        </div>
+      </div>
+      <div class="float-right">
+        <img src="../../../assets/iconos/champions.svg" height="35" style="position: absolute; top: -15px; left: 95%;" />
+      </div>
+    </div>
+    <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+    </div>
+  </div>
+  <br>
+  <!-- Simulaciones incompletas -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
+      <div class="float-left">
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/question_2.svg" style="height: 40px;" />
+          Simulaciones incompletas
+        </div>
+        <div *ngIf="ContSimulacionesIncompletas!=0">
+          <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+            <ng-container *ngFor="let item of SimulacionesIncompletas">
+              <div  *ngIf="item.idSimuladorLssbModo==1" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
+                <div class="row" style="margin-top: 20px;margin-left: 0px;">
+                  <div class="col-6">
+                    <div>
+                      <b>Nombre: </b>  {{item.nombreExamen}}
+                    </div>
+                    <div>
+                      <b>Fecha ultimo cambio: </b>  {{item.fechaModificacion|date: 'dd/MM/yyyy'}} - {{item.fechaModificacion| date: 'HH:mm'}}
+                    </div>
+                    <div>
+                      <b>Preguntas Respondidas: </b>  {{item.preguntasRespondidas}} de {{item.preguntasRespondidas+item.preguntasPendientes}}
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <mat-progress-bar mode="determinate" style="height: 10px;"
+                  [value]="(item.preguntasRespondidas/(item.preguntasRespondidas+item.preguntasPendientes))*100">
+                </mat-progress-bar>
+                    <div style="display: flex">
+                      <div style="margin-right: 160px">
+                        <b>Progreso:</b>
+                      </div>
+                      <div style="text-align: left;font-size:19px;color:#0684F2;font-weight: bold;">
+                        {{item.porcentajeAvance}}%
+                      </div>
+                    </div>
+                    <div style="justify-content: left;display:flex">
+                      <app-default-button  [confs]="{color:'primary',titulo:'Continuar'}"
+                    [style]="'width:170px;margin-top: 20px;background:#FF7424'" [routerLink]="'/ModoEstudio/EstudioPregunta/'+item.id" ></app-default-button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div *ngIf="ContSimulacionesIncompletas==0"style=" font-size: 15px;margin-top: 10px;">
+          No tiene simulaciones en curso.
+        </div>
+      </div>
+      <div class="float-right">
+        <img src="../../../assets/iconos/alert.svg" height="35" style="position: absolute; top: -15px; left: 95%;" />
+      </div>
+    </div>
+    <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+    </div>
+  </div>
+  <br>
+
+
+</div>
+
+
+
+
+
