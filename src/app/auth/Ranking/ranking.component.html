@@ -16,91 +16,88 @@
 <div class="container" style="width: 63%;">
   <div style="background: #F2F5FA; margin-bottom: 20px;">
     <div class="container">
+      <div id="configurar" style="padding:0.75rem 1.25rem">
+        <ul class="nav nav-tabs" style="justify-content: space-between;">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" data-bs-toggle="tab" role="tab" aria-controls="intento1" aria-selected="true" (click)="ObtenerListaRankingExamenPorIntento(1)" style="cursor:pointer">Intento 1</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab"  role="tab" aria-controls="intento2" aria-selected="false" (click)="ObtenerListaRankingExamenPorIntento(2)" style="cursor:pointer">Intento 2</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link"  data-bs-toggle="tab"  role="tab" aria-controls="intento3" aria-selected="false" (click)="ObtenerListaRankingExamenPorIntento(3)" style="cursor:pointer">Intento 3</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab"role="tab" aria-controls="intento4" aria-selected="false" (click)="ObtenerListaRankingExamenPorIntento(4)" style="cursor:pointer">Intento 4</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab"role="tab" aria-controls="intento5" aria-selected="false" (click)="ObtenerListaRankingExamenPorIntento(5)"  style="cursor:pointer">Intento 5 a +</a>
+            </li>
+        </ul>
+        <ng-container *ngFor="let item of DatoRanking,let i=index;">
+        <div *ngIf="item.examen.examen.numeroIntento==Intento" class="tab-content" style="margin-top: 40px;">
+          <div class="card" style="border-radius:20px;">
+            <div class="card-body" style=" padding: 1.5rem 3rem 1rem 3rem;">
+              <div class="row">
+                <div class="col-12 col-md-1">
+                  <div style="font-size: 25px;color:#565759">
+                    <b>{{i+1}}°</b>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <img style="height: 180px;" class="ImgAvatar" [src]="'https://avataaars.io/?avatarStyle=Circle&topType='+item.usuarioAvatar.top+'&accessoriesType='+
+                  item.usuarioAvatar.accesories+'&hairColor='+
+                  item.usuarioAvatar.hair_Color+'&facialHairType='+
+                  item.usuarioAvatar.facial_Hair+'&facialHairColor='+
+                  item.usuarioAvatar.facial_Hair_Color+'&clotheType='+
+                  item.usuarioAvatar.clothes+'&clotheColor='+
+                  item.usuarioAvatar.clothes_Color+'&eyeType='+
+                  item.usuarioAvatar.eyes+'&eyebrowType='+
+                  item.usuarioAvatar.eyesbrow+'&mouthType='+
+                  item.usuarioAvatar.mouth+'&skinColor='+
+                  item.usuarioAvatar.skin">
+                  <div style="text-align: center;font-size:25px">
+                    {{item.usuarioAvatar.nombre}}
+                  </div>
+                </div>
 
-        <div id="configurar" style="padding:0.75rem 1.25rem">
-
-            <ul class="nav nav-tabs" id="myTab" role="tablist" style="justify-content: space-between;">
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link active" data-bs-toggle="tab" role="tab" aria-controls="intento1" aria-selected="true" (click)="ObtenerListaRankingExamenPorIntento(1)" style="cursor:pointer">Intento 1</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" data-bs-toggle="tab"  role="tab" aria-controls="intento2" aria-selected="false" (click)="ObtenerListaRankingExamenPorIntento(2)" style="cursor:pointer">Intento 2</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link"  data-bs-toggle="tab"  role="tab" aria-controls="intento3" aria-selected="false" (click)="ObtenerListaRankingExamenPorIntento(3)" style="cursor:pointer">Intento 3</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" data-bs-toggle="tab"role="tab" aria-controls="intento4" aria-selected="false" (click)="ObtenerListaRankingExamenPorIntento(4)" style="cursor:pointer">Intento 4</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" data-bs-toggle="tab"role="tab" aria-controls="intento5" aria-selected="false" (click)="ObtenerListaRankingExamenPorIntento(5)"  style="cursor:pointer">Intento 5 a +</a>
-                </li>
-            </ul>
-            <ng-container *ngFor="let item of DatoRanking,let i=index;">
-            <div *ngIf="item.examen.examen.numeroIntento==Intento" class="tab-content" style="margin-top: 40px;">
-              <div class="card" style="border-radius:20px;">
-                <div class="card-body" style=" padding: 1.5rem 3rem 1rem 3rem;">
-                  <div class="row">
-                    <div class="col-4">
-                      <div>
-                        <b>{{i+1}}°</b>
-                      </div>
-                      <div>
-                        <img style="height: 180px;" class="ImgAvatar" [src]="'https://avataaars.io/?avatarStyle=Circle&topType='+item.usuarioAvatar.top+'&accessoriesType='+
-                        item.usuarioAvatar.accesories+'&hairColor='+
-                        item.usuarioAvatar.hair_Color+'&facialHairType='+
-                        item.usuarioAvatar.facial_Hair+'&facialHairColor='+
-                        item.usuarioAvatar.facial_Hair_Color+'&clotheType='+
-                        item.usuarioAvatar.clothes+'&clotheColor='+
-                        item.usuarioAvatar.clothes_Color+'&eyeType='+
-                        item.usuarioAvatar.eyes+'&eyebrowType='+
-                        item.usuarioAvatar.eyesbrow+'&mouthType='+
-                        item.usuarioAvatar.mouth+'&skinColor='+
-                        item.usuarioAvatar.skin">
-                      </div>
-                      <div style="text-align: center;font-size:25px">
-                        {{item.usuarioAvatar.nombre}}
-                      </div>
+                <div class="col-12 col-md-7">
+                  <div class="row tituloRanking" >
+                    <div class="col-12 col-md-1">
+                      <img height="22px" src="../../../assets/iconos/star.svg">
                     </div>
-                    <div class="col-8">
-                      <div class="row" style="display:flex; background: #FFE600;font-size: 16px;margin-top: 10px;display: flex;">
-                        <div class="col-1">
-                          <img height="20px" src="../../../assets/iconos/star.svg">
-                        </div>
-                        <div class="col-8" style="font-weight: bold">
-                          Ranking general
-                        </div>
-                        <div class="col-3" style="color: #2B7DE9;font-weight: bold;">
-                        {{item.examen.examen.desempenio}}
-                        </div>
-                      </div>
-                      <div style="font-weight:bold;margin-bottom:5px">
-                        Puntaje por temas:
-                      </div>
-                      <ng-container *ngFor="let Dominios of item.examen.dominioResultado">
-                        <div class="row">
-                          <div class="col-9" style="font-size: 15px">
-                            {{Dominios.nombre}}
-                          </div>
-                          <div class="col-3" style="text-align: right;color: #2B7DE9;font-weight: bold;">
-                            {{Dominios.desempenio}}
-                          </div>
-                        </div>
-                        <mat-progress-bar mode="determinate" style="height: 10px;"
-                          [value]="Dominios.desempenio">
-                        </mat-progress-bar>
-                      </ng-container>
-
+                    <div class="col-12 col-md-8" style="font-weight: bold;color: #565759;font-size: 18px;">
+                      Puntaje general
+                    </div>
+                    <div class="col-12 col-md-3" style="color: #2B7DE9;font-weight: bold;font-size: 20px;">
+                    {{item.examen.examen.desempenio}}
                     </div>
                   </div>
-                   <br />
-
+                  <div class="subTitulo"  style="text-align: left;border-bottom: 1px solid #E4E4E4">
+                    Puntaje por pilar:
+                  </div>
+                  <ng-container *ngFor="let Dominios of item.examen.dominioResultado">
+                    <div class="row">
+                      <div class="col-12 col-md-9" style="font-size: 12px;color: #818283;">
+                        {{Dominios.nombre}}
+                      </div>
+                      <div class="col-12 col-md-3 desempenio" >
+                        {{Dominios.desempenio}}
+                      </div>
+                    </div>
+                    <mat-progress-bar mode="determinate" style="height: 4px;margin-bottom: 4px;"
+                      [value]="Dominios.desempenio">
+                    </mat-progress-bar>
+                  </ng-container>
                 </div>
               </div>
+              <br />
             </div>
-          </ng-container>
+          </div>
         </div>
+        <br>
+      </ng-container>
+      </div>
     </div>
   </div>
-
 </div>

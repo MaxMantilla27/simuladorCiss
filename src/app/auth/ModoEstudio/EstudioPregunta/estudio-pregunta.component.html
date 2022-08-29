@@ -28,7 +28,7 @@
                         </div>
                       </div>
                       <div class="card-text btn-block" style="display: flex;">
-                        <b style="color: #9e9e9d">Temas: </b>
+                        <b style="color: #9e9e9d">Dominio: </b>
                         <div style=" color: #4a4a4a; font-weight: 400;margin-left: 10px;">
                           {{NombreDominio}}
                         </div>
@@ -72,6 +72,13 @@
               <br />
               <div class="Enunciado" [innerHTML]="Preguntas.pregunta.enunciado | safeHtml">
               </div>
+              <div *ngIf="Preguntas.pregunta.preguntaImagen.length!=0">
+                <ng-container *ngFor="let Imagen of Preguntas.pregunta.preguntaImagen">
+                  <div  *ngIf="Imagen.tipo=='P'">
+                    <img width="100%" src={{Imagen.urlImagen}}>
+                  </div>
+                </ng-container>
+              </div>
               <div *ngIf="Preguntas.pregunta.idSimuladorTipoRespuesta==1" class="Seleccion">
                 Seleccione la alternativa correcta:
               </div>
@@ -81,13 +88,13 @@
               <div id="Alternativas">
                 <ng-container *ngFor="let Respuesta of Preguntas.pregunta.respuesta; let j=index">
                   <div style="display: flex;align-items: flex-start;font-size: 15px;color: black;text-align: justify;margin-bottom: 10px;">
-                    <div (click)="Respuesta.respuestaSelecionada=chageRadio(Respuesta.respuestaSelecionada,i,j)">
+                    <div (click)="Respuesta.respuestaSelecionada=chageRadio(Respuesta.respuestaSelecionada,i,j)" (click)="VerificarMarcado(i)">
                     <i class="material-icons radioFormRpta" [style]="{'color':Respuesta.respuestaSelecionada==1?'green':'#ededed'}">
                     <ng-container *ngIf="Respuesta.respuestaSelecionada==1">check_box</ng-container>
                     <ng-container *ngIf="Respuesta.respuestaSelecionada!=1">check_box_outline_blank</ng-container>
                     </i>
                     </div>
-                    <div [innerHTML]="Respuesta.respuesta| safeHtml">
+                    <div [innerHTML]="Respuesta.respuesta| safeHtml" >
                     </div>
                   </div>
                 </ng-container>
@@ -150,6 +157,13 @@
               </div>
 
               <div class="subtitulo btn-block" style="margin-top: 15px">Explicación de la respuesta</div>
+              <div *ngIf="Preguntas.pregunta.preguntaImagen.length!=0">
+                <ng-container *ngFor="let Imagen of Preguntas.pregunta.preguntaImagen">
+                  <div  *ngIf="Imagen.tipo=='R'">
+                    <img width="100%" src={{Imagen.urlImagen}}>
+                  </div>
+                </ng-container>
+              </div>
               <div style="text-align:justify"  [innerHTML]="Preguntas.pregunta.retroalimentacion | safeHtml">
               </div>
 

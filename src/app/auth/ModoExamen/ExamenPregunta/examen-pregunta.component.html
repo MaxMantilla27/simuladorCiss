@@ -28,7 +28,7 @@
                         </div>
                       </div>
                       <div class="card-text btn-block" style="display: flex;">
-                        <b style="color: #9e9e9d">Temas: </b>
+                        <b style="color: #9e9e9d">Dominio: </b>
                         <div style=" color: #4a4a4a; font-weight: 400;margin-left: 10px;">
                           {{NombreDominio}}
                         </div>
@@ -63,15 +63,21 @@
       <img src="../../../../assets/iconos/question.svg" style="height:20px;" />
       <span style="color: #878787; font-weight: 600; font-size: 20px;">
         Pregunta {{ContadorPreguntaActual}} de {{CantidadTotalPreguntas}}
-        <span id="tituloRetroalimentacion"></span>
       </span>
   </span>
   <ng-container *ngFor="let Preguntas of ListaPreguntas;let i=index">
     <ng-container *ngIf="ContadorPregunta==i">
-      <ng-container *ngIf="Retroalimentacion==false">
+      <ng-container >
         <div class="" id="Pregunta">
           <br />
           <div class="Enunciado" [innerHTML]="Preguntas.pregunta.enunciado | safeHtml">
+          </div>
+          <div *ngIf="Preguntas.pregunta.preguntaImagen.length!=0">
+            <ng-container *ngFor="let Imagen of Preguntas.pregunta.preguntaImagen">
+              <div  *ngIf="Imagen.tipo=='P'">
+                <img width="100%" src={{Imagen.urlImagen}}>
+              </div>
+            </ng-container>
           </div>
           <div *ngIf="Preguntas.pregunta.idSimuladorTipoRespuesta==1" class="Seleccion">
             Seleccione la alternativa correcta:
@@ -82,13 +88,13 @@
           <div id="Alternativas">
             <ng-container *ngFor="let Respuesta of Preguntas.pregunta.respuesta; let j=index">
               <div style="display: flex;align-items: flex-start;font-size: 15px;color: black;text-align: justify;margin-bottom: 10px;">
-                <div (click)="Respuesta.respuestaSelecionada=chageRadio(Respuesta.respuestaSelecionada,i,j)">
+                <div (click)="Respuesta.respuestaSelecionada=chageRadio(Respuesta.respuestaSelecionada,i,j)" (click)="VerificarMarcado(i)">
                 <i class="material-icons radioFormRpta" [style]="{'color':Respuesta.respuestaSelecionada==1?'green':'#ededed'}">
                 <ng-container *ngIf="Respuesta.respuestaSelecionada==1">check_box</ng-container>
                 <ng-container *ngIf="Respuesta.respuestaSelecionada!=1">check_box_outline_blank</ng-container>
                 </i>
                 </div>
-                <div [innerHTML]="Respuesta.respuesta| safeHtml">
+                <div [innerHTML]="Respuesta.respuesta| safeHtml" >
                 </div>
               </div>
             </ng-container>
@@ -106,66 +112,6 @@
           <br />
         </div>
       </ng-container>
-
-      <ng-container *ngIf="Retroalimentacion==true">
-        <div id="Retroalimentacion">
-          <br />
-          <div *ngIf="RespuestaCorrecta==true" class="card" style="padding: 10px 35px; background: #e3ecff; border: solid 0px ">
-
-              <div style="display: flex">
-                <div>
-                  <img src="../../../../assets/iconos/feliz_2.svg" style="height:30px;margin-right: 35px" />
-                </div>
-                <div>
-                  ¡La respuesta que marcaste es <strong style="color:#0E8A29">correcta</strong>!
-                </div>
-              </div>
-          </div>
-          <div *ngIf="RespuestaCorrecta==false" class="card" style="padding: 10px 35px; background: #e3ecff; border: solid 0px ">
-
-            <div style="display: flex">
-              <div>
-                <img src="../../../../assets/iconos/triste-02.svg" style="height:30px;margin-right: 35px" />
-              </div>
-              <div>
-                <div>
-                  ¡La respuesta que marcaste es <strong style="text-decoration: underline;">incorrecta</strong>!
-                </div>
-                <div>
-                  ¡Ánimo! la siguiente vez lo haras mucho mejor
-                </div>
-              </div>
-            </div>
-
-        </div>
-          <br />
-
-          <div class="subtitulo btn-block" style=" margin-top: 3px;">
-            Respuesta correcta:
-          </div>
-          <div id="RespuestaCorrecta" style="border: 1px solid rgb(199 255 186); padding: 10px; border-radius: 5px; padding-left: 50px; ">
-            <ng-container *ngFor="let Respuesta of Preguntas.pregunta.respuesta">
-              <div *ngIf="Respuesta.valor==1" style="text-align: justify"[innerHTML]="Respuesta.respuesta | safeHtml">
-              </div>
-            </ng-container>
-          </div>
-
-          <div class="subtitulo btn-block" style="margin-top: 15px">Explicación de la respuesta</div>
-          <div style="text-align:justify"  [innerHTML]="Preguntas.pregunta.retroalimentacion | safeHtml">
-          </div>
-          <br />
-          <div class="row">
-            <div  style="justify-content: left;display:flex">
-              <app-default-button  [confs]="{color:'primary',titulo:'Salir'}"
-            [style]="'width:220px;margin-top: 20px;background:#FF7424'" (ButtoclClick)="SalirRetroalimentacion()"></app-default-button>
-            <app-default-button  [confs]="{color:'primary',titulo:'Continuar'}"
-            [style]="'width:220px;margin-top: 20px;margin-left:15px; background:#FF7424'" (ButtoclClick)="SiguientePregunta()"></app-default-button>
-            </div>
-          </div>
-          <br />
-      </div>
-      </ng-container>
-
     </ng-container>
   </ng-container>
   </div>

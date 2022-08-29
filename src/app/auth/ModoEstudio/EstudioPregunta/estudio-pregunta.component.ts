@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RegistroLssbExamenDetalleDTO } from 'src/app/Models/ExamenDetalleDTO';
-import { RegistroLssbExamenRespuestaDTO } from 'src/app/Models/ExamenDTO';
+import { RegistroCissExamenDetalleDTO } from 'src/app/Models/ExamenDetalleDTO';
+import { RegistroCissExamenRespuestaDTO } from 'src/app/Models/ExamenDTO';
 import { ExamenService } from 'src/app/shared/Services/Examen/examen.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class EstudioPreguntaComponent implements OnInit {
   ) { }
   public migaPan = [
     {
-      titulo: 'Simulador SSBB',
+      titulo: 'Simulador CISSP',
       urlWeb: '/',
     },
     {
@@ -44,9 +44,9 @@ export class EstudioPreguntaComponent implements OnInit {
   public HoraMostrar='';
   public MinutoMostrar='';
   public SegundoMostrar='';
-  public RegistroEnvioRespuesta:RegistroLssbExamenRespuestaDTO={
+  public RegistroEnvioRespuesta:RegistroCissExamenRespuestaDTO={
     id:0,
-    idSimuladorLssbModo:0,
+    idSimuladorCissModo:0,
     nombreExamen:'',
     tiempo:0,
     idAspNetUsers:'',
@@ -58,14 +58,14 @@ export class EstudioPreguntaComponent implements OnInit {
     respuestaDetalle: [],
     idSimuladorTipoRespuesta:0
   }
-  public DetalleRespuestaEnvio:RegistroLssbExamenDetalleDTO={
+  public DetalleRespuestaEnvio:RegistroCissExamenDetalleDTO={
     id:0,
-    idSimuladorLssbExamen:0,
-    idSimuladorLssbDominio:0,
-    idSimuladorLssbTarea:0,
-    idSimuladorLssbPregunta:0,
+    idSimuladorCissExamen:0,
+    idSimuladorCissDominio:0,
+    idSimuladorCissTarea:0,
+    idSimuladorCissPregunta:0,
     ejecutado:false,
-    idSimuladorLssbPreguntaRespuesta:0,
+    idSimuladorCissPreguntaRespuesta:0,
     puntaje:0,
     idAspNetUsers:'',
     usuario:''
@@ -105,22 +105,32 @@ export class EstudioPreguntaComponent implements OnInit {
     })
   }
   chageRadio(value: number,i: number, j: number) {
-    this.RespuestaMarcada=false;
-      if (value == 0 && this.ListaPreguntas[i].pregunta.respuesta[j] && this.ListaPreguntas[i].pregunta.idSimuladorTipoRespuesta==1) {
-        this.ListaPreguntas[i].pregunta.respuesta.forEach((x:any)=>{
-          x.respuestaSelecionada=0
-        })
-        this.RespuestaMarcada=true;
-        return 1;
-      }
-      if (value == 0 && this.ListaPreguntas[i].pregunta.respuesta[j] && this.ListaPreguntas[i].pregunta.idSimuladorTipoRespuesta==5) {
-        this.RespuestaMarcada=true
-        return 1;
-      }
-      this.RespuestaMarcada=false;
+    if (value == 0 && this.ListaPreguntas[i].pregunta.respuesta[j] && this.ListaPreguntas[i].pregunta.idSimuladorTipoRespuesta==1) {
+      this.ListaPreguntas[i].pregunta.respuesta.forEach((x:any)=>{
+        x.respuestaSelecionada=0
+      })
+      return 1;
+    }
+    if (value == 1 && this.ListaPreguntas[i].pregunta.respuesta[j] && this.ListaPreguntas[i].pregunta.idSimuladorTipoRespuesta==1) {
+      return 0;
+    }
+    if (value == 0 && this.ListaPreguntas[i].pregunta.respuesta[j] && this.ListaPreguntas[i].pregunta.idSimuladorTipoRespuesta==5) {
+      return 1;
+    }
+    if (value == 1 && this.ListaPreguntas[i].pregunta.respuesta[j] && this.ListaPreguntas[i].pregunta.idSimuladorTipoRespuesta==5) {
       return 0;
 
-  }
+    }
+    else return 0;
+}
+VerificarMarcado(i:number){
+  this.RespuestaMarcada=false
+  this.ListaPreguntas[i].pregunta.respuesta.forEach((x:any)=>{
+    if( x.respuestaSelecionada==1){
+      this.RespuestaMarcada=true
+    }
+  })
+}
   RegresarMenu(i:number){
     this.Retroalimentacion=false;
     this.PausarContador=true;
@@ -130,7 +140,7 @@ export class EstudioPreguntaComponent implements OnInit {
   EnviarRespuesta(i:number){
     this.RegistroEnvioRespuesta.respuestaDetalle=[],
     this.RegistroEnvioRespuesta.id=this.IdExamen,
-    this.RegistroEnvioRespuesta.idSimuladorLssbModo=1,
+    this.RegistroEnvioRespuesta.idSimuladorCissModo=1,
     this.RegistroEnvioRespuesta.nombreExamen='',
     this.RegistroEnvioRespuesta.tiempo=this.TiempoSegundo,
     this.RegistroEnvioRespuesta.idAspNetUsers='',
@@ -141,23 +151,24 @@ export class EstudioPreguntaComponent implements OnInit {
     this.RegistroEnvioRespuesta.idSimuladorTipoRespuesta=this.ListaPreguntas[i].pregunta.idSimuladorTipoRespuesta,
     this.ListaPreguntas[i].pregunta.respuesta.forEach((x:any)=>{
       if(x.respuestaSelecionada==1){
-        this.DetalleRespuestaEnvio.idSimuladorLssbPreguntaRespuesta=x.id;
-        this.DetalleRespuestaEnvio.id=this.ListaPreguntas[i].id;
-        this.DetalleRespuestaEnvio.idSimuladorLssbExamen=0;
-        this.DetalleRespuestaEnvio.idSimuladorLssbDominio=0;
-        this.DetalleRespuestaEnvio.idSimuladorLssbTarea=0;
-        this.DetalleRespuestaEnvio.idSimuladorLssbPregunta=this.ListaPreguntas[i].idSimuladorLssbPregunta;
-        this.DetalleRespuestaEnvio.ejecutado=false;
-        this.DetalleRespuestaEnvio.puntaje=0;
-        this.DetalleRespuestaEnvio.idAspNetUsers='';
-        this.DetalleRespuestaEnvio.usuario=''
         if(this.ContadorPreguntaActual<=this.ContadorAux){
           this.RegistroEnvioRespuesta.estadoExamen=2
         }
         else{
           this.RegistroEnvioRespuesta.estadoExamen=3
         }
-        this.RegistroEnvioRespuesta.respuestaDetalle.push(this.DetalleRespuestaEnvio)
+        this.RegistroEnvioRespuesta.respuestaDetalle.push({
+          idSimuladorCissPreguntaRespuesta:x.id,
+          id:this.ListaPreguntas[i].id,
+          idSimuladorCissExamen:0,
+          idSimuladorCissDominio:0,
+          idSimuladorCissTarea:0,
+          idSimuladorCissPregunta:this.ListaPreguntas[i].idSimuladorCissPregunta,
+          ejecutado:false,
+          puntaje:0,
+          idAspNetUsers:'',
+          usuario:''
+        })
       }
 
     })

@@ -15,7 +15,7 @@ export class ExamenReporteComponent implements OnInit {
   ) { }
   public migaPan = [
     {
-      titulo: 'Simulador SSBB',
+      titulo: 'Simulador CISSP',
       urlWeb: '/',
     },
     {

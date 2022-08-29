@@ -4,7 +4,7 @@ import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { Subject,takeUntil } from 'rxjs';
 import { AvatarDTO } from 'src/app/Models/AvatarDTO';
-import { RegistroLssbExamenDTO } from 'src/app/Models/ExamenDTO';
+import { RegistroCissExamenDTO } from 'src/app/Models/ExamenDTO';
 import { AvatarService } from 'src/app/shared/Services/Avatar/avatar.service';
 import { ExamenService } from 'src/app/shared/Services/Examen/examen.service';
 import { SessionStorageService } from 'src/app/shared/Services/session-storage.service';
@@ -53,9 +53,9 @@ export class HomeComponent implements OnInit {
     skin: '',
     topC: ''
   };
-  public MejorExamenEnvio:RegistroLssbExamenDTO={
+  public MejorExamenEnvio:RegistroCissExamenDTO={
     id:0,
-    idSimuladorLssbModo:0,
+    idSimuladorCissModo:0,
     nombreExamen:'',
     tiempo:0,
     idAspNetUsers:'',
@@ -64,8 +64,8 @@ export class HomeComponent implements OnInit {
     puntaje:0,
     desempenio:0,
     percentil:0,
-    idSimuladorLssbTarea:0,
-    idSimuladorLssbDominio:0
+    idSimuladorCissTarea:0,
+    idSimuladorCissDominio:0
   }
   public ExamenesCompletados=0;
   public ExamenesActivos=0;
@@ -89,7 +89,6 @@ export class HomeComponent implements OnInit {
   public ResultadoDominio6=0;
   public ResultadoDominio7=0;
   public ResultadoDominio8=0;
-  public ResultadoDominio9=0;
   public ContadorEntrenamiento=0;
   public ResultadosPorDominio:ResultadoExamenPorDominioDTO={
     dominio1:0,
@@ -100,7 +99,6 @@ export class HomeComponent implements OnInit {
     dominio6:0,
     dominio7:0,
     dominio8:0,
-    dominio9:0,
   }
   public Dominio:any;
 
@@ -138,7 +136,6 @@ export class HomeComponent implements OnInit {
         this.ResultadoDominio6=Math.floor(x.dominioResultado[5].desempenio);
         this.ResultadoDominio7=Math.floor(x.dominioResultado[6].desempenio);
         this.ResultadoDominio8=Math.floor(x.dominioResultado[7].desempenio);
-        this.ResultadoDominio9=Math.floor(x.dominioResultado[8].desempenio);
         this.Examen=x.examen;
         this.Puntos=Math.floor(x.examen.desempenio)
         }

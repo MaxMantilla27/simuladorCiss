@@ -1,7 +1,7 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ExamenIntentoDTO, RegistroLssbExamenDTO } from 'src/app/Models/ExamenDTO';
+import { ExamenIntentoDTO, RegistroCissExamenDTO } from 'src/app/Models/ExamenDTO';
 import { ExamenService } from 'src/app/shared/Services/Examen/examen.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class ModoExamenComponent implements OnInit {
   ) { }
   public migaPan = [
     {
-      titulo: 'Simulador SSBB',
+      titulo: 'Simulador CISSP',
       urlWeb: '/',
     },
     {
@@ -25,12 +25,12 @@ export class ModoExamenComponent implements OnInit {
       urlWeb: '/ModoExamen',
     },
   ];
-  public RegistrarExamenEnvio:RegistroLssbExamenDTO={
+  public RegistrarExamenEnvio:RegistroCissExamenDTO={
     id:0,
-    idSimuladorLssbModo:0,
+    idSimuladorCissModo:0,
     nombreExamen:'',
     tiempo:0,
-    idSimuladorLssbDominio:0
+    idSimuladorCissDominio:0
   }
   public IdExamen=0;
   public userForm :UntypedFormGroup=new UntypedFormGroup({
@@ -96,10 +96,10 @@ export class ModoExamenComponent implements OnInit {
     if(this.userForm.valid){
       this.BotonResgistrar=true;
       this.RegistrarExamenEnvio.id=0,
-      this.RegistrarExamenEnvio.idSimuladorLssbModo=3,
+      this.RegistrarExamenEnvio.idSimuladorCissModo=3,
       this.RegistrarExamenEnvio.nombreExamen=this.userForm.get('NombreSimulacion')?.value;
       this.RegistrarExamenEnvio.tiempo=0,
-      this.RegistrarExamenEnvio.idSimuladorLssbDominio=0
+      this.RegistrarExamenEnvio.idSimuladorCissDominio=0
       this._ExamenService.Registrar(this.RegistrarExamenEnvio).subscribe({
         next:(x)=>{
           this.IdExamen=x.id
@@ -138,7 +138,7 @@ export class ModoExamenComponent implements OnInit {
       next:(x)=>{
         this.SimulacionesIncompletas=x;
         this.SimulacionesIncompletas.forEach((y:any)=>{
-          if(y.idEstadoExamen!=3 && y.idSimuladorLssbModo==3){
+          if(y.idEstadoExamen!=3 && y.idSimuladorCissModo==3){
             this.ContSimulacionesIncompletas=x.length;
           }
         })
@@ -154,7 +154,7 @@ export class ModoExamenComponent implements OnInit {
         if(x!=undefined){
           this.SimulacionesCompletadas=x;
           this.SimulacionesCompletadas.forEach((y:any)=>{
-          if(y.idEstadoExamen==3 && y.idSimuladorLssbModo==3){
+          if(y.idEstadoExamen==3 && y.idSimuladorCissModo==3){
             this.ContSimulacionesCompletadas=x.length;
             this.ContEntrenamiento=this.ContEntrenamiento+1;
             this.PromedioDominio=this.PromedioDominio+y.desempenio;

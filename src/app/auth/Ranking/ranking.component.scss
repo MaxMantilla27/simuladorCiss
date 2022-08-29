@@ -26,3 +26,23 @@
   ::ng-deep .mat-progress-bar {
     border-radius: 10px;
   }
+.subTitulo{
+  font-weight:bold;
+  margin-bottom:5px;
+  color: #565759;
+  margin-top:15px;
+}
+.desempenio{
+  text-align: right;
+  color: #2B7DE9;
+  font-weight: bold;
+  font-size: 13px;
+}
+.tituloRanking{
+  border-radius: 20px 20px 20px 20px;
+  display:flex;
+  background: #FFE600;
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 12px 4px 12px 4px;
+}
