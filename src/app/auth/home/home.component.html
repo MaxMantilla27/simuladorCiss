@@ -44,21 +44,21 @@
         <div class="row">
           <div class="col-md-4">
             <div>
-              <app-pie [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos"></app-pie>
+              <app-pie style="display: flex;justify-content: center;margin-left: -25px;" [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos"></app-pie>
               <div style="text-align: center">
                 {{PuntosNivel}} / {{TotalPuntos}} puntos
               </div>
               <div style="color: #af9f9f; font-size: 13px;text-align: center;">Siguiente nivel: <b>{{SiguienteNivelUsuario}}</b></div>
             </div>
           </div>
-          <div class="col-md-4">
-            <app-dona  [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos"></app-dona>
+          <div class="col-md-4" >
+            <app-dona style="display: flex;justify-content: center;margin-left: -25px;" [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos"></app-dona>
             <div style="text-align: center">
               Puntaje promedio
             </div>
           </div>
           <div class="col-md-4">
-            <app-dona [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos" ></app-dona>
+            <app-dona style="display: flex;justify-content: center;margin-left: -25px;" [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos" ></app-dona>
             <div style="text-align: center">
               Puntaje máximo
             </div>
@@ -233,11 +233,11 @@
           </p>
       </div>
       <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
-          <div>
-            <span class="subtitulo" style="margin-bottom:15px">Dominios con mejor puntaje:</span><br />
+          <div style="margin-bottom:15px">
+            <span class="subtitulo" >Dominios con mejor puntaje:</span><br />
           </div>
             <div *ngIf="ResultadosPorDominio!=undefined">
-              <div *ngIf="ResultadosPorDominio.dominio1!=0" class="row" style="margin-bottom: 14px;">
+              <div *ngIf="ResultadosPorDominio.dominio1!=0" class="row">
                 <div class="col-11" style="top:8px;">
                     <mat-progress-bar mode="determinate" style="height: 10px;"
                       [value]="ResultadosPorDominio.dominio1">
@@ -248,7 +248,7 @@
                     <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio1}}%</h5>
                 </div>
               </div>
-              <div *ngIf="ResultadosPorDominio.dominio2!=0" class="row" style="margin-bottom: 14px;">
+              <div *ngIf="ResultadosPorDominio.dominio2!=0" class="row" >
                 <div class="col-11" style="top:8px;">
                   <mat-progress-bar mode="determinate" style="height: 10px;"
                   [value]="ResultadosPorDominio.dominio2">
@@ -259,7 +259,7 @@
                     <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio2}}%</h5>
                 </div>
               </div>
-              <div *ngIf="ResultadosPorDominio.dominio3!=0" class="row" style="margin-bottom: 14px;">
+              <div *ngIf="ResultadosPorDominio.dominio3!=0" class="row">
                 <div class="col-11" style="top:8px;">
                   <mat-progress-bar mode="determinate" style="height: 10px;"
                   [value]="ResultadosPorDominio.dominio3">
@@ -270,7 +270,7 @@
                     <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio3}}%</h5>
                 </div>
               </div>
-              <div *ngIf="ResultadosPorDominio.dominio4!=0" class="row" style="margin-bottom: 14px;">
+              <div *ngIf="ResultadosPorDominio.dominio4!=0" class="row">
                 <div class="col-11" style="top:8px;">
                   <mat-progress-bar mode="determinate" style="height: 10px;"
                   [value]="ResultadosPorDominio.dominio4">
@@ -281,7 +281,7 @@
                     <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio4}}%</h5>
                 </div>
               </div>
-              <div *ngIf="ResultadosPorDominio.dominio5!=0" class="row" style="margin-bottom: 14px;">
+              <div *ngIf="ResultadosPorDominio.dominio5!=0" class="row" >
                 <div class="col-11" style="top:8px;">
                   <mat-progress-bar mode="determinate" style="height: 10px;"
                   [value]="ResultadosPorDominio.dominio5">
@@ -292,7 +292,7 @@
                     <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio5}}%</h5>
                 </div>
               </div>
-              <div *ngIf="ResultadosPorDominio.dominio6!=0" class="row" style="margin-bottom: 14px;">
+              <div *ngIf="ResultadosPorDominio.dominio6!=0" class="row">
                 <div class="col-11" style="top:8px;">
                   <mat-progress-bar mode="determinate" style="height: 10px;"
                   [value]="ResultadosPorDominio.dominio6">
@@ -303,7 +303,7 @@
                     <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio6}}%</h5>
                 </div>
               </div>
-              <div *ngIf="ResultadosPorDominio.dominio7!=0" class="row" style="margin-bottom: 14px;">
+              <div *ngIf="ResultadosPorDominio.dominio7!=0" class="row" >
                 <div class="col-11" style="top:8px;">
                   <mat-progress-bar mode="determinate" style="height: 10px;"
                   [value]="ResultadosPorDominio.dominio7">
@@ -314,7 +314,7 @@
                     <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio7}}%</h5>
                 </div>
               </div>
-              <div *ngIf="ResultadosPorDominio.dominio8!=0" class="row" style="margin-bottom: 14px;">
+              <div *ngIf="ResultadosPorDominio.dominio8!=0" class="row" >
                 <div class="col-11" style="top:8px;">
                   <mat-progress-bar mode="determinate" style="height: 10px;"
                   [value]="ResultadosPorDominio.dominio8">

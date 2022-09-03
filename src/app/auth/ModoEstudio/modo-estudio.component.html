@@ -14,11 +14,12 @@
   </div>
 </div>
 <div class="container" style="width: 63%;">
-  <div style="padding:0.75rem 1.25rem;display: flex;">
+  <div style="padding:0.75rem 1.25rem;display: flex;justify-content: center;">
     <div  class="row" style="color:#fff;justify-content: center;">
       <div class="card CardsEstudio col-12 col-md-4" style="border-radius:20px;">
         <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
-            <div class="text-center" style="padding: 0px 12px;"><b class="card-title">Número de simulaciones totales</b></div>
+          <div style="text-align:center;">
+              <b class="card-title">Número de simulaciones</b><br><b>totales</b></div>
         </div>
         <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
           <div class="text-center"><b style="font-size:60px;">{{SimulacionesTotales}}</b></div>
@@ -26,8 +27,8 @@
     </div>
     <div class="card CardsEstudio col-12 col-md-4" style="border-radius:20px;">
         <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
-            <div class="text-center">
-                <b class="card-title">Número de simulaciones inconclusas</b>
+            <div style="text-align:center;">
+                <b class="card-title">Número de simulaciones</b><br><b> inconclusas</b>
             </div>
         </div>
         <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
@@ -37,8 +38,8 @@
     </div>
     <div class="card CardsEstudio col-12 col-md-4" style="border-radius:20px;">
         <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
-            <div class="text-center" style="padding: 12px 0px;">
-                <b class="card-title">Tiempo de estudio total</b>
+            <div style="text-align:center; ">
+                <b class="card-title">Tiempo de estudio</b><br><b> total</b>
             </div>
         </div>
         <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
@@ -48,10 +49,11 @@
       </div>
     </div>
   </div>
-  <div *ngIf="ResultadosPorDominio!=undefined" class="titulo" style="font-weight: 400 !important;">
-    Mejor puntaje por dominios
-    <br>
-    <div class="row" style="margin-bottom: 10px">
+  <div *ngIf="ResultadosPorDominio!=undefined" class="titulo" style="font-weight: 400 !important;margin-top: 15px;margin-bottom: 15px;">
+    <div style="margin-bottom: 15px">
+      Mejor puntaje por dominios
+    </div>
+    <div class="row" style="margin-bottom: 15px;">
       <div class="col-12 col-md-3">
         <div style="display: flex;justify-content: center;margin-left: -25px;">
           <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio1"></app-dona-puntos>
@@ -173,7 +175,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento1.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;" >
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
                       Seguridad y gestión de riesgos.
                     </div>
                   </div>
@@ -183,7 +185,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento1.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;" >
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
                       Seguridad y gestión de riesgos.
                     </div>
                   </div>
@@ -194,7 +196,7 @@
                     <div class="col-3">
                       <img  style="height: 50px;" src="../../../assets/iconos/CISSP-Tento5.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
                       Gestión de identidad y acceso (IAM).
                     </div>
                   </div>
@@ -204,7 +206,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento5.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
                       Gestión de identidad y acceso (IAM).
                     </div>
                   </div>
@@ -217,7 +219,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento2.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
                       Seguridad de activos.
                     </div>
                   </div>
@@ -227,7 +229,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento2.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
                       Seguridad de activos.
                     </div>
                   </div>
@@ -238,7 +240,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento6.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
                       Evaluación de seguridad y pruebas.
                     </div>
                   </div>
@@ -248,7 +250,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento6.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
                       Evaluación de seguridad y pruebas.
                     </div>
                   </div>
@@ -260,7 +262,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento3.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
                       Arquitectura de seguridad e ingeniería.
                     </div>
                   </div>
@@ -270,7 +272,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento3.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
                       Arquitectura de seguridad e ingeniería.
                     </div>
                   </div>
@@ -281,7 +283,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento7.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
                       Operaciones de seguridad.
                     </div>
                   </div>
@@ -291,7 +293,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento7.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
                       Operaciones de seguridad.
                     </div>
                   </div>
@@ -303,7 +305,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento4.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
                       Comunicación y seguridad de red.
                     </div>
                   </div>
@@ -313,7 +315,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento4.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
                       Comunicación y seguridad de red.
                     </div>
                   </div>
@@ -324,7 +326,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento8.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
                       Seguridad de desarrollo de software.
                     </div>
                   </div>
@@ -334,7 +336,7 @@
                     <div class="col-3">
                       <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento8.svg">
                     </div>
-                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;">
+                    <div class="col-9" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
                       Seguridad de desarrollo de software.
                     </div>
                   </div>
