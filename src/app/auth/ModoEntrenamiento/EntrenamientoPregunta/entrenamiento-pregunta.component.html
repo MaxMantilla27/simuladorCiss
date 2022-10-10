@@ -1,5 +1,5 @@
-<div class="row" style="background: white">
-  <div class="container" style="width: 63%;">
+<div style="background: white">
+  <div class="container" style="width: 80%;">
     <div style="padding:0.75rem 1.25rem">
       <div class="container">
         <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
@@ -14,8 +14,8 @@
   </div>
 </div>
 <ng-container *ngIf="DatosExamen!=undefined">
-  <div class="container" style="width: 63%;">
-    <div style="padding:0.75rem 1.25rem;">
+  <div class="container" style="width: 80%; padding-top: 40px; padding-bottom: 40px;">
+    <div>
       <div id="datos" style="display: block">
         <div class="row">
           <div class="col-8 col-sm-9 ">
@@ -39,7 +39,7 @@
           <div class="col-4 col-sm-3 ">
               <div class="card" style="border-radius: 20px; background: #0aaff1;border:solid 0px">
                   <div class="card-body" style="text-align: center; padding: 10px 0px;">
-                      <b style="color: white; font-size: 12px; display: flex; align-items: center; justify-content: center;"><i class="fa fa-play" style="font-size: 5px;margin-right: 5px;"></i> TIEMPO UTILIZADO</b>
+                      <b style="color: white; font-size: 20px; display: flex; align-items: center; justify-content: center;"><i class="fa fa-play" style="font-size: 5px;margin-right: 5px;"></i> TIEMPO UTILIZADO</b>
                       <div style=" color: white; font-size: 90px; font-weight: 600; margin: -10px 0px;" id="TiempoMinuto">{{MinutoMostrar}}</div>
                       <b style="color: #fff000;">MINUTOS</b>
                   </div>
@@ -58,9 +58,9 @@
               <span aria-hidden="true">&times;</span>
           </a>
       </div>
-      <span class="btn-block card-text" style="border-bottom: 1px solid #00000021; color:#223257">
+      <span class="btn-block card-text" style="border-bottom: 1px solid #00000021; color:#223257; display: block; padding-bottom: 10px;">
           <img src="../../../../assets/iconos/question.svg" style="height:20px;" />
-          <span style="color: #878787; font-weight: 600; font-size: 20px;">
+          <span style="color: #878787; font-weight: 600; font-size: 25px;">
             Pregunta {{ContadorPreguntaActual}} de {{CantidadTotalPreguntas}}
             <span id="tituloRetroalimentacion"></span>
           </span>
@@ -89,7 +89,7 @@
                 <ng-container *ngFor="let Respuesta of Preguntas.pregunta.respuesta; let j=index">
                   <div style="display: flex;align-items: flex-start;font-size: 15px;color: black;text-align: justify;margin-bottom: 10px;">
                     <div (click)="Respuesta.respuestaSelecionada=chageRadio(Respuesta.respuestaSelecionada,i,j)" (click)="VerificarMarcado(i)">
-                    <i class="material-icons radioFormRpta" [style]="{'color':Respuesta.respuestaSelecionada==1?'green':'#ededed'}">
+                    <i class="material-icons radioFormRpta" style="font-size: 22px;" [style]="{'color':Respuesta.respuestaSelecionada==1?'green':'#ededed'}">
                     <ng-container *ngIf="Respuesta.respuestaSelecionada==1">check_box</ng-container>
                     <ng-container *ngIf="Respuesta.respuestaSelecionada!=1">check_box_outline_blank</ng-container>
                     </i>
@@ -138,25 +138,23 @@
                       ¡La respuesta que marcaste es <strong style="text-decoration: underline;">incorrecta</strong>!
                     </div>
                     <div>
-                      ¡Ánimo! la siguiente vez lo haras mucho mejor
+                      ¡Ánimo! La siguiente vez lo harás mucho mejor
                     </div>
                   </div>
                 </div>
-
             </div>
               <br />
-
-              <div class="subtitulo btn-block" style=" margin-top: 3px;">
+              <div class="subtitulo btn-block" style=" margin-top: 3px; margin-bottom: 10px;">
                 Respuesta correcta:
               </div>
-              <div id="RespuestaCorrecta" style="border: 1px solid rgb(199 255 186); padding: 10px; border-radius: 5px; padding-left: 50px; ">
+              <div id="RespuestaCorrecta" style="border: 1px solid rgb(199 255 186); padding: 10px; border-radius: 5px; padding-left: 50px; background: #FFFDEE;">
                 <ng-container *ngFor="let Respuesta of Preguntas.pregunta.respuesta">
                   <div *ngIf="Respuesta.valor==1" style="text-align: justify" [innerHTML]="Respuesta.respuesta | safeHtml">
                   </div>
                 </ng-container>
               </div>
 
-              <div class="subtitulo btn-block" style="margin-top: 15px">Explicación de la respuesta</div>
+              <div class="subtitulo btn-block" style="margin-top: 15px; margin-bottom: 10px;">Explicación de la respuesta</div>
               <div *ngIf="Preguntas.pregunta.preguntaImagen.length!=0">
                 <ng-container *ngFor="let Imagen of Preguntas.pregunta.preguntaImagen">
                   <div  *ngIf="Imagen.tipo=='R'">
@@ -178,14 +176,12 @@
               <br />
           </div>
           </ng-container>
-
         </ng-container>
       </ng-container>
     </div>
   </div>
   <br>
 </div>
-
 </ng-container>
 <ng-container *ngIf="DatosExamen==undefined">
   <div class="container" style="width: 63%;">

@@ -29,6 +29,8 @@
 }
 .CardModosDisponibles{
   border-radius: 20px;
+  background-color: #f2f5fa !important;
+  border: none !important;
 }
 .subtitulo {
   font-size: 16px;
@@ -49,5 +51,24 @@
 ::ng-deep .mat-progress-bar {
   border-radius: 10px;
 }
-
-
+.item-leyenda-barras{
+  font-size: 14px;
+  color: #878787;
+}
+.item-leyenda-dona{
+  text-align: center;
+  color: #878787;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+.item-leyenda-dona-principal{
+  color: #af9f9f;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+.item-nota{
+  margin-top: 2%;
+  font-size: 15px;
+  color: #878787;
+  text-align: justify;
+}

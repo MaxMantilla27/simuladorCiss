@@ -1,7 +1,7 @@
 .titulo {
   font-size: 30px;
   color: #4a4a49 !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   text-align: center;
 }
 .subtitulo {
@@ -9,3 +9,14 @@
   color: #878787!important;
   font-weight: 500!important;
 }
+.boton-resultado{
+  background: #ff7523;
+  color: #fff;
+  font-weight: 600;
+  width: 100%;
+}
+.boton-resultado:hover{
+  color: #fff;
+  text-decoration: underline;
+}
+

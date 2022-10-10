@@ -1,5 +1,5 @@
-<div class="row" style="background: white">
-  <div class="container" style="width: 63%;">
+<div style="background: white">
+  <div class="container" style="width: 80%;">
     <div style="padding:0.75rem 1.25rem">
       <div class="container">
         <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
@@ -14,8 +14,8 @@
   </div>
 </div>
 <ng-container *ngIf="DatosExamen!=undefined">
-  <div class="container" style="width: 63%;">
-    <div style="padding:0.75rem 1.25rem;">
+  <div class="container" style="width: 80%; padding-top: 40px; padding-bottom: 40px;">
+    <div>
       <div id="datos" style="display: block">
         <div class="row">
           <div class="col-12">
@@ -49,9 +49,9 @@
               <span aria-hidden="true">&times;</span>
           </a>
       </div>
-      <span class="btn-block card-text" style="border-bottom: 1px solid #00000021; color:#223257">
+      <span class="btn-block card-text" style="border-bottom: 1px solid #00000021; color:#223257; display: block; padding-bottom: 10px;">
           <img src="../../../../assets/iconos/question.svg" style="height:20px;" />
-          <span style="color: #878787; font-weight: 600; font-size: 20px;">
+          <span style="color: #878787; font-weight: 600; font-size: 25px;">
             Pregunta {{ContadorPreguntaActual}} de {{CantidadTotalPreguntas}}
           </span>
       </span>
@@ -60,7 +60,7 @@
           <ng-container >
             <div class="" id="Pregunta">
               <br />
-              <div class="Enunciado" style="text-align: justify"  [innerHTML]="Preguntas.pregunta.enunciado | safeHtml">
+              <div class="Enunciado" [innerHTML]="Preguntas.pregunta.enunciado | safeHtml">
               </div>
               <div *ngIf="Preguntas.pregunta.preguntaImagen.length!=0">
                 <ng-container *ngFor="let Imagen of Preguntas.pregunta.preguntaImagen">
@@ -78,7 +78,7 @@
               <div id="Alternativas">
                 <ng-container *ngFor="let Respuesta of Preguntas.pregunta.respuesta; let j=index">
                   <div *ngIf="Respuesta.respuestaSelecionada==1 && Respuesta.correcto=='false'" >
-                    <div style="display: flex;align-items: flex-start;font-size: 15px;color: black;text-align: justify;margin-bottom: 10px;margin-right: 5%;">
+                    <div style="display: flex;align-items: flex-start;font-size: 16px;color: black;margin-bottom: 10px;margin-right: 1%;">
                       <div>
                       <i class="material-icons radioFormRpta" [style]="{'color':Respuesta.respuestaSelecionada==1?'green':'#ededed'}">
                       <ng-container *ngIf="Respuesta.respuestaSelecionada==1">check_box</ng-container>
@@ -94,8 +94,8 @@
                       </div>
                     </div>
                   </div>
-                  <div *ngIf="Respuesta.respuestaSelecionada==1 && Respuesta.correcto=='true'" class="RespuestaCorrecta">
-                    <div style="display: flex;align-items: flex-start;font-size: 15px;color: black;text-align: justify;margin-bottom: 10px;margin-right: 5%;">
+                  <div *ngIf="Respuesta.respuestaSelecionada==1 && Respuesta.correcto=='true'" class="RespuestaCorrecta" style="padding-left: 9px; margin-bottom: 7px;">
+                    <div style="display: flex;align-items: flex-start;font-size: 16px;color: black;margin-bottom: 10px;margin-right: 1%;">
                       <div>
                       <i class="material-icons radioFormRpta" [style]="{'color':Respuesta.respuestaSelecionada==1?'green':'#ededed'}">
                       <ng-container *ngIf="Respuesta.respuestaSelecionada==1">check_box</ng-container>
@@ -111,8 +111,8 @@
                       </div>
                     </div>
                   </div>
-                  <div *ngIf="Respuesta.respuestaSelecionada==0 && Respuesta.correcto=='true'" class="RespuestaCorrecta">
-                    <div style="display: flex;align-items: flex-start;font-size: 15px;color: black;text-align: justify;margin-bottom: 10px;">
+                  <div *ngIf="Respuesta.respuestaSelecionada==0 && Respuesta.correcto=='true'" class="RespuestaCorrecta" style="padding-left: 9px; margin-bottom: 7px;">
+                    <div style="display: flex;align-items: flex-start;font-size: 16px;color: black;margin-bottom: 10px;">
                       <div>
                       <i class="material-icons radioFormRpta" [style]="{'color':Respuesta.respuestaSelecionada==1?'green':'#ededed'}">
                       <ng-container *ngIf="Respuesta.respuestaSelecionada==1">check_box</ng-container>
@@ -124,7 +124,7 @@
                     </div>
                   </div>
                   <div *ngIf="Respuesta.respuestaSelecionada==0 && Respuesta.correcto=='false'">
-                    <div style="display: flex;align-items: flex-start;font-size: 15px;color: black;text-align: justify;margin-bottom: 10px;">
+                    <div style="display: flex;align-items: flex-start;font-size: 16px;color: black;margin-bottom: 10px;">
                       <div>
                       <i class="material-icons radioFormRpta" [style]="{'color':Respuesta.respuestaSelecionada==1?'green':'#ededed'}">
                       <ng-container *ngIf="Respuesta.respuestaSelecionada==1">check_box</ng-container>
@@ -147,6 +147,7 @@
                 [style]="'width:220px;margin-top: 20px;margin-left:15px; background:#FF7424'" (ButtoclClick)="SiguientePregunta()" ></app-default-button>
                 </div>
               </div>
+              <br />
             </div>
           </ng-container>
 
@@ -154,7 +155,6 @@
       </ng-container>
       </div>
     </div>
-    <br>
   </div>
 
 </ng-container>

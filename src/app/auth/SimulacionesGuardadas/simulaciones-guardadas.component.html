@@ -1,6 +1,6 @@
-<div class="row" style="background: white">
-  <div class="container" style="width: 63%;">
-    <div style="padding:0.75rem 1.25rem">
+<div style="background: white">
+  <div class="container" style="width: 80%;">
+    <div style="padding-top: 12px; padding-bottom: 12px;">
       <div class="container">
         <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
           <app-miga-pan [items]="migaPan"></app-miga-pan>
@@ -8,26 +8,26 @@
       </div>
       <div style="display:flex">
         <img src="../../../assets/iconos/save.svg" style="height: 35px; margin-right: 10px;" />
-        <div class="titulo">SIMULACIONES GUARDADAS </div>
+        <div class="titulo">Simulaciones Guardadas</div>
        </div>
     </div>
   </div>
 </div>
 <br>
-<div class="container" style="width: 63%;">
+<div class="container" style="width: 80%; padding-top: 40px; padding-bottom: 40px">
   <!-- Simulaciones guardadas Modo Examen -->
   <div class="card" style="padding:30px;border-radius:20px;">
     <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
       <div class="float-left">
-        <div class="subtitulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/ModoExamenSelect.svg" style="height: 30px;" />
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 10px;"><img src="../../../assets/iconos/ModoExamenSelect.svg" style="height: 30px;" />
           Modo Examen
         </div>
       </div>
     </div>
     <div *ngIf="ContExamenIncompleto!=0" class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
       <ng-container *ngFor="let item of SimulacionesIncompletas">
-        <div  *ngIf="item.idSimuladorCissModo==3" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
-          <div class="row" style="margin-top: 20px;margin-left: 0px;">
+        <div  *ngIf="item.idSimuladorCissModo==3" class="container" style="border-bottom: 1px solid #E4E4E4;margin-bottom: 20px;padding-bottom: 25px;">
+          <div class="row" style="margin-top: 20px;margin-left: 0px; color: #4a4a49; margin-bottom: 10px;">
             <div class="col-8">
               <div>
                 <b>Nombre: </b>  {{item.nombreExamen}}
@@ -39,7 +39,7 @@
             <div class="col-4">
               <div style="justify-content: center;display:flex">
                 <app-default-button  [confs]="{color:'primary',titulo:'Continuar'}"
-              [style]="'width:170px;margin-top: 20px;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenPregunta/'+item.id" ></app-default-button>
+              [style]="'width:170px;margin-top: 5px;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenPregunta/'+item.id" ></app-default-button>
               </div>
             </div>
           </div>
@@ -58,15 +58,15 @@
   <div class="card" style="padding:30px;border-radius:20px;">
     <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
       <div class="float-left">
-        <div class="subtitulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height: 30px;" />
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 10px;"><img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height: 30px;" />
           Modo entrenamiento
         </div>
       </div>
     </div>
     <div *ngIf="ContEntrenamientoIncompleto!=0" class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
       <ng-container *ngFor="let item of SimulacionesIncompletas">
-        <div *ngIf="item.idSimuladorCissModo==2" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;" >
-          <div class="row" style="margin-top: 20px;margin-left: 0px;">
+        <div *ngIf="item.idSimuladorCissModo==2" class="container" style="border-bottom: 1px solid #E4E4E4;margin-bottom: 20px;padding-bottom: 25px;" >
+          <div class="row" style="margin-top: 20px;margin-left: 0px; color: #4a4a49;">
             <div class="col-8">
               <div>
                 <b>Nombre: </b>  {{item.nombreExamen}}
@@ -82,7 +82,7 @@
               </div>
             </div>
           </div>
-          <mat-progress-bar mode="determinate"
+          <mat-progress-bar mode="determinate" style="height: 10px;"
             [value]="(item.preguntasRespondidas/(item.preguntasRespondidas+item.preguntasPendientes))*100">
           </mat-progress-bar>
         </div>
@@ -97,15 +97,15 @@
   <div class="card" style="padding:30px;border-radius:20px;">
     <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
       <div class="float-left">
-        <div class="subtitulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height: 30px;" />
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 10px;"><img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height: 30px;" />
           Modo estudio
         </div>
       </div>
     </div>
     <div *ngIf="ContEstudioIncompleto!=0" class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
       <ng-container *ngFor="let item of SimulacionesIncompletas">
-        <div  *ngIf="item.idSimuladorCissModo==1" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
-          <div class="row" style="margin-top: 20px;margin-left: 0px;">
+        <div  *ngIf="item.idSimuladorCissModo==1" class="container" style="border-bottom: 1px solid #E4E4E4;margin-bottom: 20px; padding-bottom: 25px;">
+          <div class="row" style="margin-top: 20px;margin-left: 0px; color: #4a4a49;">
             <div class="col-8">
               <div>
                 <b>Nombre: </b>  {{item.nombreExamen}}
@@ -121,7 +121,7 @@
               </div>
             </div>
           </div>
-          <mat-progress-bar mode="determinate"
+          <mat-progress-bar mode="determinate" style="height: 10px;"
             [value]="(item.preguntasRespondidas/(item.preguntasRespondidas+item.preguntasPendientes))*100">
           </mat-progress-bar>
         </div>
@@ -131,6 +131,5 @@
       No tiene simulaciones guardadas en modo estudio.
     </div>
   </div>
-
+<br>
 </div>
-

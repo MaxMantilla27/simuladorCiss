@@ -6,9 +6,8 @@
 }
 .Enunciado{
   color: #4a4a49;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 20px;
-  text-align: justify;
 }
 .Seleccion{
   border-bottom: 1px solid #00000021;
@@ -22,4 +21,9 @@
   font-size: 18px;
   color: #878787;
   font-weight: 700;
+}
+.titulo {
+  font-size: 30px;
+  color: #4a4a49 !important;
+  font-weight: 700 !important;
 }

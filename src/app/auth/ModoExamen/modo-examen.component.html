@@ -1,6 +1,6 @@
-<div class="row" style="background: white">
-  <div class="container" style="width: 63%;">
-    <div style="padding:0.75rem 1.25rem">
+<div style="background: white">
+  <div class="container" style="width: 80%;">
+    <div style="padding-top: 12px; padding-bottom: 12px;">
       <div class="container">
         <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
           <app-miga-pan [items]="migaPan"></app-miga-pan>
@@ -13,43 +13,43 @@
     </div>
   </div>
 </div>
-<div class="container" style="width: 63%;">
-  <div style="padding:0.75rem 1.25rem;display: flex;justify-content: center;">
+<div class="container" style="width: 80%; padding-bottom: 40px; padding-top: 40px;">
+  <div style="justify-content: center; padding-top: 20px; padding-bottom: 25px;">
     <div  class="row" style="color:#fff;justify-content: center;">
-      <div class="card CardsEstudio col-12 col-md-4" style="border-radius:20px;">
-        <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
+      <div class="card CardsEstudio col-md-4" style="background: #f2f5fa; border: none;">
+        <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
           <div style="text-align:center;">
               <b class="card-title">Número de simulaciones</b><br><b>totales</b></div>
         </div>
-        <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+        <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
           <div class="text-center"><b style="font-size:60px;">{{SimulacionesTotales}}</b></div>
         </div>
     </div>
-    <div class="card CardsEstudio col-12 col-md-4" style="border-radius:20px;">
-        <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
+    <div class="card CardsEstudio col-md-4" style="background: #f2f5fa; border: none;">
+        <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
             <div style="text-align:center;">
                 <b class="card-title">Número de simulaciones</b><br><b> inconclusas</b>
             </div>
         </div>
-        <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+        <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
           <div class="text-center"><b style="font-size:60px;">{{SimulacionesInconclusas}}</b></div>
 
         </div>
     </div>
-    <div class="card CardsEstudio col-12 col-md-4" style="border-radius:20px;">
-        <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
+    <div class="card CardsEstudio col-md-4" style="background: #f2f5fa; border: none;">
+        <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
             <div style="text-align:center; ">
                 <b class="card-title">Tiempo de estudio</b><br><b> total</b>
             </div>
         </div>
-        <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+        <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
             <div class="text-center"><b style="font-size:60px;">{{HoraMostrar}}:{{MinutoMostrar}}</b></div>
-            <div class="text-center"><span class="card-text">hh/mm</span></div>
+            <div class="text-center"><span class="card-text">XX horas / XX minutos</span></div>
         </div>
       </div>
     </div>
   </div>
-  <div class="titulo" style="font-weight: 400 !important;">
+  <div class="titulo" style="padding-top: 20px; padding-bottom: 15px;">
     Ficha de resultados de Prueba
     <div>
       <div class="container" style="text-align: left;border-bottom: 1px solid #E4E4E4 ; margin-bottom: 5px;">
@@ -67,117 +67,133 @@
         </div>
       </div>
     </div>
-    <div class="row" *ngIf="ResultadosPorDominio!=undefined" style="margin-bottom: 10px;">
-      <div class="row" style="margin-bottom: 10px">
+    <div *ngIf="ResultadosPorDominio!=undefined" class="titulo" style="font-weight: 400 !important;margin-bottom: 10px;">
+      <div class="row">
         <div class="col-12 col-md-3">
-          <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <div style="display: flex;justify-content: center;">
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio1"></app-dona-puntos>
           </div>
-          <div class="subtitulo">
-            Dominio 1:
-          </div>
-          <div style="font-size: 13px">
-            Seguridad y gestión de riesgos.
+          <div class="item-leyenda-dona">
+            <div class="subtitulo">
+              Dominio 1:
+            </div>
+            <div style="font-size: 14px">
+              Seguridad y gestión de riesgos.
+            </div>
           </div>
         </div>
         <div class="col-12 col-md-3">
-          <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <div style="display: flex;justify-content: center;">
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio2"></app-dona-puntos>
           </div>
-          <div class="subtitulo">
-            Dominio 2:
-          </div>
-          <div style="font-size: 13px">
-            Seguridad de activos.
+          <div class="item-leyenda-dona">
+            <div class="subtitulo">
+              Dominio 2:
+            </div>
+            <div style="font-size: 14px">
+              Seguridad de activos.
+            </div>
           </div>
         </div>
         <div class="col-12 col-md-3">
-          <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <div style="display: flex;justify-content: center;">
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio3"></app-dona-puntos>
           </div>
-          <div class="subtitulo">
-            Dominio 3:
-          </div>
-          <div style="font-size: 13px">
-            Arquitectura de seguridad e ingeniería.
+          <div class="item-leyenda-dona">
+            <div class="subtitulo">
+              Dominio 3:
+            </div>
+            <div style="font-size: 14px">
+              Arquitectura de seguridad e ingeniería.
+            </div>
           </div>
         </div>
         <div class="col-12 col-md-3">
-          <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <div style="display: flex;justify-content: center;">
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio4"></app-dona-puntos>
           </div>
-          <div class="subtitulo">
-            Dominio 4:
-          </div>
-          <div style="font-size: 13px">
-            Comunicación y seguridad de red.
+          <div class="item-leyenda-dona">
+            <div class="subtitulo">
+              Dominio 4:
+            </div>
+            <div style="font-size: 14px">
+              Comunicación y seguridad de red.
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-12 col-md-3">
-          <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <div style="display: flex;justify-content: center;">
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio5"></app-dona-puntos>
           </div>
-          <div class="subtitulo">
-            Dominio 5:
-          </div>
-          <div style="font-size: 13px">
-            Gestión de identidad y acceso (IAM).
+          <div class="item-leyenda-dona">
+            <div class="subtitulo">
+              Dominio 5:
+            </div>
+            <div style="font-size: 14px">
+              Gestión de identidad y acceso (IAM).
+            </div>
           </div>
         </div>
         <div class="col-12 col-md-3">
-          <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <div style="display: flex;justify-content: center;">
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio6"></app-dona-puntos>
           </div>
-          <div class="subtitulo">
-            Dominio 6:
-          </div>
-          <div style="font-size: 13px">
-            Evaluación de seguridad y pruebas.
+          <div class="item-leyenda-dona">
+            <div class="subtitulo">
+              Dominio 6:
+            </div>
+            <div style="font-size: 14px">
+              Evaluación de seguridad y pruebas.
+            </div>
           </div>
         </div>
         <div class="col-12 col-md-3">
-          <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <div style="display: flex;justify-content: center;">
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio7"></app-dona-puntos>
           </div>
-          <div class="subtitulo">
-            Dominio 7:
-          </div>
-          <div style="font-size: 13px">
-            Operaciones de seguridad.
+          <div class="item-leyenda-dona">
+            <div class="subtitulo">
+              Dominio 7:
+            </div>
+            <div style="font-size: 14px">
+              Operaciones de seguridad.
+            </div>
           </div>
         </div>
         <div class="col-12 col-md-3">
-          <div style="display: flex;justify-content: center;margin-left: -25px;">
+          <div style="display: flex;justify-content: center;">
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio8"></app-dona-puntos>
           </div>
-          <div class="subtitulo">
-            Dominio 8:
-          </div>
-          <div style="font-size: 13px">
-            Seguridad de desarrollo de software.
+          <div class="item-leyenda-dona">
+            <div class="subtitulo">
+              Dominio 8:
+            </div>
+            <div style="font-size: 14px">
+              Seguridad de desarrollo de software.
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div style="padding: 0.75rem 1.25rem; border-top: 1px solid #cececf ">
+    <div style="padding-top: 20px; padding-bottom: 20px; border-top: 1px solid #cececf ">
       <div class="row">
-        <div class="col-6">
+        <div class="col-md-6">
           <div class="card" style="padding:10px;">
             <div class="row">
-                <span class="subtitulo col-7" style="font-size: 14px; padding-right: 0px">Número de intentos:</span>
-                <div class="col-5">
+                <span class="subtitulo col-md-7" style="font-size: 16px; padding-top: 10px">Número de intentos:</span>
+                <div class="col-md-5">
                   {{SimulacionesTotales+SimulacionesInconclusas}}
                 </div>
             </div>
         </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
           <div class="card" style="padding:10px;">
             <div class="row">
-                <span class="subtitulo col-7" style="font-size: 14px; padding-right: 0px">% de intentos aprobados:</span>
-                <div class="col-5">
+                <span class="subtitulo col-md-7" style="font-size: 16px; padding-top: 10px">Porcentaje de intentos aprobados:</span>
+                <div class="col-md-5">
                   {{PorcentajeIntentosAprobados}} %
                 </div>
             </div>
@@ -190,16 +206,16 @@
 
   <!-- Crear simulación de examen -->
   <div class="card" style="padding:30px;border-radius:20px;">
-    <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px;">
+    <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding-bottom: 10px;">
       <div class="titulo" style="text-align: left"><img src="../../../assets/iconos/New.svg" style="height: 40px;" />
         Crear simulación de examen
       </div>
     </div>
     <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
-      <div class="subtitulo">
+      <div class="subtitulo" style="padding-bottom: 5px;">
         Instrucciones:
       </div>
-      <div style="text-align: justify">
+      <div>
         En este modo se te presentarán 250 preguntas, con la estructura del examen del Certified Information Systems Security Professional – CISSP. Sólo al final se te mostrará tu puntaje en el examen. Recuerda que para aprobar necesitarás obtener como mínimo 700 puntos de 1000 puntos posibles.
       </div>
       <form (submit)="RegistrarExamen()" [formGroup]="userForm">
@@ -223,10 +239,10 @@
   </div>
   <br>
   <div class="card" style="padding:30px;border-radius:20px;">
-    <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px">
-        <h2 class="titulo" style=" display: flex;">
+    <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; margin-bottom: 25px">
+        <h2 class="titulo" style=" display: inline-flex;">
             <img src="../../../assets/iconos/graphic.svg" style="height: 40px; margin-right: 10px;" />
-            <div style="overflow-wrap: anywhere;text-align: justify;">
+            <div style="overflow-wrap: anywhere;text-align: left;">
                 Gráfica de comparación entre tus puntajes por intento y el puntaje promedio global por intento.
             </div>
         </h2>
@@ -249,34 +265,38 @@
   <div class="card" style="padding:30px;border-radius:20px;">
     <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
       <div class="float-left">
-        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/check2.svg" style="height: 40px;" />
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 10px;"><img src="../../../assets/iconos/check2.svg" style="height: 40px;" />
           Simulaciones completadas
         </div>
         <div *ngIf="ContSimulacionesCompletadas!=0">
           <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
             <ng-container *ngFor="let item of SimulacionesCompletadas">
-              <div  *ngIf="item.idSimuladorCissModo==3" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
-                <div class="row" style="margin-top: 20px;margin-left: 0px;">
-                  <div class="col-9">
-                    <div>
-                      <b>Nombre: </b>  {{item.nombreExamen}}
-                    </div>
-                    <div>
-                      <b>Fecha de conclusión:</b> {{item.fechaModificacion|date: 'dd/MM/yyyy'}} - {{item.fechaModificacion| date: 'HH:mm'}}
-                    </div>
-                    <div style="display: flex">
-                      <div style="justify-content: center;display:flex; margin-right: 10px;">
-                        <app-default-button  [confs]="{color:'primary',titulo:'Ver resultados'}"
-                      [style]="'width:170px;margin-top: 20px;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenReporte/'+item.id" ></app-default-button>
+              <div  *ngIf="item.idSimuladorCissModo==3" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 20px;">
+                <div class="row texto-contenido " style="margin-top: 20px;margin-left: 0px;">
+                  <div class="col-md-4">
+                    <div style="padding-top: 10px; padding-bottom: 10px;">
+                      <div>
+                        <b>Nombre: </b>  {{item.nombreExamen}}
                       </div>
-                      <div style="justify-content: center;display:flex">
-                        <app-default-button  [confs]="{color:'primary',titulo:'Revisar preguntas'}"
-                      [style]="'width:170px;margin-top: 20px;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenRespuestaPregunta/'+item.id" ></app-default-button>
+                      <div>
+                        <b>Fecha de conclusión:</b> {{item.fechaModificacion|date: 'dd/MM/yyyy'}} - {{item.fechaModificacion| date: 'HH:mm'}}
                       </div>
                     </div>
                   </div>
-                  <div class="col-3">
+                  <div class="col-md-3">
                     <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
+                  </div>
+                  <div class="col-md-3">
+                    <div>
+                      <div style="padding-top: 10px;">
+                        <app-default-button  [confs]="{color:'primary',titulo:'Ver resultados'}"
+                      [style]="'width:100%;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenReporte/'+item.id" ></app-default-button>
+                      </div>
+                      <div>
+                        <app-default-button  [confs]="{color:'primary',titulo:'Revisar preguntas'}"
+                      [style]="'width:100%;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenRespuestaPregunta/'+item.id" ></app-default-button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -299,26 +319,26 @@
   <div class="card" style="padding:30px;border-radius:20px;">
     <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
       <div class="float-left">
-        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/question_2.svg" style="height: 40px;" />
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 10px;"><img src="../../../assets/iconos/question_2.svg" style="height: 40px;" />
           Simulaciones incompletas
         </div>
         <div *ngIf="ContSimulacionesIncompletas!=0">
           <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
             <ng-container *ngFor="let item of SimulacionesIncompletas">
-              <div  *ngIf="item.idSimuladorCissModo==3" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
-                <div class="row" style="margin-top: 20px;margin-left: 0px;">
-                  <div class="col-6">
+              <div  *ngIf="item.idSimuladorCissModo==3" class="container" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 20px;">
+                <div class="row texto-contenido " style="margin-top: 20px;margin-left: 0px;">
+                  <div class="col-md-6">
                     <div>
                       <b>Nombre: </b>  {{item.nombreExamen}}
                     </div>
                     <div>
-                      <b>Fecha ultimo cambio: </b>  {{item.fechaModificacion|date: 'dd/MM/yyyy'}} - {{item.fechaModificacion| date: 'HH:mm'}}
+                      <b>Fecha último cambio: </b>  {{item.fechaModificacion|date: 'dd/MM/yyyy'}} - {{item.fechaModificacion| date: 'HH:mm'}}
                     </div>
                     <div>
                       <b>Preguntas Respondidas: </b>  {{item.preguntasRespondidas}} de {{item.preguntasRespondidas+item.preguntasPendientes}}
                     </div>
                   </div>
-                  <div class="col-6">
+                  <div class="col-md-6">
                     <mat-progress-bar mode="determinate" style="height: 20px;"
                   [value]="(item.preguntasRespondidas/(item.preguntasRespondidas+item.preguntasPendientes))*100">
                 </mat-progress-bar>
@@ -352,8 +372,13 @@
     <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
     </div>
   </div>
-  <br>
+<br>
 </div>
+
+
+
+
+
 
 
 

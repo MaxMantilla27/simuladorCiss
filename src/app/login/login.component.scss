@@ -114,7 +114,7 @@
 }
 .Recordar label .mat-checkbox-label{
   white-space: normal !important;
-  font-size: 9px;
+  font-size: 12px;
   line-height: 12px;
   text-align: left;
   color: #ababab;
@@ -129,4 +129,19 @@
   left: calc(50% - 200px);
   width: 400px;
   z-index: 10000000;
+}
+.fieldOld
+  .mat-form-field.mat-form-field-appearance-outline
+  > div.mat-form-field-wrapper
+  > div.mat-form-field-flex
+  > .mat-form-field-outline {
+  .mat-form-field-outline-start {
+    border-radius: 0px;
+  }
+  .mat-form-field-outline-gap {
+
+  }
+  .mat-form-field-outline-end {
+
+  }
 }

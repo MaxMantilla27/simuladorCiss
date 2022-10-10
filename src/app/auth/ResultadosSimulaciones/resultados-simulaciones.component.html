@@ -1,6 +1,6 @@
-<div class="row" style="background: white">
-  <div class="container" style="width: 63%;">
-    <div style="padding:0.75rem 1.25rem">
+<div style="background: white">
+  <div class="container" style="width: 80%;">
+    <div style="padding-top: 12px; padding-bottom: 12px;">
       <div class="container">
         <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
           <app-miga-pan [items]="migaPan"></app-miga-pan>
@@ -14,12 +14,12 @@
   </div>
 </div>
 <br>
-<div class="container" style="width: 63%;">
+<div class="container" style="width: 80%; padding-top: 40px;">
   <!-- Simulaciones guardadas Modo Examen -->
   <div class="card" style="padding:30px;border-radius:20px;">
     <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
       <div class="float-left">
-        <div class="subtitulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/ModoExamenSelect.svg" style="height: 30px;" />
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/ModoExamenSelect.svg" style="height: 30px;" />
           Modo Examen
         </div>
       </div>
@@ -28,32 +28,37 @@
       <ng-container *ngFor="let item of SimulacionesCompletadas">
         <div *ngIf="item.idSimuladorCissModo==3">
           <div class="row" style="justify-content: space-between; margin-bottom: 10px;">
-          <div class=" col-12 col-md-12 col-lg-6  col-6-mod" style="border-top: 1px solid #E4E4E4">
+          <div class="col-md-12" style="border-bottom: 1px solid #E4E4E4; padding-bottom: 20px;">
             <div class="row rowExpanded" style="justify-content: space-around;margin-top: 20px;">
-                <div class="col-12 col-sm-5">
+                <div class="col-sm-3">
                     <br />
                     <div class="row" style="flex-direction: column;">
                       <b>Nombre: </b>
                     <span>{{item.nombreExamen}}</span></div>
                     <br />
                 </div>
-                <div class="col-10 col-sm-5">
-                    <div style="margin-left: -70px">
+                <div class="col-sm-3">
+                    <div>
                       <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
                     </div>
                 </div>
-                <div class="col-2 col-sm-2" style="margin-right: -20px;">
+                <div class="col-sm-4" style="margin-right: -20px;">
                     <br />
-                    <div style=" display: flex; flex-direction: column; align-items: end;">
-                        <button style="width: 35px; height: 35px; padding: 5px " routerl [routerLink]="'/ModoExamen/ExamenRespuestaPregunta/'+item.id" [style]="'background: #ff7523;color: #fff;font-weight: 600;'" type="button" class="btn  buttons orange-tooltip"  data-toggle="tooltip" data-placement="right" title="Ver respuestas">
-                            <img src="../../../assets/iconos/VerRespuestas.svg" style="height: 20px; width: 20px;" />
-                        </button>
-                        <br>
-                        <button style="width: 35px; height: 35px; padding: 5px"  [routerLink]="'/ModoExamen/ExamenReporte/'+item.id" [style]="'background: #ff7523;color: #fff;font-weight: 600;'" type="button" class="btn  buttons orange-tooltip"  data-toggle="tooltip" data-placement="right" title="Ver resultados">
-                            <img src="../../../assets/iconos/VerResultado.svg" style="height: 20px;width:20px" />
-                        </button>
+                    <div style=" display: flex; flex-direction: column;">
+                      <div style="padding-bottom: 15px;">
+                        <button style="padding: 5px " routerl [routerLink]="'/ModoExamen/ExamenRespuestaPregunta/'+item.id" type="button" class="btn  buttons orange-tooltip btn-block boton-resultado"  data-toggle="tooltip" data-placement="right" title="Ver respuestas">
+                          Ver Respuestas
+                      </button>
+                      </div>
+                      <div>
+                        <button style="padding: 5px"  [routerLink]="'/ModoExamen/ExamenReporte/'+item.id" type="button" class="btn  buttons orange-tooltip btn-block boton-resultado"  data-toggle="tooltip" data-placement="right" title="Ver resultados">
+                          Ver Resultados
+                      </button>
+                      </div>
+
                     </div>
                 </div>
+                <div class="col-sm-1"></div>
           </div>
         </div>
         </div>
@@ -69,7 +74,7 @@
   <div class="card" style="padding:30px;border-radius:20px;">
     <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
       <div class="float-left">
-        <div class="subtitulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height: 30px;" />
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4;"><img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height: 30px;" />
           Modo entrenamiento
         </div>
       </div>
@@ -78,32 +83,37 @@
       <ng-container *ngFor="let item of SimulacionesCompletadas">
         <div *ngIf="item.idSimuladorCissModo==2">
           <div class="row" style="justify-content: space-between;">
-          <div class=" col-12 col-md-12 col-lg-7  col-7-mod" style="border-top: 1px solid #E4E4E4">
+          <div class="col-md-12" style="border-bottom: 1px solid #E4E4E4; padding-bottom: 20px;">
             <div class="row rowExpanded" style="justify-content: space-around;margin-top: 20px;">
-                <div class="col-12 col-sm-5">
+                <div class="col-sm-3">
                     <br />
                     <div class="row" style="flex-direction: column;">
                       <b>Nombre: </b>
                     <span>{{item.nombreExamen}}</span></div>
                     <br />
                 </div>
-                <div class="col-10 col-sm-5">
-                    <div style="margin-left: -70px">
+                <div class="col-sm-3">
+                    <div>
                       <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
                     </div>
                 </div>
-                <div class="col-2 col-sm-2" style="margin-right: -20px;">
+                <div class="col-sm-4" style="margin-right: -20px;">
                     <br />
-                    <div style=" display: flex; flex-direction: column; align-items: end;">
-                        <button style="width: 35px; height: 35px; padding: 5px " routerl [routerLink]="'/ModoEntrenamiento/EntrenamientoRespuestaPregunta/'+item.id" [style]="'background: #ff7523;color: #fff;font-weight: 600;'" type="button" class="btn  buttons orange-tooltip"  data-toggle="tooltip" data-placement="right" title="Ver respuestas">
-                            <img src="../../../assets/iconos/VerRespuestas.svg" style="height: 20px; width: 20px;" />
-                        </button>
-                        <br>
-                        <button style="width: 35px; height: 35px; padding: 5px"  [routerLink]="'/ModoEntrenamientoEstudio/EstudioReporte/'+item.id" [style]="'background: #ff7523;color: #fff;font-weight: 600;'" type="button" class="btn  buttons orange-tooltip"  data-toggle="tooltip" data-placement="right" title="Ver resultados">
-                            <img src="../../../assets/iconos/VerResultado.svg" style="height: 20px;width:20px" />
-                        </button>
+                    <div style=" display: flex; flex-direction: column;">
+                      <div style="padding-bottom: 15px;">
+                        <button style="padding: 5px " routerl [routerLink]="'/ModoEntrenamiento/EntrenamientoRespuestaPregunta/'+item.id" type="button" class="btn buttons orange-tooltip btn-block boton-resultado"  data-toggle="tooltip" data-placement="right" title="Ver respuestas">
+                          Ver respuestas
+                      </button>
+                      </div>
+                      <div>
+                        <button style="padding: 5px"  [routerLink]="'/ModoEntrenamientoEstudio/EstudioReporte/'+item.id" type="button" class="btn  buttons orange-tooltip btn-block boton-resultado"  data-toggle="tooltip" data-placement="right" title="Ver resultados">
+                          Ver resultados
+                      </button>
+                      </div>
+
                     </div>
                 </div>
+                <div class="col-sm-1"></div>
             </div>
         </div>
         </div>
@@ -119,7 +129,7 @@
   <div class="card" style="padding:30px;border-radius:20px;">
     <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
       <div class="float-left">
-        <div class="subtitulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height: 30px;" />
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4"><img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height: 30px;" />
           Modo estudio
         </div>
       </div>
@@ -128,32 +138,37 @@
       <ng-container *ngFor="let item of SimulacionesCompletadas">
         <div *ngIf="item.idSimuladorCissModo==1">
           <div class="row" style="justify-content: space-between;">
-          <div class=" col-12 col-md-12 col-lg-7  col-7-mod" style="border-top: 1px solid #E4E4E4">
+          <div class="col-md-12" style="border-bottom: 1px solid #E4E4E4; padding-bottom: 20px;">
             <div class="row rowExpanded" style="justify-content: space-around;margin-top: 20px;">
-                <div class="col-12 col-sm-5">
+                <div class="col-sm-3">
                     <br />
                     <div class="row" style="flex-direction: column;">
                       <b>Nombre: </b>
                     <span>{{item.nombreExamen}}</span></div>
                     <br />
                 </div>
-                <div class="col-10 col-sm-5">
-                    <div style="margin-left: -70px">
+                <div class="col-sm-3">
+                    <div>
                       <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
                     </div>
                 </div>
-                <div class="col-2 col-sm-2" style="margin-right: -20px;">
+                <div class="col-sm-4" style="margin-right: -20px;">
                     <br />
-                    <div style=" display: flex; flex-direction: column; align-items: end;">
-                        <button style="width: 35px; height: 35px; padding: 5px " routerl [routerLink]="'/ModoEstudio/EstudioRespuestaPregunta/'+item.id" [style]="'background: #ff7523;color: #fff;font-weight: 600;'" type="button" class="btn  buttons orange-tooltip"  data-toggle="tooltip" data-placement="right" title="Ver respuestas">
-                            <img src="../../../assets/iconos/VerRespuestas.svg" style="height: 20px; width: 20px;" />
+                    <div style=" display: flex; flex-direction: column;">
+                      <div style="padding-bottom: 15px;">
+                        <button style="padding: 5px " routerl [routerLink]="'/ModoEstudio/EstudioRespuestaPregunta/'+item.id" type="button" class="btn  buttons orange-tooltip btn-block boton-resultado"  data-toggle="tooltip" data-placement="right" title="Ver respuestas">
+                          Ver Respuestas
                         </button>
-                        <br>
-                        <button style="width: 35px; height: 35px; padding: 5px"  [routerLink]="'/ModoEstudio/EstudioReporte/'+item.id" [style]="'background: #ff7523;color: #fff;font-weight: 600;'" type="button" class="btn  buttons orange-tooltip"  data-toggle="tooltip" data-placement="right" title="Ver resultados">
-                            <img src="../../../assets/iconos/VerResultado.svg" style="height: 20px;width:20px" />
+                      </div>
+                      <div>
+                        <button style="padding: 5px"  [routerLink]="'/ModoEstudio/EstudioReporte/'+item.id" type="button" class="btn  buttons orange-tooltip btn-block boton-resultado"  data-toggle="tooltip" data-placement="right" title="Ver resultados">
+                          Ver resultados
                         </button>
+                      </div>
+
                     </div>
                 </div>
+                <div class="col-sm-1"></div>
             </div>
         </div>
         </div>
@@ -164,6 +179,6 @@
       No tiene resultados de simulaciones en modo estudio.
     </div>
   </div>
-
+<br>
 </div>
 

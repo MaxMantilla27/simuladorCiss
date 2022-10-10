@@ -1,5 +1,17 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; }
+.btn-button-estandar{
+  background: #FF7424;
+  border-color: #FF7424;
+  display: inline-flex;
+  justify-content: center;
+  font-weight: 500;
+}
+.btn-button-estandar:hover{
+  background: #FF7424;
+  border-color: #FF7424;
+  text-decoration: underline;
+}
 

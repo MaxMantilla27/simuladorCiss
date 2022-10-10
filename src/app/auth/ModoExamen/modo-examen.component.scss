@@ -1,10 +1,11 @@
 .CardsEstudio{
   border-radius: 20px;
+  padding-bottom: 15px;
 }
 .titulo {
   font-size: 30px;
   color: #4a4a49 !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   text-align: center;
 }
 .subtitulo {
@@ -17,4 +18,11 @@
 }
 ::ng-deep .mat-progress-bar {
   border-radius: 10px;
+}
+.item-leyenda-dona {
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+.texto-contenido {
+  color: #4a4a49;
 }

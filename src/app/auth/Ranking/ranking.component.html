@@ -1,6 +1,6 @@
-<div class="row" style="background: white">
-  <div class="container" style="width: 63%;">
-    <div style="padding:0.75rem 1.25rem">
+<div style="background: white">
+  <div class="container" style="width: 80%;">
+    <div style="padding-top: 12; padding-bottom: 12px;">
       <div class="container">
         <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
           <app-miga-pan [items]="migaPan"></app-miga-pan>
@@ -8,16 +8,16 @@
       </div>
       <div style="display:flex">
         <img src="../../../assets/iconos/star.svg" style="height: 35px; margin-right: 10px;" />
-        <div class="titulo">RANKING </div>
+        <div class="titulo">Ranking </div>
        </div>
     </div>
   </div>
 </div>
-<div class="container" style="width: 63%;">
+<div class="container" style="width: 80%; padding-top: 40px; padding-bottom: 40px;">
   <div style="background: #F2F5FA; margin-bottom: 20px;">
     <div class="container">
       <div id="configurar" style="padding:0.75rem 1.25rem">
-        <ul class="nav nav-tabs" style="justify-content: space-between;">
+        <ul class="nav nav-tabs" style="justify-content: center; border-bottom: none;">
             <li class="nav-item" role="presentation">
                 <a class="nav-link active" data-bs-toggle="tab" role="tab" aria-controls="intento1" aria-selected="true" (click)="ObtenerListaRankingExamenPorIntento(1)" style="cursor:pointer">Intento 1</a>
             </li>
@@ -37,15 +37,15 @@
         <ng-container *ngFor="let item of DatoRanking,let i=index;">
         <div *ngIf="item.examen.examen.numeroIntento==Intento" class="tab-content" style="margin-top: 40px;">
           <div class="card" style="border-radius:20px;">
-            <div class="card-body" style=" padding: 1.5rem 3rem 1rem 3rem;">
+            <div class="card-body" style=" padding: 1.5rem 3rem 1rem 3rem; color: #4a4a49;">
               <div class="row">
-                <div class="col-12 col-md-1">
+                <div class="col-auto">
                   <div style="font-size: 25px;color:#565759">
                     <b>{{i+1}}°</b>
                   </div>
                 </div>
-                <div class="col-12 col-md-4">
-                  <img style="height: 180px;" class="ImgAvatar" [src]="'https://avataaars.io/?avatarStyle=Circle&topType='+item.usuarioAvatar.top+'&accessoriesType='+
+                <div class="col-md-4">
+                  <img style="display: block ;width: 60%; margin: auto;" class="ImgAvatar" [src]="'https://avataaars.io/?avatarStyle=Circle&topType='+item.usuarioAvatar.top+'&accessoriesType='+
                   item.usuarioAvatar.accesories+'&hairColor='+
                   item.usuarioAvatar.hair_Color+'&facialHairType='+
                   item.usuarioAvatar.facial_Hair+'&facialHairColor='+
@@ -61,19 +61,19 @@
                   </div>
                 </div>
 
-                <div class="col-12 col-md-7">
+                <div class="col-md-7">
                   <div class="row tituloRanking" >
                     <div class="col-12 col-md-1">
                       <img height="22px" src="../../../assets/iconos/star.svg">
                     </div>
-                    <div class="col-12 col-md-8" style="font-weight: bold;color: #565759;font-size: 18px;">
+                    <div class="col-12 col-md-9" style="font-weight: bold;color: #565759;font-size: 18px;">
                       Puntaje general
                     </div>
-                    <div class="col-12 col-md-3" style="color: #2B7DE9;font-weight: bold;font-size: 20px;">
+                    <div class="col-12 col-md-2" style="color: #2B7DE9;font-weight: bold;font-size: 20px; text-align: right;">
                     {{item.examen.examen.desempenio}}
                     </div>
                   </div>
-                  <div class="subTitulo"  style="text-align: left;border-bottom: 1px solid #E4E4E4">
+                  <div class="subTitulo"  style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 5px; margin-bottom: 15px;">
                     Puntaje por dominio:
                   </div>
                   <ng-container *ngFor="let Dominios of item.examen.dominioResultado">
@@ -82,10 +82,10 @@
                         {{Dominios.nombre}}
                       </div>
                       <div class="col-12 col-md-3 desempenio" >
-                        {{Dominios.desempenio}}
+                        {{Dominios.desempenio|number:'1.0-0'}}
                       </div>
                     </div>
-                    <mat-progress-bar mode="determinate" style="height: 4px;margin-bottom: 4px;"
+                    <mat-progress-bar mode="determinate" style="height: 4px;margin-bottom: 15px;"
                       [value]="Dominios.desempenio">
                     </mat-progress-bar>
                   </ng-container>

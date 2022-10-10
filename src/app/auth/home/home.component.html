@@ -1,6 +1,5 @@
-
-<div class="container" style="width: 63%;">
-  <div style="padding:0.75rem 1.25rem">
+<div class="container" style="width: 80%;">
+  <div style="padding-top: 20px;padding-bottom: 50px;">
     <div class="card" style="border-radius:10px;margin-top:30px;">
       <div class="card-header" style="border-radius: 10px 10px 0px 0px; background: #ffe600">
         <br />
@@ -14,55 +13,66 @@
             </div>
             <br />
             <div class="row itemscard">
-                <div class="col-8 subtitleCard">
+                <div class="col-md-8 subtitleCard" style="font-size: 18px;">
                     <img src="../../../assets/iconos/star.svg" height="15" style="margin-right: 10px;" /> Nivel
                 </div>
-                <div class="col-4">
+                <div class="col-md-4" style="font-size: 16px; font-weight: 500;">
                   {{NivelUsuario}}
                 </div>
             </div>
             <div class="row itemscard">
-                <div class="col-8 subtitleCard">
-                    <img src="../../../assets/iconos/check_2.svg" height="15" style="margin-right:10px" /> Examenes completados
+                <div class="col-md-8 subtitleCard" style="font-size: 18px;">
+                    <img src="../../../assets/iconos/check_2.svg" height="15" style="margin-right:10px" /> Exámenes completados
                 </div>
-                <div class="col-4">
+                <div class="col-md-4" style="font-size: 16px; font-weight: 500;">
                   {{ExamenesCompletados}} Examen(es)
                 </div>
             </div>
             <div class="row itemscard">
-                <div class="col-8 subtitleCard">
-                    <img src="../../../assets/iconos/check_2.svg" height="15" style="margin-right: 10px" /> Examenes activos
+                <div class="col-md-8 subtitleCard" style="font-size: 18px;">
+                    <img src="../../../assets/iconos/check_2.svg" height="15" style="margin-right: 10px" /> Exámenes activos
                 </div>
-                <div class="col-4">
+                <div class="col-md-4" style="font-size: 16px; font-weight: 500;">
                   {{ExamenesActivos}} Examen(es)
                 </div>
             </div>
           </div>
         </div>
       </div>
-      <div *ngIf="NivelUsuario!=''" class="card-body container">
+      <div *ngIf="NivelUsuario!=''" class="card-body container" style="margin-top: 20px;margin-bottom: 10px;">
         <div class="row">
           <div class="col-md-4">
             <div>
-              <app-pie style="display: flex;justify-content: center;margin-left: -25px;" [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos"></app-pie>
-              <div style="text-align: center">
-                {{PuntosNivel}} / {{TotalPuntos}} puntos
+              <div style="display: flex;justify-content: center;">
+              <app-pie [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos"></app-pie>
               </div>
-              <div style="color: #af9f9f; font-size: 13px;text-align: center;">Siguiente nivel: <b>{{SiguienteNivelUsuario}}</b></div>
-            </div>
-          </div>
-          <div class="col-md-4" >
-            <app-dona style="display: flex;justify-content: center;margin-left: -25px;" [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos"></app-dona>
-            <div style="text-align: center">
-              Puntaje promedio
+              <div class="item-leyenda-dona-principal">
+                <div style="text-align: center">
+                  {{PuntosNivel}} / {{TotalPuntos}} puntos
+                </div>
+                <div style="color: #af9f9f; font-size: 13px;text-align: center;">Siguiente nivel: <b>{{SiguienteNivelUsuario}}</b></div>
+              </div>
             </div>
           </div>
           <div class="col-md-4">
-            <app-dona style="display: flex;justify-content: center;margin-left: -25px;" [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos" ></app-dona>
-            <div style="text-align: center">
-              Puntaje máximo
+            <div style="display: flex;justify-content: center;">
+            <app-dona  [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos"></app-dona>
             </div>
-
+            <div class="item-leyenda-dona-principal">
+              <div style="text-align: center">
+                Puntaje promedio
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div style="display: flex;justify-content: center;">
+            <app-dona [Puntos]="PuntosNivel" [TotalPuntos]="TotalPuntos" ></app-dona>
+            </div>
+            <div class="item-leyenda-dona-principal">
+              <div style="text-align: center">
+                Puntaje máximo
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -70,14 +80,14 @@
 
     <!-- Modos disponibles en el simulador -->
     <br />
-    <div style="padding:0.75rem 1.25rem">
-      <div class="titulo" style="font-weight: 400 !important;">
+    <div style="padding-top: 20px;">
+      <div class="titulo">
         Modos disponibles en el simulador
       </div>
-      <br /><br />
+      <br />
       <div class="row" style="color:#fff;justify-content: center;">
-        <div class="card CardModosDisponibles col-12 col-md-4">
-          <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE ">
+        <div class="card CardModosDisponibles col-12 col-md-4" style="padding-bottom: 15px;">
+          <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px; ">
             <div class="text-center">
               <img src="../../../assets/iconos/ModoExamenSelect.svg" style="height:25px;margin-top: 5px;margin-bottom: 5px;" />
             </div>
@@ -85,13 +95,13 @@
               <b>Modo examen</b>
             </div>
           </div>
-          <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+          <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
             <div class="text-center"><b style="font-size:60px;">{{CantMExamen}}</b></div>
             <div class="text-center"><span class="card-text">Simulaciones</span></div>
           </div>
         </div>
-        <div class="card CardModosDisponibles col-12 col-md-4" >
-          <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; padding-left: 0px; padding-right: 0px;">
+        <div class="card CardModosDisponibles col-12 col-md-4" style="padding-bottom: 15px;" >
+          <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; padding-left: 0px; padding-right: 0px; font-size: 20px;">
             <div class="text-center">
               <img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height:25px;margin-top: 5px;margin-bottom: 5px;" />
             </div>
@@ -99,13 +109,13 @@
               <b>Modo entrenamiento</b>
             </div>
           </div>
-          <div class="card-body row " style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+          <div class="card-body " style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
             <div class="text-center"><b style="font-size:60px;">{{CantMEntrenamiento}}</b></div>
             <div class="text-center"><span class="card-text">Simulaciones</span></div>
           </div>
         </div>
-        <div class="card CardModosDisponibles col-12 col-md-4">
-          <div class="card-header row" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
+        <div class="card CardModosDisponibles col-12 col-md-4" style="padding-bottom: 15px;">
+          <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
             <div class="text-center">
               <img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height:25px;margin-top: 5px;margin-bottom: 5px;" />
             </div>
@@ -113,7 +123,7 @@
                 <b>Modo estudio</b>
             </div>
           </div>
-          <div class="card-body row" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+          <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
             <div class="text-center"><b style="font-size:60px;">{{CantMEstudio}}</b></div>
             <div class="text-center"><span class="card-text">Simulaciones</span></div>
         </div>
@@ -123,23 +133,27 @@
 
     <!-- Modo examen -->
     <br />
-    <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card" style="padding:30px;border-radius:20px;margin-top: 30px;">
       <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px">
           <div class="cabeceraCardBody" style="display: flex">
               <img src="../../../assets/iconos/ModoExamenSelect.svg" style="height: 35px; margin-right: 10px;" />
               <h2 class="titulo">Modo Examen</h2>
           </div>
-          <p style="text-align: justify">
-            En este modo es donde se simulará todas las condiciones del examen de Certified Information Systems Security Professional – CISSP, como el tiempo del examen y la cantidad de preguntas válidas. Este modo también suma puntaje reflejado en el nivel de cada usuario.
+          <p style="padding-top: 12px; padding-bottom: 10px;">
+            En este modo se simulan todas las condiciones del examen de Certified Information Systems Security Professional – CISSP, como el tiempo del examen y la cantidad de preguntas válidas. Este modo también suma puntaje reflejado en el nivel de cada usuario.
           </p>
       </div>
       <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
-          <div class="row">
-              <div class="col-md-6">
-                  <span class="subtitulo">Resultados de tu ultimo examen:</span>
-                <div>
-                  <div *ngIf="Examen!=undefined" class="chart" style="width: 165px;margin-left: 25px;">
-                    <app-dona-puntos [Puntos]="Puntos"></app-dona-puntos>
+        <div class="row">
+            <div class="col-md-6" style="display: block; padding-bottom: 15px;">
+                <span class="subtitulo" style="display:block; padding-bottom: 15px;">Resultados de tu último examen:</span>
+              <div>
+                <div *ngIf="Examen!=undefined" class="chart">
+                  <app-dona-puntos [Puntos]="Puntos"></app-dona-puntos>
+                  <div class="item-nota">
+                      Nota* : Estos resultados muestran solo el puntaje obtenido de tu ultimo exámen.<br>
+                      El grafico de barras muestra el promedio general por cada dominio de todas las simulaciones realizadas en el modo examen.
+                    </div>
                   </div>
                   <div *ngIf="Examen==undefined"  style=" font-size: 15px;margin-top: 10px;" >
                     No tiene simulaciones realizadas en modo examen.
@@ -167,7 +181,7 @@
                   Leyenda:
                 </div>
                 <ng-container *ngFor="let item of Dominio">
-                  <div style="font-size: 14px">
+                  <div class="item-leyenda-barras">
                     <b>{{item.leyenda}}:</b> {{item.nombre}}.
                   </div>
                 </ng-container>
@@ -175,60 +189,79 @@
               </div>
           </div>
           <br />
-          <div style="justify-content: center;display:flex">
-            <app-default-button  [confs]="{color:'primary',titulo:'Crea una simulación de examen'}"
-          [style]="'width:400px; margin-top: 20px;background:#FF7424'" routerLink="/ModoExamen"></app-default-button>
+          <div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+
+                <div class="d-grid gap-2">
+                  <a class="btn btn-primary btn-button-estandar" href="/ModoExamen"><span>Crea una simulación de examen ></span></a>
+                </div>
+
+              </div>
+              <div class="col-md-3"></div>
+            </div>
           </div>
+
       </div>
     </div>
     <!-- Modo entrenamiento -->
     <br />
-    <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card" style="padding:30px;border-radius:20px;margin-top: 30px;">
       <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px">
           <div class="cabeceraCardBody" style="display:flex">
               <img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height: 35px; margin-right: 10px;" />
               <h2 class="titulo">Modo Entrenamiento</h2>
           </div>
-          <p style="text-align: justify;">
+          <p style="padding-top: 12px; padding-bottom: 10px;">
             En este modo se presentarán 250 preguntas, como en el examen de certificación. Además luego de responder cada pregunta se te brindará retroalimentación para poder corroborar tus respuestas de forma inmediata.
           </p>
       </div>
       <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
-        <div class="subtitulo">Simulaciones con mayor puntaje:
-
+        <div class="subtitulo" style="padding-bottom: 25px;">
+          Últimas simulaciones realizadas:
         </div>
-        <div *ngIf="CantMEntrenamiento!=0" style="display: flex">
-          <ng-container *ngFor="let item of ListaEntrenamiento">
-            <div *ngIf="item.idEstadoExamen==3 && ContadorEntrenamiento<=3">
-              <div>
-                <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
+        <div>
+          <div *ngIf="CantMEntrenamiento!=0" class="row">
+            <ng-container *ngFor="let item of ListaEntrenamiento">
+              <div *ngIf="item.idEstadoExamen==3 && ContadorEntrenamiento<=3" class="col-md-3" style="padding-bottom: 15px;">
+                <div>
+                  <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
+                </div>
+                <div class="item-leyenda-dona">
+                  {{item.nombreExamen}}
+                </div>
               </div>
-              <div style="text-align: center">
-                {{item.nombreExamen}}
-              </div>
-            </div>
-          </ng-container>
+            </ng-container>
+          </div>
         </div>
         <div  *ngIf="CantMEntrenamiento==0" style=" font-size: 15px;margin-top: 10px;">
           No tiene simulaciones realizadas en modo entrenamiento.
         </div>
       </div>
       <br />
-      <div style="justify-content: center;display:flex">
-        <app-default-button  [confs]="{color:'primary',titulo:'Crea una simulación de entrenamiento'}"
-      [style]="'width:400px;margin-top: 20px;background:#FF7424'" routerLink="/ModoEntrenamiento"></app-default-button>
+      <div>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <div class="d-grid gap-2">
+              <a class="btn btn-primary btn-button-estandar" href="/ModoEntrenamiento"><span>Crea una simulación de entrenamiento ></span></a>
+            </div>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
       </div>
-      </div>
+    </div>
 
   <!-- Modo Estudio -->
   <br />
-  <div class="card" style="padding:30px;border-radius:20px;">
+  <div class="card" style="padding:30px;border-radius:20px;margin-top: 30px;">
       <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px">
           <div class="cabeceraCardBody" style="display: flex;">
               <img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height: 35px; margin-right: 10px;" />
               <h2 class="titulo">Modo Estudio</h2>
           </div>
-          <p style="text-align: justify;">
+          <p style="padding-top: 12px; padding-bottom: 10px;">
             En este modo podrás estudiar de forma personalizada cada una de los dominios que componen el examen de Certified Information Systems Security Professional – CISSP.
           </p>
       </div>
@@ -340,9 +373,16 @@
             </div>
           </div>
           <br />
-          <div style="justify-content: center;display:flex">
-            <app-default-button  [confs]="{color:'primary',titulo:'Crea una simulación de estudio'}"
-          [style]="'width:400px;margin-top: 20px;background:#FF7424'" routerLink="/ModoEstudio"></app-default-button>
+          <div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <div class="d-grid gap-2">
+                  <a class="btn btn-primary btn-button-estandar" href="/ModoEstudio"><span>Crea una simulación de estudio ></span></a>
+                </div>
+              </div>
+              <div class="col-md-3"></div>
+            </div>
           </div>
       </div>
   </div>
