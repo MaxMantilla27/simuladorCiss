@@ -87,6 +87,7 @@
       <br />
       <div class="row" style="color:#fff;justify-content: center;">
         <div class="card CardModosDisponibles col-12 col-md-4" style="padding-bottom: 15px;">
+         <div style="cursor: pointer;" [routerLink]="'/ModoExamen'">
           <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px; ">
             <div class="text-center">
               <img src="../../../assets/iconos/ModoExamenSelect.svg" style="height:25px;margin-top: 5px;margin-bottom: 5px;" />
@@ -99,34 +100,39 @@
             <div class="text-center"><b style="font-size:60px;">{{CantMExamen}}</b></div>
             <div class="text-center"><span class="card-text">Simulaciones</span></div>
           </div>
+         </div>
         </div>
         <div class="card CardModosDisponibles col-12 col-md-4" style="padding-bottom: 15px;" >
-          <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; padding-left: 0px; padding-right: 0px; font-size: 20px;">
-            <div class="text-center">
-              <img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height:25px;margin-top: 5px;margin-bottom: 5px;" />
+          <div style="cursor: pointer;" [routerLink]="'/ModoEntrenamiento'">
+            <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; padding-left: 0px; padding-right: 0px; font-size: 20px;">
+              <div class="text-center">
+                <img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height:25px;margin-top: 5px;margin-bottom: 5px;" />
+              </div>
+              <div class="text-center">
+                <b>Modo entrenamiento</b>
+              </div>
             </div>
-            <div class="text-center">
-              <b>Modo entrenamiento</b>
+            <div class="card-body " style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+              <div class="text-center"><b style="font-size:60px;">{{CantMEntrenamiento}}</b></div>
+              <div class="text-center"><span class="card-text">Simulaciones</span></div>
             </div>
-          </div>
-          <div class="card-body " style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
-            <div class="text-center"><b style="font-size:60px;">{{CantMEntrenamiento}}</b></div>
-            <div class="text-center"><span class="card-text">Simulaciones</span></div>
           </div>
         </div>
         <div class="card CardModosDisponibles col-12 col-md-4" style="padding-bottom: 15px;">
-          <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
-            <div class="text-center">
-              <img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height:25px;margin-top: 5px;margin-bottom: 5px;" />
+          <div style="cursor: pointer;" [routerLink]="'/ModoEstudio'">
+            <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
+              <div class="text-center">
+                <img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height:25px;margin-top: 5px;margin-bottom: 5px;" />
+              </div>
+              <div class="text-center">
+                  <b>Modo estudio</b>
+              </div>
             </div>
-            <div class="text-center">
-                <b>Modo estudio</b>
-            </div>
+            <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+              <div class="text-center"><b style="font-size:60px;">{{CantMEstudio}}</b></div>
+              <div class="text-center"><span class="card-text">Simulaciones</span></div>
           </div>
-          <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
-            <div class="text-center"><b style="font-size:60px;">{{CantMEstudio}}</b></div>
-            <div class="text-center"><span class="card-text">Simulaciones</span></div>
-        </div>
+          </div>
       </div>
     </div>
     </div>

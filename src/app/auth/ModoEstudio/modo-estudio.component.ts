@@ -90,17 +90,20 @@ export class ModoEstudioComponent implements OnInit {
   }
   ListaExamenesPorModo(){
     this.TiempoTotalEstudio=0;
+    this.SimulacionesInconclusas=0;
     this._ExamenService.ListaExamenesPorModo(1).subscribe({
       next:(x)=>{
         this.ListaEstudio=x
         this.CantMEstudio=x.length;
         this.ListaEstudio.forEach((x:any)=>{
-          this.TiempoTotalEstudio=this.TiempoTotalEstudio+x.tiempo;
-          if(x.estadoExamen=="Finalizado")
+          if(x.estadoExamen=="Finalizado"){
+            this.TiempoTotalEstudio=this.TiempoTotalEstudio+x.tiempo;
+          }
+          else{
+            this.SimulacionesInconclusas=this.SimulacionesInconclusas+1
+          }
           this.SimulacionesTotales=this.SimulacionesTotales+1;
         })
-        this.CantMEstudio=x.length;
-        this.SimulacionesInconclusas=this.CantMEstudio-this.SimulacionesTotales;
       },
       complete: () => {
         this.Hora = Math.floor(this.TiempoTotalEstudio / 3600);
