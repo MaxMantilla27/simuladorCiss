@@ -51,117 +51,28 @@
     </div>
   </div>
   <br>
-  <div *ngIf="ResultadosPorDominio!=undefined" class="titulo" style="font-weight: 400 !important;margin-top: 15px;margin-bottom: 40px;">
+  <div style="font-weight: 400 !important;margin-bottom: 40px;">
     <div class="titulo" style="margin-bottom: 15px">
-      Mejor puntaje por dominios
+    Mejor puntaje por dominios
     </div>
-    <div class="row" style="margin-bottom: 15px;">
+  </div>
+  <div *ngIf="ResultadosPorDominio!=undefined">
+    <div class="row titulo" style="font-weight: 400 !important;margin-bottom: 10px;">
+    <ng-container *ngFor="let itemDominios of ResultadosPorDominio" >
       <div class="col-12 col-md-3">
         <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio1"></app-dona-puntos>
+          <app-dona-puntos [Puntos]="itemDominios.promedio"></app-dona-puntos>
         </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 1:
-          </div>
-          <div style="font-size: 14px">
-            Seguridad y gestión de riesgos.
-          </div>
+      <div class="item-leyenda-dona">
+        <div class="subtitulo">
+          Dominio {{itemDominios.id}}:
         </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio2"></app-dona-puntos>
+        <div style="font-size: 14px">
+          {{itemDominios.nombre}}
         </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 2:
-          </div>
-          <div style="font-size: 14px">
-            Seguridad de activos.
-          </div>
         </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio3"></app-dona-puntos>
         </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 3:
-          </div>
-          <div style="font-size: 14px">
-            Arquitectura de seguridad e ingeniería.
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio4"></app-dona-puntos>
-        </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 4:
-          </div>
-          <div style="font-size: 14px">
-            Comunicación y seguridad de red.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-3">
-        <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio5"></app-dona-puntos>
-        </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 5:
-          </div>
-          <div style="font-size: 14px">
-            Gestión de identidad y acceso (IAM).
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio6"></app-dona-puntos>
-        </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 6:
-          </div>
-          <div style="font-size: 14px">
-            Evaluación de seguridad y pruebas.
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio7"></app-dona-puntos>
-        </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 7:
-          </div>
-          <div style="font-size: 14px">
-            Operaciones de seguridad.
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio8"></app-dona-puntos>
-        </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 8:
-          </div>
-          <div style="font-size: 14px">
-            Seguridad de desarrollo de software.
-          </div>
-        </div>
-      </div>
+    </ng-container>
     </div>
   </div>
 

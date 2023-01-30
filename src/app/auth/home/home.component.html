@@ -276,104 +276,26 @@
             <span class="subtitulo" >Dominios con mejor puntaje:</span><br />
           </div>
             <div *ngIf="ResultadosPorDominio!=undefined">
-              <div *ngIf="ResultadosPorDominio.dominio1!=0" class="row">
-                <div class="col-11" style="top:8px;">
+              <ng-container *ngFor="let itemDominios of ResultadosPorDominio" >
+                <div *ngIf="itemDominios.promedio!=0" class="row">
+                  <div class="col-11" style="top:8px;">
                     <mat-progress-bar mode="determinate" style="height: 10px;"
-                      [value]="ResultadosPorDominio.dominio1">
+                      [value]="itemDominios.promedio">
                     </mat-progress-bar>
-                    <p><b style="color:#786565">Dominio 1: </b> <span>Planificación e implementación en toda la organización</span></p>
+                    <p><b style="color:#786565">Dominio {{itemDominios.id}}: </b> <span>{{itemDominios.nombre}}</span></p>
                 </div>
                 <div class="col-1">
-                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio1}}%</h5>
+                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{itemDominios.promedio}}%</h5>
                 </div>
-              </div>
-              <div *ngIf="ResultadosPorDominio.dominio2!=0" class="row" >
-                <div class="col-11" style="top:8px;">
-                  <mat-progress-bar mode="determinate" style="height: 10px;"
-                  [value]="ResultadosPorDominio.dominio2">
-                </mat-progress-bar>
-                    <p><b style="color:#786565">Dominio 2: </b> <span>Medidas y gestión de procesos organizacionales</span></p>
                 </div>
-                <div class="col-1">
-                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio2}}%</h5>
-                </div>
-              </div>
-              <div *ngIf="ResultadosPorDominio.dominio3!=0" class="row">
-                <div class="col-11" style="top:8px;">
-                  <mat-progress-bar mode="determinate" style="height: 10px;"
-                  [value]="ResultadosPorDominio.dominio3">
-                </mat-progress-bar>
-                    <p><b style="color:#786565">Dominio 3: </b> <span>Gestión de equipos</span></p>
-                </div>
-                <div class="col-1">
-                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio3}}%</h5>
-                </div>
-              </div>
-              <div *ngIf="ResultadosPorDominio.dominio4!=0" class="row">
-                <div class="col-11" style="top:8px;">
-                  <mat-progress-bar mode="determinate" style="height: 10px;"
-                  [value]="ResultadosPorDominio.dominio4">
-                </mat-progress-bar>
-                    <p><b style="color:#786565">Dominio 4: </b> <span>Definir</span></p>
-                </div>
-                <div class="col-1">
-                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio4}}%</h5>
-                </div>
-              </div>
-              <div *ngIf="ResultadosPorDominio.dominio5!=0" class="row" >
-                <div class="col-11" style="top:8px;">
-                  <mat-progress-bar mode="determinate" style="height: 10px;"
-                  [value]="ResultadosPorDominio.dominio5">
-                </mat-progress-bar>
-                    <p><b style="color:#786565">Dominio 5: </b> <span>Medir</span></p>
-                </div>
-                <div class="col-1">
-                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio5}}%</h5>
-                </div>
-              </div>
-              <div *ngIf="ResultadosPorDominio.dominio6!=0" class="row">
-                <div class="col-11" style="top:8px;">
-                  <mat-progress-bar mode="determinate" style="height: 10px;"
-                  [value]="ResultadosPorDominio.dominio6">
-                </mat-progress-bar>
-                    <p><b style="color:#786565">Dominio 6: </b> <span>Analizar</span></p>
-                </div>
-                <div class="col-1">
-                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio6}}%</h5>
-                </div>
-              </div>
-              <div *ngIf="ResultadosPorDominio.dominio7!=0" class="row" >
-                <div class="col-11" style="top:8px;">
-                  <mat-progress-bar mode="determinate" style="height: 10px;"
-                  [value]="ResultadosPorDominio.dominio7">
-                </mat-progress-bar>
-                    <p><b style="color:#786565">Dominio 7: </b> <span>Mejorar</span></p>
-                </div>
-                <div class="col-1">
-                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio7}}%</h5>
-                </div>
-              </div>
-              <div *ngIf="ResultadosPorDominio.dominio8!=0" class="row" >
-                <div class="col-11" style="top:8px;">
-                  <mat-progress-bar mode="determinate" style="height: 10px;"
-                  [value]="ResultadosPorDominio.dominio8">
-                </mat-progress-bar>
-                    <p><b style="color:#786565">Dominio 8: </b> <span>Control</span></p>
-                </div>
-                <div class="col-1">
-                    <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{ResultadosPorDominio.dominio8}}%</h5>
-                </div>
-              </div>
+              </ng-container>
             </div>
             <div *ngIf="ResultadosPorDominio==undefined">
               <div style=" font-size: 15px;margin-top: 10px;">
-                Aún no ha realizado ninguna sesión de estudio
+                Aún no ha realizado ninguna sesión de estudio.
               </div>
             </div>
-            <div *ngIf="ResultadosPorDominio.dominio1==0 && ResultadosPorDominio.dominio2==0 &&
-              ResultadosPorDominio.dominio3==0 && ResultadosPorDominio.dominio4==0 &&
-              ResultadosPorDominio.dominio5==0 && ResultadosPorDominio.dominio6==0 &&
-              ResultadosPorDominio.dominio7==0 && ResultadosPorDominio.dominio8==0 ">
+            <div *ngIf="CantMEstudio==0">
             <div style=" font-size: 15px;margin-top: 10px;">
              No tiene simulaciones realizadas en modo estudio.
             </div>

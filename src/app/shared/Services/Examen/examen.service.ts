@@ -25,8 +25,8 @@ export class ExamenService {
   public ObtenerExamenReporteResultadosPorId(IdExamen:number):Observable<any>{
     return this.http.get<any>(this.urlBase+'/ObtenerExamenReporteResultadosPorId/'+IdExamen);
   }
-  public ObtenerMejorExamenPorUsuario(Json:RegistroCissExamenDTO):Observable<any>{
-    return this.http.post<any>(this.urlBase+'/ObtenerMejorExamenPorUsuario',Json);
+  public ObtenerMejorExamenPorUsuario():Observable<any>{
+    return this.http.get<any>(this.urlBase+'/ObtenerMejorExamenPorUsuario');
   }
   public ObtenerNivelUsuario():Observable<any>{
     return this.http.get<any>(this.urlBase+'/ObtenerNivelUsuario');
@@ -43,13 +43,22 @@ export class ExamenService {
   public ObtenerListaRankingExamenPorIntento(Intento:number):Observable<any>{
     return this.http.get<any>(this.urlBase+'/ObtenerListaRankingExamenPorIntento/'+Intento);
   }
-  public ObtenerPromedioDominioPorModo(Modo:number):Observable<any>{
-    return this.http.get<any>(this.urlBase+'/ObtenerPromedioDominioPorModo/'+Modo);
-  }
+  // public ObtenerPromedioDominioPorModo(Modo:number):Observable<any>{
+  //   return this.http.get<any>(this.urlBase+'/ObtenerPromedioDominioPorModo/'+Modo);
+  // }
   public ObtenerRespuestaExamenDetallePreguntaPorId(id:number):Observable<any>{
     return this.http.get<any>(this.urlBase+'/ObtenerRespuestaExamenDetallePreguntaPorId/'+id);
   }
   public ObtenerPromedioIntento():Observable<any>{
     return this.http.get<any>(this.urlBase+'/ObtenerPromedioIntento');
+  }
+  public ObtenerPromedioDominioPorModo(Modo:number, Take:number):Observable<any>{
+    return this.http.get<any>(this.urlBase+'/ObtenerPromedioDominioPorModoV2/'+Modo+"/"+Take);
+  }
+  public ResumenSimulacionesPorModo(IdModo:number):Observable<any>{
+    return this.http.get<any>(this.urlBase+'/ResumenSimulacionesPorModo/'+IdModo);
+  }
+  public ListaExamenesPorModoResumen(IdModo:number):Observable<any>{
+    return this.http.get<any>(this.urlBase+'/ListaExamenesPorModoResumen/'+IdModo);
   }
 }

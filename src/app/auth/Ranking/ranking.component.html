@@ -35,60 +35,60 @@
             </li>
         </ul>
         <ng-container *ngFor="let item of DatoRanking,let i=index;">
-        <div *ngIf="item.examen.examen.numeroIntento==Intento" class="tab-content" style="margin-top: 40px;">
-          <div class="card" style="border-radius:20px;">
-            <div class="card-body" style=" padding: 1.5rem 3rem 1rem 3rem; color: #4a4a49;">
-              <div class="row">
-                <div class="col-auto">
-                  <div style="font-size: 25px;color:#565759">
-                    <b>{{i+1}}°</b>
+          <div  class="tab-content" style="margin-top: 40px;">
+            <div class="card" style="border-radius:20px;">
+              <div class="card-body" style=" padding: 1.5rem 3rem 1rem 3rem; color: #4a4a49;">
+                <div class="row">
+                  <div class="col-auto">
+                    <div style="font-size: 25px;color:#565759">
+                      <b>{{i+1}}°</b>
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-4">
-                  <img style="display: block ;width: 60%; margin: auto;" class="ImgAvatar" [src]="'https://avataaars.io/?avatarStyle=Circle&topType='+item.usuarioAvatar.top+'&accessoriesType='+
-                  item.usuarioAvatar.accesories+'&hairColor='+
-                  item.usuarioAvatar.hair_Color+'&facialHairType='+
-                  item.usuarioAvatar.facial_Hair+'&facialHairColor='+
-                  item.usuarioAvatar.facial_Hair_Color+'&clotheType='+
-                  item.usuarioAvatar.clothes+'&clotheColor='+
-                  item.usuarioAvatar.clothes_Color+'&eyeType='+
-                  item.usuarioAvatar.eyes+'&eyebrowType='+
-                  item.usuarioAvatar.eyesbrow+'&mouthType='+
-                  item.usuarioAvatar.mouth+'&skinColor='+
-                  item.usuarioAvatar.skin">
-                  <div style="text-align: center;font-size:25px">
-                    {{item.usuarioAvatar.nombre}}
+                  <div class="col-md-4">
+                    <img style="display: block ;width: 60%; margin: auto;" class="ImgAvatar" [src]="'https://avataaars.io/?avatarStyle=Circle&topType='+item.usuarioAvatar.top+'&accessoriesType='+
+                    item.usuarioAvatar.accesories+'&hairColor='+
+                    item.usuarioAvatar.hair_Color+'&facialHairType='+
+                    item.usuarioAvatar.facial_Hair+'&facialHairColor='+
+                    item.usuarioAvatar.facial_Hair_Color+'&clotheType='+
+                    item.usuarioAvatar.clothes+'&clotheColor='+
+                    item.usuarioAvatar.clothes_Color+'&eyeType='+
+                    item.usuarioAvatar.eyes+'&eyebrowType='+
+                    item.usuarioAvatar.eyesbrow+'&mouthType='+
+                    item.usuarioAvatar.mouth+'&skinColor='+
+                    item.usuarioAvatar.skin">
+                    <div style="text-align: center;font-size:25px">
+                      {{item.usuarioAvatar.nombre}}
+                    </div>
                   </div>
-                </div>
 
-                <div class="col-md-7">
-                  <div class="row tituloRanking" >
-                    <div class="col-12 col-md-1">
-                      <img height="22px" src="../../../assets/iconos/star.svg">
-                    </div>
-                    <div class="col-12 col-md-9" style="font-weight: bold;color: #565759;font-size: 18px;">
-                      Puntaje general
-                    </div>
-                    <div class="col-12 col-md-2" style="color: #2B7DE9;font-weight: bold;font-size: 20px; text-align: right;">
-                    {{item.examen.examen.desempenio}}
-                    </div>
-                  </div>
-                  <div class="subTitulo"  style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 5px; margin-bottom: 15px;">
-                    Puntaje por dominio:
-                  </div>
-                  <ng-container *ngFor="let Dominios of item.examen.dominioResultado">
-                    <div class="row">
-                      <div class="col-12 col-md-9" style="font-size: 12px;color: #818283;">
-                        {{Dominios.nombre}}
+                  <div class="col-md-7">
+                      <div class="row tituloRanking" >
+                        <div class="col-12 col-md-1">
+                          <img height="22px" src="../../../assets/iconos/star.svg">
+                        </div>
+                        <div class="col-12 col-md-9" style="font-weight: bold;color: #565759;font-size: 18px;">
+                          Puntaje general
+                        </div>
+                        <div class="col-12 col-md-2" style="color: #2B7DE9;font-weight: bold;font-size: 20px; text-align: right;">
+                        {{item.examen[0].desempenio}}
+                        </div>
                       </div>
-                      <div class="col-12 col-md-3 desempenio" >
-                        {{Dominios.desempenio|number:'1.0-0'}}
+                      <div class="subTitulo"  style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 5px; margin-bottom: 15px;">
+                        Puntaje por dominio:
                       </div>
-                    </div>
-                    <mat-progress-bar mode="determinate" style="height: 4px;margin-bottom: 15px;"
-                      [value]="Dominios.desempenio">
-                    </mat-progress-bar>
-                  </ng-container>
+                      <ng-container *ngFor="let promedioIntento of item.examen">
+                        <div class="row">
+                        <div class="col-12 col-md-9" style="font-size: 12px;color: #818283;">
+                          {{promedioIntento.nombre}}
+                        </div>
+                        <div class="col-12 col-md-3 desempenio" >
+                          {{promedioIntento.promedio|number:'1.0-0'}}
+                        </div>
+                      </div>
+                      <mat-progress-bar mode="determinate" style="height: 4px;margin-bottom: 15px;"
+                        [value]="promedioIntento.promedio">
+                      </mat-progress-bar>
+                      </ng-container>
                 </div>
               </div>
               <br />
