@@ -17,4 +17,8 @@ export class DominioService {
   public ListaDominioCombo():Observable<any>{
     return this.http.get<any>(this.urlBase+'/ListaDominioCombo');
   }
+
+  public ObtenerLogo():Observable<any>{
+    return this.http.get<any>(this.urlBase+'/ObtenerLogo');
+  }
 }

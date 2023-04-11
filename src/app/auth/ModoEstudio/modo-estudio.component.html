@@ -59,7 +59,7 @@
   <div *ngIf="ResultadosPorDominio!=undefined">
     <div class="row titulo" style="font-weight: 400 !important;margin-bottom: 10px;">
     <ng-container *ngFor="let itemDominios of ResultadosPorDominio" >
-      <div class="col-12 col-md-3">
+      <div class="col-12 col-md-4">
         <div style="display: flex;justify-content: center;">
           <app-dona-puntos [Puntos]="itemDominios.promedio"></app-dona-puntos>
         </div>
@@ -99,178 +99,32 @@
                 Selecciona el dominio que deseas estudiar:
               </div>
               <div class="row">
-                <div *ngIf="DominioSeleccionado!=1" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=1" >
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%" >
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento1.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
-                      Seguridad y gestión de riesgos.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==1" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0" >
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento1.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
-                      Seguridad y gestión de riesgos.
+                <ng-container *ngFor="let item of ListaLogo">
+                  <div *ngIf="DominioSeleccionado!= item.id" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=item.id">
+                    <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%" >
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src={{item.imgLogo}}>
+                      </div>
+                      <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
+                        {{item.nombre}}
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div *ngIf="DominioSeleccionado!=5" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=5">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img  style="height: 50px;" src="../../../assets/iconos/CISSP-Tento5.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Gestión de identidad y acceso (IAM).
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==5" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento5.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Gestión de identidad y acceso (IAM).
+                 
+                  <div *ngIf="DominioSeleccionado == item.id " class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
+                    <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src={{item.imgLogo}}>
+                      </div>
+                      <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
+                        {{item.nombre}}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </ng-container>
               </div>
 
-              <div class="row">
-                <div *ngIf="DominioSeleccionado!=2" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=2">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento2.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Seguridad de activos.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==2" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento2.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Seguridad de activos.
-                    </div>
-                  </div>
-                </div>
-
-                <div *ngIf="DominioSeleccionado!=6" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=6">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento6.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Evaluación de seguridad y pruebas.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==6" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento6.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Evaluación de seguridad y pruebas.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div *ngIf="DominioSeleccionado!=3" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=3">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento3.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Arquitectura de seguridad e ingeniería.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==3" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento3.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Arquitectura de seguridad e ingeniería.
-                    </div>
-                  </div>
-                </div>
-
-                <div *ngIf="DominioSeleccionado!=7" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=7">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento7.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Operaciones de seguridad.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==7" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento7.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Operaciones de seguridad.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div *ngIf="DominioSeleccionado!=4" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=4">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento4.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Comunicación y seguridad de red.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==4" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento4.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Comunicación y seguridad de red.
-                    </div>
-                  </div>
-                </div>
-
-                <div *ngIf="DominioSeleccionado!=8" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=8">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento8.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Seguridad de desarrollo de software.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==8" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/CISSP-Tento8.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Seguridad de desarrollo de software.
-                    </div>
-                  </div>
-                </div>
-              </div>
+            
             </div>
           </div>
           <mat-error *ngIf="!userForm.invalid && DominioSeleccionado==0">Debe seleccionar un dominio para la simulación</mat-error>
@@ -308,7 +162,7 @@
         <div *ngIf="ContSimulacionesCompletadas!=0">
           <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding:0px;">
             <ng-container *ngFor="let item of SimulacionesCompletadas">
-              <div  *ngIf="item.idSimuladorCissModo==1" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 15px;">
+              <div  *ngIf="item.idSimuladorLabcModo==1" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 15px;">
                 <div class="row texto-contenido" style="margin-top: 20px;margin-left: 0px;">
                   <div class="col-md-4">
                     <div style="padding-top: 10px; padding-bottom: 10px;">
@@ -364,7 +218,7 @@
         <div *ngIf="ContSimulacionesIncompletas!=0">
           <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding:0px; ">
             <ng-container *ngFor="let item of SimulacionesIncompletas">
-              <div  *ngIf="item.idSimuladorCissModo==1" class="container" style="border-bottom: 1px solid #E4E4E4;padding: 0px;">
+              <div  *ngIf="item.idSimuladorLabcModo==1" class="container" style="border-bottom: 1px solid #E4E4E4;padding: 0px;">
                 <div class="row texto-contenido" style="margin-top: 20px;margin-left: 0px;margin-bottom: 15px;">
                   <div class="col-md-6">
                     <div>
