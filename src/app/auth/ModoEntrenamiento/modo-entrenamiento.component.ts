@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistroCissExamenDTO } from 'src/app/Models/ExamenDTO';
+import { ConfiguracionSimuladorService } from 'src/app/shared/Services/ConfiguracionSimulador/configuracion-simulador.service';
 import { ExamenService } from 'src/app/shared/Services/Examen/examen.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class ModoEntrenamientoComponent implements OnInit {
 
   constructor(
     private _router: Router,
-    private _ExamenService:ExamenService
+    private _ExamenService:ExamenService,
+    private _ConfiguracionSimulador: ConfiguracionSimuladorService,
   ) { }
   public migaPan = [
     {
@@ -56,6 +58,7 @@ export class ModoEntrenamientoComponent implements OnInit {
   public BotonResgistrar=false;
   public ResultadosPorDominio:any;
   public Take=0;
+  public PorcentajeMinimoAprobacion=0;
 
   ngOnInit(): void {
     this.ListaExamenesIncompletos();
@@ -141,4 +144,14 @@ export class ModoEntrenamientoComponent implements OnInit {
       }
     })
   }
+
+  ObtenerPorcentaje(){
+    this._ConfiguracionSimulador.ObtenerConfiguracionSimulador().subscribe({
+      next:(x)=>{
+        this.PorcentajeMinimoAprobacion = x.porcentajeMinimoAprobacion;
+        console.log(this.PorcentajeMinimoAprobacion)
+      }
+    })
+  }
 }
+
