@@ -110,7 +110,7 @@
                       </div>
                     </div>
                   </div>
-                 
+
                   <div *ngIf="DominioSeleccionado == item.id " class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
                     <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
                       <div class="col-md-2" style="display: flex; justify-content: center;">
@@ -124,7 +124,7 @@
                 </ng-container>
               </div>
 
-            
+
             </div>
           </div>
           <mat-error *ngIf="!userForm.invalid && DominioSeleccionado==0">Debe seleccionar un dominio para la simulación</mat-error>
@@ -162,7 +162,7 @@
         <div *ngIf="ContSimulacionesCompletadas!=0">
           <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding:0px;">
             <ng-container *ngFor="let item of SimulacionesCompletadas">
-              <div  *ngIf="item.idSimuladorLabcModo==1" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 15px;">
+              <div  *ngIf="item.idSimuladorCissModo==1" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 15px;">
                 <div class="row texto-contenido" style="margin-top: 20px;margin-left: 0px;">
                   <div class="col-md-4">
                     <div style="padding-top: 10px; padding-bottom: 10px;">
@@ -218,7 +218,7 @@
         <div *ngIf="ContSimulacionesIncompletas!=0">
           <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding:0px; ">
             <ng-container *ngFor="let item of SimulacionesIncompletas">
-              <div  *ngIf="item.idSimuladorLabcModo==1" class="container" style="border-bottom: 1px solid #E4E4E4;padding: 0px;">
+              <div  *ngIf="item.idSimuladorCissModo==1" class="container" style="border-bottom: 1px solid #E4E4E4;padding: 0px;">
                 <div class="row texto-contenido" style="margin-top: 20px;margin-left: 0px;margin-bottom: 15px;">
                   <div class="col-md-6">
                     <div>

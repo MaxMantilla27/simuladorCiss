@@ -115,6 +115,7 @@ export class ModoEstudioComponent implements OnInit {
     this._ExamenService.ListaExamenesIncompletos().subscribe({
       next:(x)=>{
         this.SimulacionesIncompletas=x;
+        console.log(x)
         this.SimulacionesIncompletas.forEach((y:any)=>{
           if(y.idEstadoExamen!=3 && y.idSimuladorCissModo==1){
             this.ContSimulacionesIncompletas=x.length;
@@ -126,6 +127,7 @@ export class ModoEstudioComponent implements OnInit {
   ListaExamenesConcluidos(){
     this._ExamenService.ListaExamenesConcluidos().subscribe({
       next:(x)=>{
+        console.log(x)
         this.SimulacionesCompletadas=x;
         this.SimulacionesCompletadas.forEach((y:any)=>{
           if(y.idEstadoExamen==3 && y.idSimuladorCissModo==1){
